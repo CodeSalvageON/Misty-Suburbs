@@ -73,26 +73,36 @@ cmdForm.onsubmit = function () {
   event.preventDefault();
   let manhatten = cmdReq.value.toLowerCase();
 
-  switch (calcMode) {
-    case 0:
-      if (manhatten === "new") {
-        setTimeout(function () {
-          addLine("Creating...");
+  if (calcMode === 0) {
+    if (manhatten === "new") {
+      setTimeout(function () {
+        addLine("Creating...");
 
-          for (i = 0; i < 50; i++) {
-            addLine(makeRand(20));
-          }
-        }, 100);
-      }
+        try {
+          let matrixStyle = setInterval(function () {
+            addLine(makeRand(50));
+            cmd.scrollTo(0, cmd.scrollHeight);
+          }, 10);
 
-      else if (manhatten === "load") {
-        setTimeout(function () {
-          addLine("Enter state data below.");
-          calcMode = 1;
-        }, 100);
-      }
-    case 1:
-      addLine("yee");
+          calcMode = "pulp fiction";
+
+          setTimeout(function () {
+            clearInterval(matrixStyle);
+          }, 2000);
+        }
+
+        catch (error) {
+          addLine(error);
+        }
+      }, 100);
+    }
+
+    else if (manhatten === "load") {
+      setTimeout(function () {
+        addLine("Enter state data below.");
+        calcMode = 1;
+      }, 100);
+    }
   }
 
   try {
