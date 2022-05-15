@@ -69,6 +69,8 @@ addLine("Type LOAD to load a previous state.");
 addLine("Type NEW to create a new state.");
 let calcMode = 0;
 
+const vhs = document.getElementById("vhs");
+
 cmdForm.onsubmit = function () {
   event.preventDefault();
   let manhatten = cmdReq.value.toLowerCase();
@@ -85,6 +87,7 @@ cmdForm.onsubmit = function () {
           }, 10);
 
           calcMode = "pulp fiction";
+          vhs.play();
 
           setTimeout(function () {
             clearInterval(matrixStyle);
