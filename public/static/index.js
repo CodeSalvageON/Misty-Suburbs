@@ -229,6 +229,12 @@ cmdForm.onsubmit = function () {
       }, 10);
     }
 
+    else if (manhatten === "freq") {
+      setTimeout(function () {
+        addLine("Current frequency: " + frequency);
+      }, 10);
+    }
+
     else {
       setTimeout(function () {
         addLine("Unknown command.");
