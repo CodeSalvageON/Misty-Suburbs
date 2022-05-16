@@ -235,6 +235,10 @@ cmdForm.onsubmit = function () {
       }, 10);
     }
 
+    else if (manhatten.includes("setfreq")) {
+      
+    }
+
     else {
       setTimeout(function () {
         addLine("Unknown command.");
