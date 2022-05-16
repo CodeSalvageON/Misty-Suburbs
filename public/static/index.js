@@ -68,6 +68,7 @@ function makeRand (length) {
 addLine("Type LOAD to load a previous state.");
 addLine("Type NEW to create a new state.");
 let calcMode = 0;
+let stor = []; 
 
 const vhs = document.getElementById("vhs");
 
@@ -183,6 +184,22 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "quit") {
       location.href = "";
+    }
+
+    else if (manhatten === "stor") {
+      if (stor.length === 0) {
+        setTimeout(function () {
+          addLine("No items in storage (locally).");
+        }, 10);
+      }
+
+      else {
+        for (i = 0; i < stor.length; i++) {
+          setTimeout(function () {
+            addLine(stor[i]);
+          }, 10);
+        }
+      }
     }
 
     else {
