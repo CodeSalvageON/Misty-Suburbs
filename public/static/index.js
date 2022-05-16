@@ -239,7 +239,7 @@ cmdForm.onsubmit = function () {
       let setfreq_stuff = manhatten.split("setfreq");
       let setfreq_check = true;
 
-      if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1])) {
+      if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1]) === 0) {
         setfreq_check = true;
       }
 
@@ -256,15 +256,21 @@ cmdForm.onsubmit = function () {
 
       else {
         if (setfreq_check === true) {
-          let needed_wp_for_set = Math.abs(frequency - parseInt(setfreq_stuff[1]));
+          let needed_wp_for_set = Math.abs(parseInt(setfreq_stuff[1]) - frequency);
 
-          if (needed_wp_for_set > wp - 1) {
-            addLine("Not enough willpower.");
+          if (needed_wp_for_set > wp) {
+            setTimeout(function () {
+              addLine("Not enough willpower.");
+            }, 10);
           }
 
           else {
-            addLine("Traveling...");
-            frequency = parseInt(setfreq_stuff[1]);
+            setTimeout(function () {
+              addLine("Traveling...");
+              frequency = parseInt(setfreq_stuff[1]);
+              wp -= needed_wp_for_set;
+              addLine("New frequency: " + frequency);
+            }, 10);
           }
         }
 
@@ -281,6 +287,9 @@ cmdForm.onsubmit = function () {
         addLine("Unknown command.");
       }, 10);
     }
+    
+    cmdReq.value = "";
+    cmd.scrollTo(0, cmd.scrollHeight);
   }
 
   try {
