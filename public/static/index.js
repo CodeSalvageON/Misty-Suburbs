@@ -236,7 +236,44 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten.includes("setfreq")) {
-      
+      let setfreq_stuff = manhatten.split("setfreq");
+      let setfreq_check = true;
+
+      if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1])) {
+        setfreq_check = true;
+      }
+
+      else {
+        setfreq_check = false;
+      }
+
+      if (setfreq_stuff.length > 2) {
+        setTimeout(function () {
+          addLine("Unknown command.");
+          addLine("Params: setfreq [example number]");
+        }, 10);
+      }
+
+      else {
+        if (setfreq_check === true) {
+          let needed_wp_for_set = Math.abs(frequency - parseInt(setfreq_stuff[1]));
+
+          if (needed_wp_for_set > wp - 1) {
+            addLine("Not enough willpower.");
+          }
+
+          else {
+            addLine("Traveling...");
+            frequency = parseInt(setfreq_stuff[1]);
+          }
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("Setfreq must be a number.");
+          }, 10);
+        }
+      }
     }
 
     else {
