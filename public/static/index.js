@@ -148,16 +148,18 @@ cmdForm.onsubmit = function () {
     if (manhatten === "help") {
       setTimeout(function () {
         addLine("map - Switch to Auto-map interface");
-      addLine("visl - Switch to Stored-image interface");
-      addLine("cmd - Switch to Command Line interface");
-      addLine("quit - Close this program");
-      addLine("stor - Get a list of items you have locally");
-      addLine("wp - Get the current value of your willpower");
-      addLine("ntrvl - Travel North (increases frequency)");
-      addLine("strvl - Travel South (decreases frequency)");
-      addLine("freq - Get your current frequency");
-      addLine("setfreq - Set your frequency (needs willpower)");
-      addLine("dicit - See if anyone can hear you");
+        addLine("visl - Switch to Stored-image interface");
+        addLine("cmd - Switch to Command Line interface");
+        addLine("quit - Close this program");
+        addLine("stor - Get a list of items you have locally");
+        addLine("wp - Get the current value of your willpower");
+        addLine("ntrvl - Travel North (increases frequency)");
+        addLine("strvl - Travel South (decreases frequency)");
+        addLine("freq - Get your current frequency");
+        addLine("setfreq - Set your frequency (needs willpower)");
+        addLine("dicit - See if anyone can hear you");
+        addLine("build - Build a structure (requires willpower)");
+        addLine("settle - Set a residence in an already-existing structure");
       }, 10);
     }
   }
