@@ -91,7 +91,15 @@ cmdForm.onsubmit = function () {
 
           setTimeout(function () {
             clearInterval(matrixStyle);
-          }, 2000);
+            lines.innerHTML = "";
+            addLine("Choose an interface.");
+            addLine("1. Command Line Priority");
+            addLine("2. Auto-map Priority");
+            addLine("3. Stored-image Priority");
+            addLine("Please enter a number below.");
+
+            calcMode = 2;
+          }, 6000);
         }
 
         catch (error) {
@@ -105,6 +113,50 @@ cmdForm.onsubmit = function () {
         addLine("Enter state data below.");
         calcMode = 1;
       }, 100);
+    }
+  }
+
+  else if (calcMode === 1) {
+    
+  }
+
+  else if (calcMode === 2) {
+    if (manhatten === "1") {
+      setTimeout(function () {
+        addLine("As you wish...");
+        addLine("Type HELP for a list of commands.");
+      }, 10);
+      calcMode = 3;
+    }
+
+    else if (manhatten === "2") {
+      
+    }
+
+    else if (manhatten === "3") {
+      
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("Could not register unknown characters.");
+      }, 10);
+    }
+  }
+
+  else if (calcMode === 3) {
+    if (manhatten === "help") {
+      addLine("map - Switch to Auto-map interface");
+      addLine("visl - Switch to Stored-image interface");
+      addLine("cmd - Switch to Command Line interface");
+      addLine("quit - Close this program");
+      addLine("stor - Get a list of items you have locally");
+      addLine("wp - Get the current value of your willpower");
+      addLine("ntrvl - Travel North (increases frequency)");
+      addLine("strvl - Travel South (decreases frequency)");
+      addLine("freq - Get your current frequency");
+      addLine("setfreq - Set your frequency (needs willpower)");
+      addLine("dicit - See if anyone can hear you");
     }
   }
 
