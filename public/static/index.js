@@ -114,6 +114,12 @@ cmdForm.onsubmit = function () {
         calcMode = 1;
       }, 100);
     }
+
+    else {
+      setTimeout(function () {
+        addLine("Unknown command.");
+      }, 10);
+    }
   }
 
   else if (calcMode === 1) {
@@ -160,6 +166,28 @@ cmdForm.onsubmit = function () {
         addLine("dicit - See if anyone can hear you");
         addLine("build - Build a structure (requires willpower)");
         addLine("settle - Set a residence in an already-existing structure");
+      }, 10);
+    }
+
+    else if (manhatten === "map") {
+      
+    }
+
+    else if (manhatten === "visl") {
+      
+    }
+
+    else if (manhatten === "cmd") {
+      
+    }
+
+    else if (manhatten === "quit") {
+      location.href = "";
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("Unknown command.");
       }, 10);
     }
   }
