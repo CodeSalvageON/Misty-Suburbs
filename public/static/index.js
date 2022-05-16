@@ -146,7 +146,8 @@ cmdForm.onsubmit = function () {
 
   else if (calcMode === 3) {
     if (manhatten === "help") {
-      addLine("map - Switch to Auto-map interface");
+      setTimeout(function () {
+        addLine("map - Switch to Auto-map interface");
       addLine("visl - Switch to Stored-image interface");
       addLine("cmd - Switch to Command Line interface");
       addLine("quit - Close this program");
@@ -157,6 +158,7 @@ cmdForm.onsubmit = function () {
       addLine("freq - Get your current frequency");
       addLine("setfreq - Set your frequency (needs willpower)");
       addLine("dicit - See if anyone can hear you");
+      }, 10);
     }
   }
 
