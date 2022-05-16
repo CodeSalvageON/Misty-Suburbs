@@ -220,6 +220,15 @@ cmdForm.onsubmit = function () {
       }, 10);
     }
 
+    else if (manhatten === "strvl") {
+      frequency -= 1;
+
+      setTimeout(function () {
+        addLine("Traveling South...");
+        addLine("Your new frequency is " + frequency);
+      }, 10);
+    }
+
     else {
       setTimeout(function () {
         addLine("Unknown command.");
