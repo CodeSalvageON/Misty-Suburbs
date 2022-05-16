@@ -70,7 +70,8 @@ addLine("Type NEW to create a new state.");
 let calcMode = 0;
 let stor = []; 
 let wp = 24;
-let frequency = Math.floor(Math.random * 1000);
+let frequency = 0;
+frequency = Math.floor(Math.random() * 1000);
 
 const vhs = document.getElementById("vhs");
 
@@ -211,9 +212,10 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "ntrvl") {
+      frequency += 1;
+      
       setTimeout(function () {
         addLine("Traveling NORTH...");
-        frequency += 1;
         addLine("Your new frequency is " + frequency);
       }, 10);
     }
