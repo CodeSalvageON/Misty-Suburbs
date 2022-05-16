@@ -214,7 +214,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Traveling NORTH...");
         frequency += 1;
-        addLine("Your new frequency is " + String(frequency));
+        addLine("Your new frequency is " + frequency);
       }, 10);
     }
 
