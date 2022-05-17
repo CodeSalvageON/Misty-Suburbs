@@ -70,8 +70,35 @@ addLine("Type NEW to create a new state.");
 let calcMode = 0;
 let stor = []; 
 let wp = 24;
+let isNew = true;
 let frequency = 0;
 frequency = Math.floor(Math.random() * 1000);
+
+function takeDamage () {
+  cmd.style.backgroundColor = "red";
+  wp -= 1;
+
+  setTimeout(function () {
+    cmd.style.backgroundColor = "black";
+  }, 20);
+}
+
+function randomEncounter () {
+  let getEnt = Math.floor(Math.random() * 5);
+
+  switch (getEnt) {
+    case 0:
+      // Do nothing
+    case 1:
+      // Do nothing
+    case 2:
+      // Do nothing
+    case 3:
+      // Do nothing
+    case 4: 
+      let randEnt = Math.floor(Math.random() * 10);
+  }
+}
 
 const vhs = document.getElementById("vhs");
 
