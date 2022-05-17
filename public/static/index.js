@@ -292,10 +292,11 @@ cmdForm.onsubmit = function () {
         addLine("Unknown command.");
       }, 10);
     }
+
+    addLine("");
+    cleanText(cmdReq.value);
     
     setTimeout(function () {
-      addLine("");
-      cleanText(cmdReq.value);
       cmdReq.value = "";
       cmd.scrollTo(0, cmd.scrollHeight);
     }, 10);
