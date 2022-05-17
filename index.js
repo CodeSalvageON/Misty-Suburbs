@@ -12,10 +12,20 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let dicit = [];
+
 app.get('', function (req, res) {
   const index = __dirname + '/public/static/index.html';
 
   res.sendFile(index);
+});
+
+app.get('/dicit', function (req, res) {
+  res.send(JSON.stringify(dicit));
+})
+
+app.post('/dicit', function (req, res) {
+  
 });
 
 http.listen(port, function(){

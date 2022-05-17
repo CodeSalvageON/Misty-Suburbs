@@ -170,6 +170,7 @@ cmdForm.onsubmit = function () {
         addLine("dicit - See if anyone can hear you");
         addLine("build - Build a structure (requires willpower)");
         addLine("settle - Set a residence in an already-existing structure");
+        addLine("save - Save your state");
       }, 10);
     }
 
@@ -282,11 +283,18 @@ cmdForm.onsubmit = function () {
       }
     }
 
+    else if (manhatten.includes("dict")) {
+      
+    }
+
     else {
       setTimeout(function () {
         addLine("Unknown command.");
       }, 10);
     }
+
+    addLine("");
+    cleanText(cmdReq.value);
     
     cmdReq.value = "";
     cmd.scrollTo(0, cmd.scrollHeight);
@@ -301,8 +309,10 @@ cmdForm.onsubmit = function () {
     addLine(error);  
   }
   
-  cmdReq.value = "";
-  cmd.scrollTo(0, cmd.scrollHeight);
+  setTimeout(function () {
+    cmdReq.value = "";
+    cmd.scrollTo(0, cmd.scrollHeight);
+  }, 15);
 }
 
 setTimeout(function () {
