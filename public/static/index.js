@@ -300,15 +300,6 @@ cmdForm.onsubmit = function () {
       cmd.scrollTo(0, cmd.scrollHeight);
     }, 10);
   }
-
-  try {
-    addLine("");
-    cleanText(cmdReq.value);
-  }
-
-  catch (error) {
-    addLine(error);  
-  }
   
   setTimeout(function () {
     cmdReq.value = "";
