@@ -87,7 +87,7 @@ function takeDamage () {
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
-  let randEnt = Math.floor(Math.random() * 10);
+  let randEnt = Math.floor(Math.random() * 11);
   
   if (getEnt === 0 || getEnt === 1) {
     // Do nothing
@@ -105,25 +105,81 @@ function randomEncounter () {
     else if (randEnt === 1) {
       addLine("You come across a seemingly endless row of houses.");
       addLine("Type INTR to enter one of these houses...");
+
+      isEnt = true;
+      encounterType = 2;
     }
 
     else if (randEnt === 2) {
       addLine("You find an Imperial Patrol.");
       addLine("Type INTR to talk with this patrol.");
+
+      isEnt = true;
+      encounterType = 3;
     }
 
     else if (randEnt === 3) {
       addLine("You find a group of Arenamen.");
       addLine("Type INTR to talk with this group.");
+
+      isEnt = true;
+      encounterType = 4;
     }
 
     else if (randEnt === 4) {
       addLine("You come across an Academy.");
       addLine("Type INTR to enter the Academy.");
+
+      isEnt = true;
+      encounterType = 5;
     }
 
     else if (randEnt === 5) {
       addLine("You come across a large cluster of well-kept condo and apartment buildings.");
+      addLine("Type INTR to enter the condos.");
+
+      isEnt = true;
+      encounterType = 6;
+    }
+
+    else if (randEnt === 6) {
+      addLine("You come across a small house in the empty field.");
+      addLine("Type INTR to enter the house.");
+
+      isEnt = true;
+      encounterType = 7;
+    }
+
+    else if (randEnt === 7) {
+      addLine("You come across a large and empty mall. It looks decrepit.");
+      addLine("Type INTR to enter the mall.");
+
+      isEnt = true;
+      encounterType = 8;
+    } 
+
+    else if (randEnt === 8) {
+      addLine("You come across an Arena.");
+      addLine("Type INTR to enter the Arena.");
+
+      isEnt = true;
+      encounterType = 9;
+    }
+
+    else if (randEnt === 9) {
+      addLine("You come across a City.");
+      addLine("Type INTR to enter the City.");
+
+      isEnt = true;
+      encounterType = 10;
+    }
+
+    else if (randEnt === 10) {
+      addLine("You come across an Imperial Settlement.");
+      addLine("Type INTR to enter the Settlement.");
+
+      isEnt = true;
+      encounterType = 11;
     }
   }
 }
@@ -346,7 +402,9 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "intr") {
       if (isEnt === true) {
-        
+        if (encounterType === 1) {
+          
+        } 
       }
 
       else {
