@@ -73,6 +73,8 @@ let wp = 24;
 let isNew = true;
 let frequency = 0;
 frequency = Math.floor(Math.random() * 1000);
+let encounterType = 0;
+let isEnt = false;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -85,18 +87,44 @@ function takeDamage () {
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
+  let randEnt = Math.floor(Math.random() * 10);
+  
+  if (getEnt === 0 || getEnt === 1) {
+    // Do nothing
+  }
 
-  switch (getEnt) {
-    case 0:
-      // Do nothing
-    case 1:
-      // Do nothing
-    case 2:
-      // Do nothing
-    case 3:
-      // Do nothing
-    case 4: 
-      let randEnt = Math.floor(Math.random() * 10);
+  else {
+    if (randEnt === 0) {
+      addLine("You come across a large office building complex.");
+      addLine("Type INTR to enter this place...");
+
+      isEnt = true;
+      encounterType = 1;
+    }
+
+    else if (randEnt === 1) {
+      addLine("You come across a seemingly endless row of houses.");
+      addLine("Type INTR to enter one of these houses...");
+    }
+
+    else if (randEnt === 2) {
+      addLine("You find an Imperial Patrol.");
+      addLine("Type INTR to talk with this patrol.");
+    }
+
+    else if (randEnt === 3) {
+      addLine("You find a group of Arenamen.");
+      addLine("Type INTR to talk with this group.");
+    }
+
+    else if (randEnt === 4) {
+      addLine("You come across an Academy.");
+      addLine("Type INTR to enter the Academy.");
+    }
+
+    else if (randEnt === 5) {
+      addLine("You come across a large cluster of well-kept condo and apartment buildings.");
+    }
   }
 }
 
@@ -245,6 +273,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Traveling NORTH...");
         addLine("Your new frequency is " + frequency);
+        randomEncounter();
       }, 10);
     }
 
@@ -254,6 +283,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Traveling South...");
         addLine("Your new frequency is " + frequency);
+        randomEncounter();
       }, 10);
     }
 
@@ -313,6 +343,16 @@ cmdForm.onsubmit = function () {
     else if (manhatten.includes("dict")) {
       
     }
+
+    else if (manhatten === "intr") {
+      if (isEnt === true) {
+        
+      }
+
+      else {
+        addLine("There's nothing for you to enter or interact with here.");
+      }
+    } 
 
     else {
       setTimeout(function () {
