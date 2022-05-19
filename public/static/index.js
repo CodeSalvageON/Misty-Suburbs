@@ -331,6 +331,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Traveling NORTH...");
         addLine("Your new frequency is " + frequency);
+        isEnt = false;
         randomEncounter();
       }, 10);
     }
@@ -341,6 +342,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Traveling South...");
         addLine("Your new frequency is " + frequency);
+        isEnt = false;
         randomEncounter();
       }, 10);
     }
@@ -354,6 +356,7 @@ cmdForm.onsubmit = function () {
     else if (manhatten.includes("setfreq")) {
       let setfreq_stuff = manhatten.split("setfreq");
       let setfreq_check = true;
+      isEnt = false;
 
       if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1]) === 0) {
         setfreq_check = true;
