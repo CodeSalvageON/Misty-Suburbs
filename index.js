@@ -7,6 +7,7 @@ let bodyParser = require('body-parser');
 
 let port = process.env.PORT || 3000;
 let io = require('socket.io')(http);
+let sanitizer = require('sanitizer');
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -25,7 +26,19 @@ app.get('/dicit', function (req, res) {
 })
 
 app.post('/dicit', function (req, res) {
-  
+  let user = req.body.user;
+  let pack = req.body.pack;
+
+  if (user === "" || pack === "") {
+    res.send("empty");
+    return false;
+  }
+
+  let clean_user = sanitizer.escape(user);
+  let clean_pack = sanitizer.escape(pack);
+
+  dicit.push("<strong>" + clean_user + "<strong>: " + clean_pack);
+  res.send("success");
 });
 
 http.listen(port, function(){

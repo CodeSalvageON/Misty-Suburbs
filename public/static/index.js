@@ -75,6 +75,8 @@ let frequency = 0;
 frequency = Math.floor(Math.random() * 1000);
 let encounterType = 0;
 let isEnt = false;
+let buildNum = 0;
+let set_user = "";
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -396,15 +398,107 @@ cmdForm.onsubmit = function () {
       }
     }
 
-    else if (manhatten.includes("dict")) {
-      
+    else if (manhatten.replace(manhatten.substring(5), "") === "dicit") {
+      if (set_user === "" || set_user === null || set_user === undefined) {
+        setTimeout(function () {
+          addLine("You have not set a local user yet. Type one in below.");
+          calcMode = 7;
+        }, 10);
+      }
+
+      else {
+        fetch ("/dicit", {
+          method : "POST",
+          headers : {
+            "Content-Type" : "application/json"
+          },
+          body : JSON.stringify({
+            user : set_user,
+            pack : manhatten.substring(5)
+          })
+        })
+        .then(response => response.text())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(err => {
+          setTimeout(function () {
+            addLine(err);
+          }, 10);
+        });
+      }
     }
 
     else if (manhatten === "intr") {
       if (isEnt === true) {
-        if (encounterType === 1) {
-          
-        } 
+        let buildingNum = Math.floor(Math.random() * 21);
+
+        if (buildingNum === 0) {
+          buildingNum = 1;
+        }
+        
+        setTimeout(function () {
+          if (encounterType === 1) {
+            addLine("There are " + buildingNum + " buildings within this complex.");
+            addLine("Below, type the building number you wish to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 2) {
+            addLine("There are " + buildingNum + " houses in this area.");
+            addLine("Below, type the house address you wish to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 3) {
+            addLine("There are " + buildingNum + " soldiers within this patrol.");
+            addLine("Options: COMBAT, TALK, PASS");
+            calcMode = 5;
+          }
+
+          else if (encounterType === 4) {
+            addLine("There are " + buildingNum + " Arenamen within this group.");
+            addLine("Options: COMBAT, TALK, PASS");
+            calcMode = 5;
+          }
+
+          else if (encounterType === 5) {
+            addLine("The Academy is dark around some areas, light in others. There are " + buildingNum + " rooms.");
+            addLine("Below, type the room number you would like to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 6) {
+            addLine("There are " + buildingNum + " apartment and condo buildings within this complex.");
+            addLine("Below, type the building number you would like to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 7) {
+            addLine("The empty house is larger on the inside than it is on the outside. There are " + buildingNum + " rooms.");
+            addLine("Below, type the room number you would like to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 8) {
+            addLine("There are " + buildingNum + " empty stores within the mall.");
+            addLine("Below, type the store number you would like to enter.");
+            calcMode = 4;
+          }
+
+          else if (encounterType === 9) {
+            addLine("You have entered the Arena.");
+            calcMode = 6;
+          }
+
+          else if (encounterType === 10) {
+            
+          }
+
+          else if (encounterType === 11) {
+            
+          }
+        }, 10);
       }
 
       else {
@@ -426,12 +520,52 @@ cmdForm.onsubmit = function () {
       cmd.scrollTo(0, cmd.scrollHeight);
     }, 10);
   }
+
+  else if (calcMode === 4) {
+    
+  }
+
+  else if (calcMode === 5) {}
+
+  else if (calcMode === 6) {}
+
+  else if (calcMode === 7) {
+    set_user = manhatten;
+    setTimeout(function () {
+      addLine("User set.");
+    }, 10);
+    calcMode = 3;
+  }
   
   setTimeout(function () {
     cmdReq.value = "";
     cmd.scrollTo(0, cmd.scrollHeight);
   }, 15);
 }
+
+let savedData = "[]";
+let savedLen = 0;
+
+setInterval(function () {
+  fetch ("/dicit")
+  .then(response => response.text())
+  .then(data => {
+    let dataArr = JSON.parse(data);
+    let dataArrMax = dataArr.length;
+
+    if (dataArrMax > savedLen) {
+      addLine(dataArr[dataArrMax - 1]);
+      savedLen = dataArrMax;
+    }
+
+    else {
+      // Do nothing
+    }
+  })
+  .catch(error => {
+    addLine(error);
+  })
+}, 500);
 
 setTimeout(function () {
   loadScreen();
