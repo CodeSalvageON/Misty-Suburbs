@@ -491,21 +491,28 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 9) {
             addLine("You have entered the Arena.");
+            addLine("Type HELP for a list of commands in the Arena.");
             calcMode = 6;
           }
 
           else if (encounterType === 10) {
-            
+            addLine("You have entered the city.");
+            addLine("Type HELP for a list of commands in the City.");
+            calcMode = 8;
           }
 
           else if (encounterType === 11) {
-            
+            addLine("You have entered the Imperial Settlement.");
+            addLine("Type HELP for a list of commands in the Settlement.");
+            calcMode = 9;
           }
         }, 10);
       }
 
       else {
-        addLine("There's nothing for you to enter or interact with here.");
+        setTimeout(function () {
+          addLine("There's nothing for you to enter or interact with here.");
+        }, 10);
       }
     } 
 
@@ -538,6 +545,14 @@ cmdForm.onsubmit = function () {
       addLine("User set.");
     }, 10);
     calcMode = 3;
+  }
+
+  else if (calcMode === 8) {
+    
+  }
+
+  else if (calcMode === 9) {
+    
   }
   
   setTimeout(function () {
