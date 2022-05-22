@@ -89,7 +89,7 @@ function takeDamage () {
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
-  let randEnt = Math.floor(Math.random() * 11);
+  let randEnt = Math.floor(Math.random() * 12);
   
   if (getEnt === 0 || getEnt === 1) {
     // Do nothing
@@ -182,6 +182,14 @@ function randomEncounter () {
 
       isEnt = true;
       encounterType = 11;
+    }
+
+    else if (randEnt === 11) {
+      addLine("You come across a retail warehouse of sorts.");
+      addLine("Type INTR to enter the warehouse.");
+
+      isEnt = true;
+      encounterType = 12;
     }
   }
 }
@@ -435,6 +443,7 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "intr") {
       if (isEnt === true) {
         let buildingNum = Math.floor(Math.random() * 21);
+        buildNum = buildingNum;
 
         if (buildingNum === 0) {
           buildingNum = 1;
@@ -506,6 +515,12 @@ cmdForm.onsubmit = function () {
             addLine("Type HELP for a list of commands in the Settlement.");
             calcMode = 9;
           }
+
+          else if (encounterType === 12) {
+            addLine("You have entered the warehouse.");
+            addLine("Type HELP for a list of commands in the warehouse.");
+            calcMode = 10;
+          }
         }, 10);
       }
 
@@ -532,12 +547,54 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 4) {
+    switch (encounterType) {
+      case 1:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("There is no such building in this complex.");
+          }, 10);
+        }
+          
+        else {
+          let officeScenarioRand = Math.floor(Math.random() * 4);
+          let officeScenarioRand2 = Math.floor(Math.random() * 8);
+          
+          setTimeout(function () {
+            switch (officeScenarioRand) {
+              case 0:
+                addLine("The building is dark. There is nothing but the blue glow of dusty computer monitors.");
+                break;
+              case 1:
+                addLine("This building seems to be used as a laboratory. The flickering lights reflect off several ice picks.");
+                break;
+              case 2:
+                addLine("What a boring place. There are bookshelves everywhere, but no books to be seen.");
+                break;
+              case 3:
+                addLine("Wires dangle like cobwebs in the ever dark abyss of the lonely office.");
+                break;
+            }
+          }, 10);
+        }
+        break;
+      case 2:
+        
+        break;
+    }
     
+    addLine("");
+    cleanText(cmdReq.value);
   }
 
-  else if (calcMode === 5) {}
+  else if (calcMode === 5) {
+    addLine("");
+    cleanText(cmdReq.value);
+  }
 
-  else if (calcMode === 6) {}
+  else if (calcMode === 6) {
+    addLine("");
+    cleanText(cmdReq.value);
+  }
 
   else if (calcMode === 7) {
     set_user = manhatten;
@@ -545,14 +602,24 @@ cmdForm.onsubmit = function () {
       addLine("User set.");
     }, 10);
     calcMode = 3;
+    
+    addLine("");
+    cleanText(cmdReq.value);
   }
 
   else if (calcMode === 8) {
-    
+    addLine("");
+    cleanText(cmdReq.value);
   }
 
   else if (calcMode === 9) {
-    
+    addLine("");
+    cleanText(cmdReq.value);
+  }
+
+  else if (calcMode === 10) {
+    addLine("");
+    cleanText(cmdReq.value);
   }
   
   setTimeout(function () {
