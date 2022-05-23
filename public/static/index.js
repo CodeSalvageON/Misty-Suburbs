@@ -531,6 +531,10 @@ cmdForm.onsubmit = function () {
       }
     } 
 
+    else if (manhatten === "build") {
+      
+    }
+
     else {
       setTimeout(function () {
         addLine("Unknown command.");
@@ -574,12 +578,10 @@ cmdForm.onsubmit = function () {
                 addLine("Wires dangle like cobwebs in the ever dark abyss of the lonely office.");
                 break;
             }
+            addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.")
+            calcMode = 11;
           }, 10);
         }
-        break;
-      case 2:
-        
-        break;
     }
     
     addLine("");
@@ -618,6 +620,53 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 10) {
+    addLine("");
+    cleanText(cmdReq.value);
+  }
+
+  else if (calcMode === 11) {
+    if (manhatten === "scav") {
+      let randScav = Math.floor(Math.random() * 5);
+      let scavRand = Math.floor(Math.random() * 20);
+
+      switch (randScav) {
+        case 0: 
+          console.log("You found...something...");
+          switch (scavRand) {
+            case 0:
+              
+              break;
+          }
+          break;
+        case 1:
+          // Do nothing
+          break;
+        case 2:
+          // Do nothing
+          break;
+        case 3:
+          // Do nothing
+          break;
+        case 4:
+          // Do nothing
+          break;
+      }
+    }
+
+    else if (manhatten === "leave") {
+      setTimeout(function () {
+        addLine("You leave the area.");
+      }, 10);
+
+      calcMode = 3;
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That's not a command you can use here.");
+      }, 10);
+    }
+  
     addLine("");
     cleanText(cmdReq.value);
   }
