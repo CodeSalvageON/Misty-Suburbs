@@ -582,6 +582,7 @@ cmdForm.onsubmit = function () {
             calcMode = 11;
           }, 10);
         }
+        break;
     }
     
     addLine("");
@@ -634,7 +635,77 @@ cmdForm.onsubmit = function () {
           console.log("You found...something...");
           switch (scavRand) {
             case 0:
-              
+              stor.push("knife");
+              setTimeout(function () {
+                addLine("You found a knife.");
+              }, 10);
+              break;
+            case 1:
+              stor.push("metal");
+              setTimeout(function () {
+                addLine("You found some scrap metal.");
+              }, 10);
+              break;
+            case 2:
+              stor.push("powder");
+              setTimeout(function () {
+                addLine("A small amount of white powder was found.");
+              }, 10);
+              break;
+            case 3: 
+              stor.push("solar");
+              setTimeout(function () {
+                addLine("You found a small sized solar panel.");
+              }, 10);
+              break;
+            case 4:
+              stor.push("string");
+              setTimeout(function () {
+                addLine("You found a bit of string.");
+              }, 10);
+              break;
+            case 5:
+              stor.push("cloth");
+              setTimeout(function () {
+                addLine("Some cloth was found.");
+              }, 10);
+              break;
+            case 6:
+              stor.push("beans");
+              setTimeout(function () {
+                addLine("You found a can of beans.");
+              }, 10);
+            case 7:
+              stor.push("lighter");
+              setTimeout(function () {
+                addLine("You found a working lighter.");
+              }, 10);
+              break;
+            case 8:
+              stor.push("firewood");
+              setTimeout(function () {
+                addLine("You found some firewood.");
+              }, 10);
+              break;
+            case 9:
+              stor.push("icepick");
+              setTimeout(function () {
+                addLine("You found an icepick.");
+              }, 10);
+              break;
+            case 10:
+            case 11: 
+            case 12: 
+            case 13: 
+            case 14: 
+            case 15:
+            case 16: 
+            case 17: 
+            case 18: 
+            case 19: 
+              setTimeout(function () {
+                addLine("You couldn't find anything.");
+              }, 10);
               break;
           }
           break;
