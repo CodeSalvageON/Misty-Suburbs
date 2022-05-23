@@ -77,6 +77,9 @@ let encounterType = 0;
 let isEnt = false;
 let buildNum = 0;
 let set_user = "";
+let imperialRep = 100;
+let arenaRep = 100;
+let acadRep = 100;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -590,6 +593,46 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 5) {
+    if (manhatten === "combat") {
+      setTimeout(function () {
+        switch (encounterType) {
+          case 3:
+            addLine("The Imperial Patrol forms a squad-like formation and prepares to defend itself.");
+            break;
+          case 4:
+            addLine("The group of Arenamen begin to charge at you.");
+            break;
+        }
+      }, 10);
+      calcMode = 12;
+    }
+
+    else if (manhatten === "talk") {
+      setTimeout(function () {
+        switch (encounterType) {
+          case 3:
+            addLine("Imperial Commander: Move along.");
+            break;
+          case 4:
+            addLine("Arenaboss: Check out an arena! If you're lucky, you won't be forced to fight in one!");
+            break;
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "pass") {
+      setTimeout(function () {
+        addLine("You ignore the group and pass them.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That command can't be used here.");
+      }, 10);
+    }
+    
     addLine("");
     cleanText(cmdReq.value);
   }
@@ -738,6 +781,11 @@ cmdForm.onsubmit = function () {
       }, 10);
     }
   
+    addLine("");
+    cleanText(cmdReq.value);
+  }
+
+  else if (calcMode === 12) {
     addLine("");
     cleanText(cmdReq.value);
   }
