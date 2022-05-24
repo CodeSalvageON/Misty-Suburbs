@@ -618,6 +618,18 @@ cmdForm.onsubmit = function () {
             calcMode = 11;
           }, 10);
         }
+        break;
+      case 5:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("That room does not exist.");
+          }, 10);
+        }
+
+        else {
+          
+        }
+        break;
     }
     
     addLine("");
