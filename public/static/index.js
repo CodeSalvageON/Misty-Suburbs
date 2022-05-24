@@ -644,9 +644,15 @@ cmdForm.onsubmit = function () {
                     addLine("There are many, many, students all looking at you.");
                     break;
                   case 1:
-                    // Do nothing
+                    addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                    calcMode = 11;
                     break;
                 }
+                break;
+              case 2: 
+                addLine("It's a library with rows of books, mostly ones about gardening and a Garden.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
                 break;
             }
           }, 10);
