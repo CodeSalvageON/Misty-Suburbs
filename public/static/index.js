@@ -654,6 +654,10 @@ cmdForm.onsubmit = function () {
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
+              case 3:
+                addLine("There's nothing to see here except a somewhat plain classroom.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
             }
           }, 10);
         }
