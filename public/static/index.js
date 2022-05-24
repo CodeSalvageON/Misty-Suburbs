@@ -614,6 +614,7 @@ cmdForm.onsubmit = function () {
               case 3:
                 addLine("It's just a regular house, surprisingly.");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
             }
             calcMode = 11;
           }, 10);
@@ -627,7 +628,28 @@ cmdForm.onsubmit = function () {
         }
 
         else {
-          
+          let roomScenarioRand = Math.floor(Math.random() * 4);
+
+          setTimeout(function () {
+            switch (roomScenarioRand) {
+              case 0:
+                addLine("Inside the room there is a man tinkering with several machines.");
+                addLine("");
+                break;
+              case 1:
+                addLine("The room is a large cafeteria with many windows and many lights.");
+                let peopleScenario = Math.floor(Math.random() * 2);
+                switch (peopleScenario) {
+                  case 0:
+                    addLine("There are many, many, students all looking at you.");
+                    break;
+                  case 1:
+                    // Do nothing
+                    break;
+                }
+                break;
+            }
+          }, 10);
         }
         break;
     }
