@@ -80,6 +80,7 @@ let set_user = "";
 let imperialRep = 100;
 let arenaRep = 100;
 let acadRep = 100;
+let allyRep = 100;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -586,6 +587,37 @@ cmdForm.onsubmit = function () {
           }, 10);
         }
         break;
+      case 2:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("That house does not exist.");
+          }, 10);
+        }
+
+        else {
+          let houseScenarioRand = Math.floor(Math.random() * 4);
+
+          setTimeout(function () {
+            switch (houseScenarioRand) {
+              case 0: 
+                addLine("The house is extremely bland. There is only a blank TV, an ugly couch, and a green carpet.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
+              case 1:
+                addLine("A cold hardwood floor fills the majority of the view. The rest of the house is completely empty.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
+              case 2:
+                addLine("Inside, is a massive field with several exotic flowers and insturments seemingly playing by themselves.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
+              case 3:
+                addLine("It's just a regular house, surprisingly.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+            }
+            calcMode = 11;
+          }, 10);
+        }
     }
     
     addLine("");
