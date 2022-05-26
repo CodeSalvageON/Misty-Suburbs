@@ -77,6 +77,7 @@ let encounterType = 0;
 let isEnt = false;
 let buildNum = 0;
 let set_user = "";
+let isTherePeople = false;
 let imperialRep = 100;
 let arenaRep = 100;
 let acadRep = 100;
@@ -344,6 +345,7 @@ cmdForm.onsubmit = function () {
         addLine("Traveling NORTH...");
         addLine("Your new frequency is " + frequency);
         isEnt = false;
+        isTherePeople = false;
         randomEncounter();
       }, 10);
     }
@@ -355,6 +357,7 @@ cmdForm.onsubmit = function () {
         addLine("Traveling South...");
         addLine("Your new frequency is " + frequency);
         isEnt = false;
+        isTherePeople = false;
         randomEncounter();
       }, 10);
     }
@@ -369,6 +372,7 @@ cmdForm.onsubmit = function () {
       let setfreq_stuff = manhatten.split("setfreq");
       let setfreq_check = true;
       isEnt = false;
+      isTherePeople = false;
 
       if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1]) === 0) {
         setfreq_check = true;
@@ -469,12 +473,14 @@ cmdForm.onsubmit = function () {
           else if (encounterType === 3) {
             addLine("There are " + buildingNum + " soldiers within this patrol.");
             addLine("Options: COMBAT, TALK, PASS");
+            isTherePeople = true;
             calcMode = 5;
           }
 
           else if (encounterType === 4) {
             addLine("There are " + buildingNum + " Arenamen within this group.");
             addLine("Options: COMBAT, TALK, PASS");
+            isTherePeople = true;
             calcMode = 5;
           }
 
@@ -634,7 +640,8 @@ cmdForm.onsubmit = function () {
             switch (roomScenarioRand) {
               case 0:
                 addLine("Inside the room there is a man tinkering with several machines.");
-                addLine("");
+                addLine("Options: COMBAT, TALK PASS");
+                calcMode = 5;
                 break;
               case 1:
                 addLine("The room is a large cafeteria with many windows and many lights.");
@@ -642,6 +649,9 @@ cmdForm.onsubmit = function () {
                 switch (peopleScenario) {
                   case 0:
                     addLine("There are many, many, students all looking at you.");
+                    addLine("Options: COMBAT, TALK, PASS");
+                    calcMode = 5;
+                    isTherePeople = true;
                     break;
                   case 1:
                     addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
@@ -657,6 +667,7 @@ cmdForm.onsubmit = function () {
               case 3:
                 addLine("There's nothing to see here except a somewhat plain classroom.");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
                 break;
             }
           }, 10);
