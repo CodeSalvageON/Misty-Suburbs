@@ -758,7 +758,21 @@ cmdForm.onsubmit = function () {
         }
           
         else {
-          
+          let mallRandScenario = Math.floor(Math.random() * 4);
+
+          setTimeout(function () {
+            switch (mallRandScenario) {
+              case 0: 
+                addLine("It's a surprisngly brightly lit store selling various merchandise from a long forgotten time.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 1:
+                addLine("There is a lonely pumpkin farm inside the room, which is bigger than it looks to be from the outside.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                break;
+            }
+          }, 10);
         }
         break;
     }
