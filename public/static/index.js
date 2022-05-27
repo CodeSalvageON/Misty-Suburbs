@@ -708,6 +708,32 @@ cmdForm.onsubmit = function () {
               case 3:
                 addLine("It's nothing but an empty building. No stairs, just a hollow shell.");
                 addLine("Type LEAVE to leave the building.");
+                calcMode = 11;
+                break;
+            }
+          }, 10);
+        }
+        break;
+      case 7:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("That room does not exist.");
+          }, 10);
+        }
+
+        else {
+          let nowhereScenarioRand = Math.floor(Math.random() * 4);
+
+          setTimeout(function () {
+            switch (nowhereScenarioRand) {
+              case 0:
+                addLine("All you see is a boring and generic bedroom. Quite cozy, however.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 1:
+                addLine("There's a small kitchen with a dimmed light.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
             }
           }, 10);
