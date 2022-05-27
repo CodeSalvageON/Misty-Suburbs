@@ -734,6 +734,17 @@ cmdForm.onsubmit = function () {
               case 1:
                 addLine("There's a small kitchen with a dimmed light.");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 2:
+                addLine("There is a large cluster of eyes staring at you.");
+                addLine("Options: COMBAT, TALK, PASS");
+                calcMode = 5;
+                break;
+              case 3:
+                addLine("There is a small room with a window.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
                 break;
             }
           }, 10);
