@@ -750,6 +750,17 @@ cmdForm.onsubmit = function () {
           }, 10);
         }
         break;
+      case 8:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("That store does not exist.");
+          }, 10);
+        }
+          
+        else {
+          
+        }
+        break;
     }
     
     addLine("");
