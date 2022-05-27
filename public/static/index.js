@@ -457,8 +457,8 @@ cmdForm.onsubmit = function () {
         let buildingNum = Math.floor(Math.random() * 21);
         buildNum = buildingNum;
 
-        if (buildingNum === 0) {
-          buildingNum = 1;
+        if (buildingNum === 0 || buildingNum === 1) {
+          buildingNum = 2;
         }
         
         setTimeout(function () {
