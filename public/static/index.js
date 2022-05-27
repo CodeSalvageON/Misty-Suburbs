@@ -778,6 +778,9 @@ cmdForm.onsubmit = function () {
                 calcMode = 5;
                 break;
               case 3: 
+                addLine("It's just another dark and empty store.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
                 break;
             }
           }, 10);
