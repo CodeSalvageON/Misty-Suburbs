@@ -82,6 +82,7 @@ let imperialRep = 100;
 let arenaRep = 100;
 let acadRep = 100;
 let allyRep = 100;
+let specialEncounter = false;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -346,6 +347,7 @@ cmdForm.onsubmit = function () {
         addLine("Your new frequency is " + frequency);
         isEnt = false;
         isTherePeople = false;
+        specialEncounter = false;
         randomEncounter();
       }, 10);
     }
@@ -358,6 +360,7 @@ cmdForm.onsubmit = function () {
         addLine("Your new frequency is " + frequency);
         isEnt = false;
         isTherePeople = false;
+        specialEncounter = false;
         randomEncounter();
       }, 10);
     }
@@ -373,6 +376,7 @@ cmdForm.onsubmit = function () {
       let setfreq_check = true;
       isEnt = false;
       isTherePeople = false;
+      specialEncounter = false;
 
       if (parseInt(setfreq_stuff[1]) - parseInt(setfreq_stuff[1]) === 0) {
         setfreq_check = true;
@@ -642,6 +646,7 @@ cmdForm.onsubmit = function () {
                 addLine("Inside the room there is a man tinkering with several machines.");
                 addLine("Options: COMBAT, TALK PASS");
                 calcMode = 5;
+                specialEncounter = true;
                 break;
               case 1:
                 addLine("The room is a large cafeteria with many windows and many lights.");
@@ -668,6 +673,41 @@ cmdForm.onsubmit = function () {
                 addLine("There's nothing to see here except a somewhat plain classroom.");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
+                break;
+            }
+          }, 10);
+        }
+        break;
+      case 6:
+        if (Math.abs(parseInt(manhatten)) > buildNum) {
+          setTimeout(function () {
+            addLine("That apartment building does not exist.");
+          }, 10);
+        }
+
+        else {
+          let condoScenarioRand = Math.floor(Math.random() * 4);
+
+          setTimeout(function () {
+            switch (condoScenarioRand) {
+              case 0:
+                addLine("The interior design is very gray and white oriented. The carpet looks comfy, but rough at the same time.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 1: 
+                addLine("Surprisingly, it's not the insides of an apartment, but a roller skating rink. Disco lights and all.");
+                addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 2:
+                addLine("You find a group of stragglers living in the condo building.");
+                addLine("Options: COMBAT, TALK, PASS");
+                calcMode = 5;
+                break;
+              case 3:
+                addLine("It's nothing but an empty building. No stairs, just a hollow shell.");
+                addLine("Type LEAVE to leave the building.");
                 break;
             }
           }, 10);
