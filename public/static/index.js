@@ -770,6 +770,14 @@ cmdForm.onsubmit = function () {
               case 1:
                 addLine("There is a lonely pumpkin farm inside the room, which is bigger than it looks to be from the outside.");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
+                calcMode = 11;
+                break;
+              case 2:
+                addLine("In the middle of the empty store is an interactive screen with robotic arms and a face.");
+                addLine("Options: COMBAT, TALK, PASS");
+                calcMode = 5;
+                break;
+              case 3: 
                 break;
             }
           }, 10);
