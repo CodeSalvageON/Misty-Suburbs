@@ -816,6 +816,46 @@ cmdForm.onsubmit = function () {
           case 4:
             addLine("Arenaboss: Check out an arena! If you're lucky, you won't be forced to fight in one!");
             break;
+          case 5:
+            function khanSpeak () {
+              addLine("(1). What's the deal with the creepy Academy?");
+              addLine("(2). Any threats I should know about?");
+              addLine("(3). What's the deal with the tiny robots?");
+              addLine("(4). Nevermind, I'll be leaving now.");
+              addLine("Type the dialogue option number below.");
+              calcMode = 13;
+            }
+            
+            if (specialEncounter === true) {
+              if (acadRep < 20) {
+                addLine("You should leave.");
+              }
+
+              else if (acadRep < 50 && acadRep > 20) {
+                addLine("Have you come to apologize?");
+                khanSpeak();
+              }
+
+              else if (acadRep < 100 && acadRep > 50) {
+                addLine("Please try to be more polite to the students and staff here.");
+                khanSpeak();
+              }
+
+              else if (acadRep < 150 && acadRep > 100) {
+                addLine("You're a model student. I thought you should know that."); 
+                khanSpeak();
+              }
+
+              else {
+                addLine("We would rename this entire Academy for you...if we had the budget.");
+                khanSpeak();
+              }
+            }
+
+            else {
+              addLine("There are no real words, just garbled speech.");
+            }
+            break;
         }
       }, 10);
     }
@@ -988,6 +1028,43 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 12) {
     addLine("");
     cleanText(cmdReq.value);
+  }
+
+  else if (calcMode === 13) {
+    addLine("");
+    cleanText(cmdReq.value);
+
+    if (manhatten === "1") {
+      setTimeout(function () {
+        addLine("There are Academies almost everywhere in the Suburbs. They provide safety for the various students I have.");
+        addLine("I can't talk anymore, I have work to do.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else if (manhatten === "2") {
+      setTimeout(function () {
+        addLine("It...pains me to speak. Please, just take these books.");
+        addLine("I can't talk anymore, the pain is too much.");
+        addLine("Recieved books.");
+        stor.push("facbook");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else if (manhatten === "3") {
+      setTimeout(function () {
+        addLine("They create the creatures that serve as distractions from the true locations of our Academies.");
+
+        if (acadRep > 150) {
+          addLine("Here, have some. They'll help you.");
+          addLine("Recieved nanobots.");
+          stor.push("nanobot");
+        }
+        addLine("Now, leave..I must rest.");
+        calcMode = 3;
+      }, 10);
+    }
   }
   
   setTimeout(function () {
