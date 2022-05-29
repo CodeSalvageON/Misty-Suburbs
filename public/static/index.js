@@ -895,6 +895,38 @@ cmdForm.onsubmit = function () {
         
       }, 10);
     }
+
+    else if (manhatten === "dem") {
+      setTimeout(function () {
+        if (wp < 50) {
+          addLine("City Worker: THE COUNCIL has deemd you unworthy.");
+        }
+
+        else {
+          addLine("Come right on in...");
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "buy") {
+      setTimeout(function () {
+        addLine("We have the following items in store today...");
+        addLine("icepick - costs 2 Willpower, when recieved you can use this in combat to enslave and lobotomize your enemies");
+        addLine("beans - costs 1 Willpower, generates 2 Willpower when used");
+        addLine("powder - costs 3 Willpower, generates 10 Willpower when used");
+        addLine("Your Willpower: " + wp);
+        addLine("Type the name of the item you wish to buy below.");
+        calcMode = 14;
+      }, 10);
+    }
+
+    else if (manhatten === "sell") {
+      setTimeout(function () {
+        addLine("Your items: " + String(stor));
+        addLine("Type the name of the item you wish to sell.");
+        calcMode = 15;
+      }, 10);
+    }
   }
 
   else if (calcMode === 7) {
@@ -1088,6 +1120,86 @@ cmdForm.onsubmit = function () {
         addLine("All right then."); 
         calcMode = 3;
       }, 10);
+    }
+  }
+
+  else if (calcMode === 14) {
+    addLine("");
+    cleanText(cmdReq.value);
+
+    function checkBal (cost, sitem) {
+      if (wp < cost) {
+        setTimeout(function () {
+          addLine("You don't have enough Willpower.");
+        }, 10);
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("Recieved " + sitem + ".");
+        }, 10);
+
+        wp -= cost;
+        stor.push(sitem);
+      }
+    }
+
+    function checkMul () {
+      setTimeout(function () {
+        addLine("How much of this item do you wish to buy?"); // Nevermind
+      }, 10);
+    }
+
+    switch (encounterType) {
+      case 10:
+        if (manhatten === "icepick") {
+          checkBal(2, "icepick");
+        }
+
+        else if (manhatten === "beans") {
+          checkBal(1, "beans");
+        }
+
+        else if (manhatten === "powder") {
+          checkBal(3, "powder");
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("Sorry, we don't sell that item here.");
+          }, 10);
+        }
+        
+        calcMode = 6;
+        setTimeout(function () {
+          addLine("You have finished buying.");
+        }, 10);
+        break;
+    }
+  }
+
+  else if (manhatten === 15) {
+    addLine("");
+    cleanText(cmdReq.value);
+
+    function balSell (cost, sitem) {
+      if (String(stor).includes(sitem)) {
+        setTimeout(function () {
+          addLine("Successfully sold " + sitem + ".");
+          addLine("You have finished selling."); 
+        }, 10);
+        wp += cost;
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("You don't have that item in storage.");
+        }, 10);
+      }
+    }
+
+    if (manhatten === "knife") {
+      
     }
   }
   
