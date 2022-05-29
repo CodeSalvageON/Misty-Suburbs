@@ -883,10 +883,11 @@ cmdForm.onsubmit = function () {
 
     if (manhatten === "help") {
       setTimeout(function () {
-        addLine("ramp - Declare a one-man war against this City");
-        addLine("dem - Demand a meeting with the Leaders of this City");
+        addLine("ramp - Declare a one-man war against this Arena");
+        addLine("dem - Demand a meeting with the Bosses of this Arena");
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
+        addLine("fight - Fight in the Arena");
       }, 10);
     }
 
@@ -1198,6 +1199,11 @@ cmdForm.onsubmit = function () {
         }, 10);
         wp += cost;
         stor = JSON.parse(removeItemOnce(stor, sitem));
+        switch (encounterType) {
+          case 9:
+            calcMode = 6;
+            break;
+        }
       }
 
       else {
