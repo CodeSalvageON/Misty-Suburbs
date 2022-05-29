@@ -1197,7 +1197,7 @@ cmdForm.onsubmit = function () {
           addLine("You have finished selling."); 
         }, 10);
         wp += cost;
-        removeItemOnce(sitem);
+        stor = JSON.parse(removeItemOnce(stor, sitem));
       }
 
       else {
@@ -1208,7 +1208,53 @@ cmdForm.onsubmit = function () {
     }
 
     if (manhatten === "knife") {
-      
+      balSell(1, "knife");
+    }
+
+    else if (manhatten === "cloth") {
+      balSell(1, "cloth");
+    }
+
+    else if (manhatten === "icepick") {
+      balSell(2, "icepick");
+    }
+
+    else if (manhatten === "beans") {
+      balSell(1, "beans");
+    }
+
+    else if (manhatten === "powder") {
+      balSell(3, "powder");
+    }
+
+    else if (manhatten === "metal") {
+      balSell(2, "metal");
+    }
+
+    else if (manhatten === "solar") {
+      balSell(3, "solar");
+    }
+
+    else if (manhatten === "string") {
+      balSell(1, "string");
+    }
+
+    else if (manhatten === "lighter") {
+      balSell(2, "lighter");
+    }
+
+    else if (manhatten === "firewood") {
+      balSell(1, "firewood");
+    }
+
+    else if (manhatten === "rifle") {
+      balSell(20, "rifle");
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That item doesn't exist yet for you to sell.");
+      }, 10);
     }
   }
   
