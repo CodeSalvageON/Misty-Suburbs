@@ -1182,6 +1182,14 @@ cmdForm.onsubmit = function () {
     addLine("");
     cleanText(cmdReq.value);
 
+    function removeItemOnce (arr, value) {
+      let index = arr.indexOf(value);
+      if (index > -1) {
+        arr.splice(index, 1);
+      }
+      return arr;
+    }
+
     function balSell (cost, sitem) {
       if (String(stor).includes(sitem)) {
         setTimeout(function () {
@@ -1189,6 +1197,7 @@ cmdForm.onsubmit = function () {
           addLine("You have finished selling."); 
         }, 10);
         wp += cost;
+        removeItemOnce(sitem);
       }
 
       else {
