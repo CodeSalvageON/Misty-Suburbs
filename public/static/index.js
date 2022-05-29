@@ -297,6 +297,8 @@ cmdForm.onsubmit = function () {
         addLine("dicit - See if anyone can hear you");
         addLine("build - Build a structure (requires willpower)");
         addLine("settle - Set a residence in an already-existing structure");
+        addLine("use - Use an item you have in storage");
+        addLine("craft - Craft an item or vehicle using items in storage");
         addLine("save - Save your state");
       }, 10);
     }
