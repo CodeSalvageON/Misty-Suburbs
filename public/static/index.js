@@ -885,6 +885,8 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("ramp - Declare a one-man war against this City");
         addLine("dem - Demand a meeting with the Leaders of this City");
+        addLine("buy - Buy items in return for Willpower");
+        addLine("sell - Sell items for Willpower");
       }, 10);
     }
   }
