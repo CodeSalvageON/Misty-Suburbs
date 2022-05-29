@@ -922,6 +922,8 @@ cmdForm.onsubmit = function () {
 
       switch (randScav) {
         case 0: 
+        case 1:
+        case 2:
           console.log("You found...something...");
           switch (scavRand) {
             case 0:
@@ -998,18 +1000,6 @@ cmdForm.onsubmit = function () {
               }, 10);
               break;
           }
-          break;
-        case 1:
-          // Do nothing
-          setTimeout(function () {
-            addLine("There's nothing here.");
-          }, 10);
-          break;
-        case 2:
-          // Do nothing
-          setTimeout(function () {
-            addLine("There's nothing here.");
-          }, 10);
           break;
         case 3:
           // Do nothing
