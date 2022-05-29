@@ -327,11 +327,9 @@ cmdForm.onsubmit = function () {
       }
 
       else {
-        for (i = 0; i < stor.length; i++) {
-          setTimeout(function () {
-            addLine(stor[i]);
-          }, 10);
-        }
+        setTimeout(function () {
+          addLine(String(stor));
+        }, 10);
       }
     }
 
