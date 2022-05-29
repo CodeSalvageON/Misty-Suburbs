@@ -889,6 +889,12 @@ cmdForm.onsubmit = function () {
         addLine("sell - Sell items for Willpower");
       }, 10);
     }
+
+    else if (manhatten === "ramp") {
+      setTimeout(function () {
+        
+      }, 10);
+    }
   }
 
   else if (calcMode === 7) {
@@ -1111,7 +1117,7 @@ setInterval(function () {
     }
   })
   .catch(error => {
-    addLine(error);
+    console.log(error);
   })
 }, 500);
 
