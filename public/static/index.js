@@ -1067,6 +1067,13 @@ cmdForm.onsubmit = function () {
         calcMode = 3;
       }, 10);
     }
+
+    else {
+      setTimeout(function () {
+        addLine("All right then."); 
+        calcMode = 3;
+      }, 10);
+    }
   }
   
   setTimeout(function () {
