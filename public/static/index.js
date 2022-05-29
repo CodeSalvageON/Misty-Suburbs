@@ -884,7 +884,7 @@ cmdForm.onsubmit = function () {
     if (manhatten === "help") {
       setTimeout(function () {
         addLine("ramp - Declare a one-man war against this City");
-        addLine("");
+        addLine("dem - Demand a meeting with the Leaders of this City");
       }, 10);
     }
   }
