@@ -882,6 +882,13 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 6) {
     addLine("");
     cleanText(cmdReq.value);
+
+    if (manhatten === "help") {
+      setTimeout(function () {
+        addLine("ramp - Declare a one-man war against this City");
+        addLine("");
+      }, 10);
+    }
   }
 
   else if (calcMode === 7) {
@@ -996,15 +1003,27 @@ cmdForm.onsubmit = function () {
           break;
         case 1:
           // Do nothing
+          setTimeout(function () {
+            addLine("There's nothing here.");
+          }, 10);
           break;
         case 2:
           // Do nothing
+          setTimeout(function () {
+            addLine("There's nothing here.");
+          }, 10);
           break;
         case 3:
           // Do nothing
+          setTimeout(function () {
+            addLine("There's nothing here.");
+          }, 10);
           break;
         case 4:
           // Do nothing
+          setTimeout(function () {
+            addLine("There's nothing here.");
+          }, 10);
           break;
       }
     }
