@@ -478,14 +478,14 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 3) {
             addLine("There are " + buildingNum + " soldiers within this patrol.");
-            addLine("Options: COMBAT, TALK, PASS");
+            addLine("Options: COMBAT, TALK, PASS, GIVE");
             isTherePeople = true;
             calcMode = 5;
           }
 
           else if (encounterType === 4) {
             addLine("There are " + buildingNum + " Arenamen within this group.");
-            addLine("Options: COMBAT, TALK, PASS");
+            addLine("Options: COMBAT, TALK, PASS, GIVE");
             isTherePeople = true;
             calcMode = 5;
           }
