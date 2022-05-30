@@ -888,6 +888,7 @@ cmdForm.onsubmit = function () {
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
         addLine("fight - Fight in the Arena");
+        addLine("leave - Leave the Arena");
       }, 10);
     }
 
@@ -928,6 +929,19 @@ cmdForm.onsubmit = function () {
         calcMode = 15;
       }, 10);
     }
+
+    else if (manhatten === "leave") {
+      setTimeout(function () {
+        addLine("You leave the Arena.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That's not a command you can use here.");
+      }, 10);
+    }
   }
 
   else if (calcMode === 7) {
@@ -951,6 +965,7 @@ cmdForm.onsubmit = function () {
         addLine("dem - Demand a meeting with the Hosts of this City");
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
+        addLine("leave - Leave this City");
       }, 10);
     }
 
@@ -992,6 +1007,19 @@ cmdForm.onsubmit = function () {
         calcMode = 15;
       }, 10);
     }
+
+    else if (manhatten === "leave") {
+      setTimeout(function () {
+        addLine("You leave the City.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That's not a command you can use here.");
+      }, 10);
+    }
   }
 
   else if (calcMode === 10) {
@@ -1004,6 +1032,7 @@ cmdForm.onsubmit = function () {
         addLine("dem - Demand a meeting with the Mayor of this Warehouse");
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
+        addLine("leave - Leave the Warehouse");
       }, 10);
     }
 
@@ -1044,6 +1073,19 @@ cmdForm.onsubmit = function () {
         calcMode = 15;
       }, 10);
     }
+
+    else if (manhatten === "leave") {
+      setTimeout(function () {
+        addLine("You leave the Warehouse.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That's not a command you can use here.");
+      }, 10);
+    }
   }
 
   else if (calcMode === 9) {
@@ -1056,6 +1098,7 @@ cmdForm.onsubmit = function () {
         addLine("dem - Demand a meeting with the Overseers of this Settlement");
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
+        addLine("leave - Leave this Settlement");
       }, 10);
     }
 
@@ -1095,6 +1138,19 @@ cmdForm.onsubmit = function () {
         addLine("Your items: " + String(stor));
         addLine("Type the name of the item you wish to sell.");
         calcMode = 15;
+      }, 10);
+    }
+
+    else if (manhatten === "leave") {
+      setTimeout(function () {
+        addLine("You leave the Settlement.");
+        calcMode = 3;
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("That's not a command you can use here.");
       }, 10);
     }
   }
