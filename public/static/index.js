@@ -900,7 +900,7 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "dem") {
       setTimeout(function () {
         if (wp < 50) {
-          addLine("City Worker: THE COUNCIL has deemd you unworthy.");
+          addLine("Arenaman: THE BOSSES don't like you.");
         }
 
         else {
@@ -944,6 +944,54 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 8) {
     addLine("");
     cleanText(cmdReq.value);
+
+    if (manhatten === "help") {
+      setTimeout(function () {
+        addLine("ramp - Declare a one-man war against this City");
+        addLine("dem - Demand a meeting with the Hosts of this City");
+        addLine("buy - Buy items in return for Willpower");
+        addLine("sell - Sell items for Willpower");
+      }, 10);
+    }
+
+    else if (manhatten === "ramp") {
+      setTimeout(function () {
+        
+      }, 10);
+    }
+
+    else if (manhatten === "dem") {
+      setTimeout(function () {
+        if (wp < 50) {
+          addLine("City Worker: THE COUNCIL has deemed you unworthy.");
+        }
+
+        else {
+          addLine("Come right on in...");
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "buy") {
+      setTimeout(function () {
+        addLine("We have the following items in store today...");
+        addLine("knife - costs 1 Willpower, when recieved you can use this in combat to enslave and lobotomize your enemies");
+        addLine("beans - costs 1 Willpower, generates 2 Willpower when used");
+        addLine("cloth - costs 1 Willpower, can be used for parts");
+        addLine("ligher - costs 3 Willpower, can be used for parts");
+        addLine("Your Willpower: " + wp);
+        addLine("Type the name of the item you wish to buy below.");
+        calcMode = 14;
+      }, 10);
+    }
+
+    else if (manhatten === "sell") {
+      setTimeout(function () {
+        addLine("Your items: " + String(stor));
+        addLine("Type the name of the item you wish to sell.");
+        calcMode = 15;
+      }, 10);
+    }
   }
 
   else if (calcMode === 9) {
