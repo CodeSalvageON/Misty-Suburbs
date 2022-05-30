@@ -804,6 +804,24 @@ cmdForm.onsubmit = function () {
           case 4:
             addLine("The group of Arenamen begin to charge at you.");
             break;
+          case 5:
+            if (specialEncounter === true) {
+              addLine("The man shakes his head and dissolves into a flurry of angry nano-bots.");
+            }
+
+            else {
+              addLine("The students go their seperate paths. Some panic, whilst others prepare to defend their Academy.");
+            }
+            break;
+          case 6:
+            addLine("The stragglers, clearly unprepared for a fight, grab whatever they can.");
+            break;
+          case 7:
+            addLine("The eyes surround you and begin to whirl.");
+            break;
+          case 8:
+            addLine("The arms impossibly grow longer and begin to strike at you.");
+            break;
         }
       }, 10);
       calcMode = 12;
@@ -858,6 +876,62 @@ cmdForm.onsubmit = function () {
               addLine("There are no real words, just garbled speech.");
             }
             break;
+          case 6:
+            addLine("Please...any Willpower to spare and give would be most helpful...");
+            break;
+          case 7:
+            addLine("WEWEREHEREBEFOREANYOFYOUYOUNEEDTOREMEMBER");
+            break;
+          case 8:
+            addLine("Make your visit to the Mall...a peaceful one.");
+            break;
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "give") {
+      setTimeout(function () {
+        if (wp < 1) {
+          addLine("You don't have any Willpower to give.");
+        }
+
+        else {
+          addLine("You give one Willpower away.");
+          wp -= 1;
+          switch (encounterType) {
+            case 3:
+              addLine("Imperial Commander: Thanks.");
+              addLine("Imperial Reputation Increased");
+              imperialRep += 1;
+              break;
+            case 4:
+              addLine("Arenaboss: You're looking to suck up, huh? Smart.");
+              addLine("Arena Reputation Increased.");
+              arenaRep += 1;
+              break;
+            case 5:
+              if (specialEncounter === true) {
+                addLine("Mr. Khan: I'm very glad you've given this to me.");
+                addLine("Academy Reputation Increased.");
+                acadRep += 2;
+              }
+
+              else {
+                addLine("Students: THANKYOUWELOVEYOU");
+                addLine("Academy Repuation Increased.");
+                acadRep += 1;
+              }
+              break;
+            case 6:
+              addLine("The stragglers give you a look of gratefulness.");
+              break;
+            case 7:
+              addLine("The eyes all huddle together to form a face that looks vaguely confused.");
+              break;
+            case 8:
+              addLine("The monitor's eyes go up and its tongue goes out.");
+              break;
+          }
         }
       }, 10);
     }
@@ -1552,6 +1626,10 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "rifle") {
       balSell(20, "rifle");
+    }
+
+    else if (manhatten === "nanobot") {
+      balSell(50, "nanobot");
     }
 
     else {
