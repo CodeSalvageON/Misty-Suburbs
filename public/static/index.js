@@ -1426,6 +1426,15 @@ cmdForm.onsubmit = function () {
           case 9:
             calcMode = 6;
             break;
+          case 10:
+            calcMode = 8;
+            break;
+          case 11:
+            calcMode = 9;
+            break;
+          case 12:
+            calcMode = 10;
+            break;
         }
       }
 
