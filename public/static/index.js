@@ -1471,6 +1471,13 @@ cmdForm.onsubmit = function () {
     }
 
     function balSell (cost, sitem) {
+      if (sitem === "" || sitem === null || sitem === undefined) {
+        setTimeout(function () {
+          addLine("You can't sell thin air...");
+        }, 10);
+        return false;
+      }
+      
       if (String(stor).includes(sitem)) {
         setTimeout(function () {
           addLine("Successfully sold " + sitem + ".");
