@@ -1486,7 +1486,7 @@ cmdForm.onsubmit = function () {
           addLine("You have finished selling."); 
         }, 10);
         wp += cost;
-        stor = JSON.parse(removeItemOnce(stor, sitem));
+        stor = removeItemOnce(stor, sitem);
         switch (encounterType) {
           case 9:
             calcMode = 6;
