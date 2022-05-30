@@ -646,7 +646,7 @@ cmdForm.onsubmit = function () {
             switch (roomScenarioRand) {
               case 0:
                 addLine("Inside the room there is a man tinkering with several machines.");
-                addLine("Options: COMBAT, TALK PASS, GIVE");
+                addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 specialEncounter = true;
                 break;
