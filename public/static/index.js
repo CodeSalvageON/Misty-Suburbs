@@ -978,7 +978,7 @@ cmdForm.onsubmit = function () {
         addLine("knife - costs 1 Willpower, when recieved you can use this in combat to enslave and lobotomize your enemies");
         addLine("beans - costs 1 Willpower, generates 2 Willpower when used");
         addLine("cloth - costs 1 Willpower, can be used for parts");
-        addLine("ligher - costs 3 Willpower, can be used for parts");
+        addLine("ligher - costs 2 Willpower, can be used for parts");
         addLine("Your Willpower: " + wp);
         addLine("Type the name of the item you wish to buy below.");
         calcMode = 14;
@@ -1320,11 +1320,81 @@ cmdForm.onsubmit = function () {
         }, 10);
         break;
       case 10:
-        if (manhatten === "") {
-          
+        if (manhatten === "knife") {
+          checkBal(1, "knife");
+        }
+
+        else if (manhatten === "beans") {
+          checkBal(1, "beans");
+        }
+
+        else if (manhatten === "cloth") {
+          checkBal(1, "cloth");
+        }
+
+        else if (manhatten === "lighter") {
+          checkBal(2, "lighter");
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("Sorry, we don't sell that item here.");
+          }, 10);
         }
         
         calcMode = 8;
+        setTimeout(function () {
+          addLine("You have finished buying.");
+        }, 10);
+        break;
+      case 11:
+        if (manhatten === "icepick") {
+          checkBal(2, "icepick");
+        }
+
+        else if (manhatten === "knife") {
+          checkBal(1, "knife");
+        }
+
+        else if (manhatten === "rifle") {
+          checkBal(20, "rifle");
+        }
+
+        else if (manhatten === "firewood") {
+          checkBal(1, "firewood");
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("Sorry, we don't sell that item here.");
+          }, 10);
+        }
+        
+        calcMode = 9;
+        setTimeout(function () {
+          addLine("You have finished buying.");
+        }, 10);
+        break;
+      case 12:
+        if (manhatten === "solar") {
+          checkBal(3, "solar");
+        }
+
+        else if (manhatten === "metal") {
+          checkBal(1, "metal");
+        }
+
+        else if (manhatten === "string") {
+          checkBal(1, "string");
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("Sorry, we don't sell that item here.");
+          }, 10);
+        }
+        
+        calcMode = 10;
         setTimeout(function () {
           addLine("You have finished buying.");
         }, 10);
