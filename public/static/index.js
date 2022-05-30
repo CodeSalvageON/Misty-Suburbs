@@ -994,14 +994,109 @@ cmdForm.onsubmit = function () {
     }
   }
 
-  else if (calcMode === 9) {
-    addLine("");
-    cleanText(cmdReq.value);
-  }
-
   else if (calcMode === 10) {
     addLine("");
     cleanText(cmdReq.value);
+
+    if (manhatten === "help") {
+      setTimeout(function () {
+        addLine("ramp - Declare a one-man war against this Warehouse");
+        addLine("dem - Demand a meeting with the Mayor of this Warehouse");
+        addLine("buy - Buy items in return for Willpower");
+        addLine("sell - Sell items for Willpower");
+      }, 10);
+    }
+
+    else if (manhatten === "ramp") {
+      setTimeout(function () {
+        
+      }, 10);
+    }
+
+    else if (manhatten === "dem") {
+      setTimeout(function () {
+        if (wp < 50) {
+          addLine("Warehouse Resident: The mayor doesn't really trust you.");
+        }
+
+        else {
+          addLine("Come right on in...");
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "buy") {
+      setTimeout(function () {
+        addLine("We have the following items in store today...");
+        addLine("solar - costs 3 Willpower, provides energy for possible crafts");
+        addLine("metal - costs 1 Willpower, can be used for parts");
+        addLine("string - costs 1 Willpower, can be used for parts");
+        addLine("Your Willpower: " + wp);
+        addLine("Type the name of the item you wish to buy below.");
+        calcMode = 14;
+      }, 10);
+    }
+
+    else if (manhatten === "sell") {
+      setTimeout(function () {
+        addLine("Your items: " + String(stor));
+        addLine("Type the name of the item you wish to sell.");
+        calcMode = 15;
+      }, 10);
+    }
+  }
+
+  else if (calcMode === 9) {
+    addLine("");
+    cleanText(cmdReq.value);
+
+    if (manhatten === "help") {
+      setTimeout(function () {
+        addLine("ramp - Declare a one-man war against this Imperial Settlement");
+        addLine("dem - Demand a meeting with the Overseers of this Settlement");
+        addLine("buy - Buy items in return for Willpower");
+        addLine("sell - Sell items for Willpower");
+      }, 10);
+    }
+
+    else if (manhatten === "ramp") {
+      setTimeout(function () {
+        
+      }, 10);
+    }
+
+    else if (manhatten === "dem") {
+      setTimeout(function () {
+        if (wp < 50) {
+          addLine("Imperial Soldier: The Overseer wants you to prove yourself first.");
+        }
+
+        else {
+          addLine("Come right on in...");
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "buy") {
+      setTimeout(function () {
+        addLine("We have the following items in store today...");
+        addLine("icepick - costs 2 Willpower, when recieved you can use this in combat to enslave and lobotomize your enemies");
+        addLine("knife - costs 1 Willpower, good weapon for combat");
+        addLine("rifle - costs 20 Willpower, amazing weapon for combat, costs 1 Willpower to fire each time");
+        addLine("firewood - costs 1 Willpower, can be used to build crafts");
+        addLine("Your Willpower: " + wp);
+        addLine("Type the name of the item you wish to buy below.");
+        calcMode = 14;
+      }, 10);
+    }
+
+    else if (manhatten === "sell") {
+      setTimeout(function () {
+        addLine("Your items: " + String(stor));
+        addLine("Type the name of the item you wish to sell.");
+        calcMode = 15;
+      }, 10);
+    }
   }
 
   else if (calcMode === 11) {
@@ -1200,7 +1295,7 @@ cmdForm.onsubmit = function () {
     }
 
     switch (encounterType) {
-      case 10:
+      case 9:
         if (manhatten === "icepick") {
           checkBal(2, "icepick");
         }
@@ -1220,6 +1315,16 @@ cmdForm.onsubmit = function () {
         }
         
         calcMode = 6;
+        setTimeout(function () {
+          addLine("You have finished buying.");
+        }, 10);
+        break;
+      case 10:
+        if (manhatten === "") {
+          
+        }
+        
+        calcMode = 8;
         setTimeout(function () {
           addLine("You have finished buying.");
         }, 10);
