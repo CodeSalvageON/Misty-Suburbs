@@ -646,7 +646,7 @@ cmdForm.onsubmit = function () {
             switch (roomScenarioRand) {
               case 0:
                 addLine("Inside the room there is a man tinkering with several machines.");
-                addLine("Options: COMBAT, TALK PASS");
+                addLine("Options: COMBAT, TALK PASS, GIVE");
                 calcMode = 5;
                 specialEncounter = true;
                 break;
@@ -656,7 +656,7 @@ cmdForm.onsubmit = function () {
                 switch (peopleScenario) {
                   case 0:
                     addLine("There are many, many, students all looking at you.");
-                    addLine("Options: COMBAT, TALK, PASS");
+                    addLine("Options: COMBAT, TALK, PASS, GIVE");
                     calcMode = 5;
                     isTherePeople = true;
                     break;
@@ -704,7 +704,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 2:
                 addLine("You find a group of stragglers living in the condo building.");
-                addLine("Options: COMBAT, TALK, PASS");
+                addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 break;
               case 3:
@@ -740,7 +740,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 2:
                 addLine("There is a large cluster of eyes staring at you.");
-                addLine("Options: COMBAT, TALK, PASS");
+                addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 break;
               case 3:
@@ -776,7 +776,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 2:
                 addLine("In the middle of the empty store is an interactive screen with robotic arms and a face.");
-                addLine("Options: COMBAT, TALK, PASS");
+                addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 break;
               case 3: 
