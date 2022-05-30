@@ -23,6 +23,7 @@ function loadScreen () {
       indianHead.style.display = "none";
       staticHead.style.display = "none";
       cmd.style.display = "block";
+      indianHead.style.display = "none";
     }, 3000);
   }
 
@@ -204,6 +205,7 @@ const vhs = document.getElementById("vhs");
 
 cmdForm.onsubmit = function () {
   event.preventDefault();
+  indianHead.style.display = "none";
   let manhatten = cmdReq.value.toLowerCase();
 
   if (calcMode === 0) {
@@ -1458,7 +1460,7 @@ cmdForm.onsubmit = function () {
     }
   }
 
-  else if (manhatten === 15) {
+  else if (calcMode === 15) {
     addLine("");
     cleanText(cmdReq.value);
 
