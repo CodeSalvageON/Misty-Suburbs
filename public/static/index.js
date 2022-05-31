@@ -84,6 +84,8 @@ let arenaRep = 100;
 let acadRep = 100;
 let allyRep = 100;
 let specialEncounter = false;
+let currentEnemy = "";
+let enemyWillpower = 0;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -198,6 +200,12 @@ function randomEncounter () {
       isEnt = true;
       encounterType = 12;
     }
+  }
+}
+
+function combatEnemy (willpow, enemy) {
+  if (enemy === "patrol") {
+    
   }
 }
 
@@ -1637,6 +1645,10 @@ cmdForm.onsubmit = function () {
         addLine("That item doesn't exist yet for you to sell.");
       }, 10);
     }
+  }
+
+  else if (calcMode === 16) {
+    
   }
   
   setTimeout(function () {
