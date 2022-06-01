@@ -1648,7 +1648,72 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 16) {
-    
+    function makeRandBatCry () {
+      let randBatCry = Math.floor(Math.random() * 4);
+      if (currentEnemy === "patrol") {
+        switch (randBatCry) {
+          case 0: 
+            addLine("For Roxstrait!");
+            break;
+          case 1:
+            addLine("Screw you!");
+            break;
+          case 2:
+          case 3:
+            break;
+        }
+      }
+
+      else if (currentEnemy === "arenamen") {
+        switch (randBatCry) {
+          case 0:
+            addLine("Ready to die?");
+            break;
+          case 1:
+            addLine("The bosses will love this.");
+            break; 
+          case 2:
+          case 3: 
+            break;
+        }
+      }
+
+      else if (currentEnemy === "khan") {
+      
+      }
+
+      else if (currentEnemy === "kids") {
+      
+      }
+
+      else if (currentEnemy === "robot") {
+      
+      }
+
+      else if (currentEnemy === "strag") {
+      
+      }
+
+      else if (currentEnemy === "eyes") {
+      
+      }
+
+      else if (currentEnemy === "city") {
+      
+      }
+
+      else if (currentEnemy === "arena") {
+      
+      }
+
+      else if (currentEnemy === "set") {
+      
+      }
+
+      else if (currentEnemy === "ware") {
+        
+      }
+    }
   }
   
   setTimeout(function () {
