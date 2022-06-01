@@ -1679,11 +1679,25 @@ cmdForm.onsubmit = function () {
       }
 
       else if (currentEnemy === "khan") {
-      
+        switch (randBatCry) {
+          case 0:
+            addLine("I don't want to have to do this...");
+            break;
+          case 1:
+            addLine("Damn you.");
+            break;
+        }     
       }
 
       else if (currentEnemy === "kids") {
-      
+        switch (randBatCry) {
+          case 0:
+            addLine("EEEEEEEEEEEEEE!!");
+            break;
+          case 1:
+            addLine("AAAAAA!!");
+            break;
+        }
       }
 
       else if (currentEnemy === "robot") {
@@ -1713,6 +1727,18 @@ cmdForm.onsubmit = function () {
       else if (currentEnemy === "ware") {
         
       }
+    }
+
+    if (manhatten === "") {
+      
+    }
+
+    else if (manhatten === "") {
+      
+    }
+
+    else {
+      addLine("You can't use that command here.");
     }
   }
   
