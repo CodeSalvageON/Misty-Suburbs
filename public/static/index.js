@@ -86,6 +86,7 @@ let allyRep = 100;
 let specialEncounter = false;
 let currentEnemy = "";
 let enemyWillpower = 0;
+let currentWeapon = "none";
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -1649,6 +1650,48 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 16) {
+    function checkWeapon () {
+      if (String(stor).includes("rifle")) {
+        if (wp > 5) {
+          currentWeapon = "rifle";
+        }
+
+        else {
+          if (String(stor).includes("icepick")) {
+            currentWeapon = "icepick";
+          }
+
+          else {
+            if (String(stor).includes("knife")) {
+              currentWeapon = "knife";
+            }
+
+            else {
+              currentWeapon = "none";
+            }
+          }
+        }
+      }
+
+      else {
+        if (String(stor).includes("icepick")) {
+          currentWeapon = "icepick";
+        }
+
+        else {
+          if (String(stor).includes("knife")) {
+            currentWeapon = "knife";
+          }
+
+          else {
+            currentWeapon = "none";
+          }
+        }
+      }
+    }
+
+    checkWeapon();
+    
     function makeRandBatCry () {
       let randBatCry = Math.floor(Math.random() * 4);
       if (currentEnemy === "patrol") {
@@ -1730,11 +1773,19 @@ cmdForm.onsubmit = function () {
       }
     }
 
-    if (manhatten === "") {
+    if (manhatten === "attack") {
       
     }
 
-    else if (manhatten === "") {
+    else if (manhatten === "block") {
+      
+    }
+
+    else if (manhatten === "weapon") {
+      addLine("");
+    }
+
+    else if (manhatten === "item") {
       
     }
 
