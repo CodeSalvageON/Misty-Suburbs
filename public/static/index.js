@@ -805,6 +805,7 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 5) {
     if (manhatten === "combat") {
       setTimeout(function () {
+        addLine("Options: ATTACK, BLOCK, WEAPON, ITEM");
         switch (encounterType) {
           case 3:
             addLine("The Imperial Patrol forms a squad-like formation and prepares to defend itself.");
