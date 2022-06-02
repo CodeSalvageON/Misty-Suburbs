@@ -1743,34 +1743,6 @@ cmdForm.onsubmit = function () {
             break;
         }
       }
-
-      else if (currentEnemy === "robot") {
-      
-      }
-
-      else if (currentEnemy === "strag") {
-      
-      }
-
-      else if (currentEnemy === "eyes") {
-      
-      }
-
-      else if (currentEnemy === "city") {
-      
-      }
-
-      else if (currentEnemy === "arena") {
-      
-      }
-
-      else if (currentEnemy === "set") {
-      
-      }
-
-      else if (currentEnemy === "ware") {
-        
-      }
     }
 
     if (manhatten === "attack") {
@@ -1781,11 +1753,7 @@ cmdForm.onsubmit = function () {
       
     }
 
-    else if (manhatten === "weapon") {
-      addLine("");
-    }
-
-    else if (manhatten === "item") {
+    else if (manhatten.substring(0, 4) === "item") {
       
     }
 
