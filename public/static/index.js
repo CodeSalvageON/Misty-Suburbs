@@ -1746,7 +1746,22 @@ cmdForm.onsubmit = function () {
     }
 
     if (manhatten === "attack") {
-      
+      if (currentWeapon === "none") {
+        let randHitChance = Math.floor(Math.random() * 3);
+
+        switch (randHitChance) {
+          case 0:
+          case 1:
+          case 2:
+          case 3:
+            enemyWillpower -= 1;
+            addLine("Enemy was attacked and lost 1 Willpower.");
+            break;
+          case 4:
+            addLine("Your attack missed.");
+            break;
+        }
+      }
     }
 
     else if (manhatten === "block") {
