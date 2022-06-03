@@ -185,7 +185,84 @@ function initAttackEncounter () {
   }
 }
 
+function enemyRecoil () {
+  if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
+    let randWeap = Math.floor(Math.random() * 3);
+
+    switch (randWeap) {
+      case 0:
+        enemyAtk = 2;
+        break;
+      case 1: 
+        enemyAtk = 5;
+        break;
+      case 2:
+        enemyAtk = 11;
+        break;
+    }
+  }
+
+  else if (currentEnemy === "arenamen") {
+    let randWeap = Math.floor(Math.random() * 2);
+
+    switch (randWeap) {
+      case 0:
+        enemyAtk = 2;
+        break;
+      case 1:
+        enemyAtk = 5;
+        break;
+    }
+  }
+
+  else {
+    let randWeap = Math.floor(Math.random() * 2);
+
+    switch (randWeap) {
+      case 0: 
+        enemyAtk = 1;
+        break; 
+      case 1: 
+        enemyAtk = 2;
+        break;
+    }
+  }
+}
+
 function attackEncounter () {
+  if (isInCombat === true) {
+    let enemyHitChance = Math.floor(Math.random () * 6);
+
+    switch (enemyHitChance) {
+      case 0: 
+      case 1: 
+      case 2: 
+      case 3: 
+      case 4: 
+        setTimeout(function () {
+          if (enemyAtk < 1) {
+            enemyAtk = 0;
+          }
+           
+          addLine("Enemy attacked; you lost " + enemyAtk + " Willpower.");
+          wp -= enemyAtk;
+
+          if (enemyAtk === 0) {
+            enemyRecoil();
+          }
+        }, 10);
+        break; 
+      case 5: 
+        setTimeout(function () {
+          addLine("Enemy missed.");
+        }, 10);
+        break;
+    }
+  }
+
+  else {
+    // Do nothing
+  }
 }
 
 setInterval(attackEncounter, 500);
