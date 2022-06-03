@@ -243,6 +243,10 @@ function attackEncounter () {
           if (enemyAtk < 1) {
             enemyAtk = 0;
           }
+
+          else {
+            takeDamage();
+          }
            
           addLine("Enemy attacked; you lost " + enemyAtk + " Willpower.");
           wp -= enemyAtk;
