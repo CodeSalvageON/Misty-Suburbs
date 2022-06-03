@@ -1779,6 +1779,25 @@ cmdForm.onsubmit = function () {
             addLine("Your attack missed.");
             break;
         }
+      } 
+
+      else if (currentWeapon === "icepick") {
+        let randHitChance = Math.floor(Math.random() * 7); 
+
+        switch (randHitChance) {
+          case 0:
+          case 1: 
+          case 2:
+          case 3:
+          case 4: 
+          case 5: 
+            enemyWillpower -= 5;
+            addLine("Enemy was attacked and lost 5 Willpower.");
+            break;
+          case 6:
+            addLine("Your attack missed.");
+            break;
+        }
       }
     }
 
