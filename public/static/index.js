@@ -87,6 +87,7 @@ let specialEncounter = false;
 let currentEnemy = "";
 let enemyWillpower = 0;
 let currentWeapon = "none";
+let enemyAtk = 0;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -1829,7 +1830,8 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "block") {
-      
+      let randBlock = Math.floor(Math.random() * 14);
+      enemyAtk -= randBlock;
     }
 
     else if (manhatten.substring(0, 4) === "item") {
