@@ -1835,11 +1835,48 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten.substring(0, 4) === "item") {
-      
+      let itemUsed = manhatten.substring(5).toLowerCase();
+
+      if (String(stor).includes(itemUsed)) {
+        if (itemUsed === "beans") {
+          setTimeout(function () {
+            addLine("Increased Willpower by 5.");
+            wp += 5;
+          }, 10);
+        }
+
+        else if (itemUsed === "powder") {
+          setTimeout(function () {
+            addLine("Increased Willpower by 12.");
+            wp += 12;
+          }, 10);
+        }
+
+        else if (itemUsed === "nanobot") {
+          setTimeout(function () {
+            addLine("Increased Willpower by 25!");
+            wp += 25;
+          }, 10);
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("You can't use that item in combat.");
+          }, 10);
+        }
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("You don't have that item.");
+        }, 10);
+      }
     }
 
     else {
-      addLine("You can't use that command here.");
+      setTimeout(function () {
+        addLine("You can't use that command here.");
+      }, 10);
     }
   }
   
