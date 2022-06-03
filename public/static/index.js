@@ -1799,6 +1799,33 @@ cmdForm.onsubmit = function () {
             break;
         }
       }
+
+      else if (currentWeapon === "rifle") {
+        let randHitChance = Math.floor(Math.random() * 8);
+
+        if (wp - 1 < 1) {
+          addLine("You have no Willpower left to use as ammunition.");
+        }
+
+        else {
+          wp -= 1;
+          switch (randHitChance) {
+            case 0: 
+            case 1: 
+            case 2: 
+            case 3: 
+            case 4: 
+            case 5: 
+            case 6: 
+              enemyWillpower -= 12;
+              addLine("Enemy was shot and lost 12 Willpower.");
+              break; 
+            case 7: 
+              addLine("Your attack missed.");
+              break;
+          }
+        }
+      }
     }
 
     else if (manhatten === "block") {
