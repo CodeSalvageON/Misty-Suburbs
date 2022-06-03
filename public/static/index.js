@@ -88,15 +88,23 @@ let currentEnemy = "";
 let enemyWillpower = 0;
 let currentWeapon = "none";
 let enemyAtk = 0;
+let isInCombat = false;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
-  wp -= 1;
+  wp -= enemyAtk;
 
   setTimeout(function () {
     cmd.style.backgroundColor = "black";
   }, 20);
 }
+
+function initAttackEncounter () {}
+
+function attackEncounter () {
+}
+
+setInterval(attackEncounter, 500);
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
