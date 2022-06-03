@@ -99,7 +99,91 @@ function takeDamage () {
   }, 20);
 }
 
-function initAttackEncounter () {}
+function initAttackEncounter () {
+  if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
+    let randWeap = Math.floor(Math.random() * 3);
+
+    switch (randWeap) {
+      case 0:
+        enemyAtk = 2;
+        break;
+      case 1: 
+        enemyAtk = 5;
+        break;
+      case 2:
+        enemyAtk = 11;
+        break;
+    }
+
+    if (currentEnemy === "patrol") {
+      enemyWillpower = buildNum * 28;
+    }
+
+    else if (currentEnemy === "khan") {
+      enemyWillpower = 100;
+    }
+
+    else if (currentEnemy === "city") {
+      enemyWillpower = 80;
+    }
+
+    else if (currentEnemy === "arena") {
+      enemyWillpower = 75;
+    }
+
+    else if (currentEnemy === "ware") {
+      enemyWillpower = 64;
+    }
+
+    else if (currentEnemy === "set") {
+      enemyWillpower = 95;
+    }
+  }
+
+  else if (currentEnemy === "arenamen") {
+    let randWeap = Math.floor(Math.random() * 2);
+
+    switch (randWeap) {
+      case 0:
+        enemyAtk = 2;
+        break;
+      case 1:
+        enemyAtk = 5;
+        break;
+    }
+
+    enemyWillpower = buildNum * 24;
+  }
+
+  else {
+    let randWeap = Math.floor(Math.random() * 2);
+
+    switch (randWeap) {
+      case 0: 
+        enemyAtk = 1;
+        break; 
+      case 1: 
+        enemyAtk = 2;
+        break;
+    }
+
+    if (currentEnemy === "robot") {
+      enemyWillpower = 60;
+    }
+
+    else if (currentEnemy === "strag") {
+      enemyWillpower = 15;
+    }
+
+    else if (currentEnemy === "eyes") {
+      enemyWillpower = 30;
+    }
+
+    else if (currentEnemy === "kids") {
+      enemyWillpower = 65;
+    }
+  }
+}
 
 function attackEncounter () {
 }
@@ -215,8 +299,14 @@ function randomEncounter () {
 
 function combatEnemy (willpow, enemy) {
   if (enemy === "patrol") {
-    
+    enemyWillpower = buildNum * 28;
   }
+
+  else if (enemy === "khan") {
+    enemyWillpower = 100;
+  }
+
+  else if (enemy === "") {}
 }
 
 const vhs = document.getElementById("vhs");
