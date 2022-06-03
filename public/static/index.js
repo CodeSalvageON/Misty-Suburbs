@@ -986,31 +986,52 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 5) {
     if (manhatten === "combat") {
       setTimeout(function () {
-        addLine("Options: ATTACK, BLOCK, WEAPON, ITEM");
+        addLine("Options: ATTACK, BLOCK, ITEM");
         switch (encounterType) {
           case 3:
             addLine("The Imperial Patrol forms a squad-like formation and prepares to defend itself.");
+            currentEnemy = "patrol";
+            initAttackEncounter();
+            isInCombat = true;
             break;
           case 4:
             addLine("The group of Arenamen begin to charge at you.");
+            currentEnemy = "arenamen";
+            initAttackEncounter();
+            isInCombat = true;
             break;
           case 5:
             if (specialEncounter === true) {
               addLine("The man shakes his head and dissolves into a flurry of angry nano-bots.");
+              currentEnemy = "khan";
+              initAttackEncounter();
+              isInCombat = true;
             }
 
             else {
               addLine("The students go their seperate paths. Some panic, whilst others prepare to defend their Academy.");
+              currentEnemy = "kids";
+              initAttackEncounter();
+              isInCombat = true;
             }
             break;
           case 6:
             addLine("The stragglers, clearly unprepared for a fight, grab whatever they can.");
+            currentEnemy = "strag";
+            initAttackEncounter();
+            isInCombat = true;
             break;
           case 7:
             addLine("The eyes surround you and begin to whirl.");
+            currentEnemy = "eyes";
+            initAttackEncounter();
+            isInCombat = true;
             break;
           case 8:
             addLine("The arms impossibly grow longer and begin to strike at you.");
+            currentEnemy = "robot";
+            initAttackEncounter();
+            isInCombat = true;
             break;
         }
       }, 10);
@@ -2006,6 +2027,14 @@ cmdForm.onsubmit = function () {
           }
         }
       }
+
+      if (enemyWillpower < 1) {
+        isInCombat = false;
+        setTimeout(function () {
+          addLine("Your enemy has been defeated.");
+          addLine("Options: LOBOT, LOOT, EAT, LEAVE");
+        }, 10);
+      }
     }
 
     else if (manhatten === "block") {
@@ -2057,6 +2086,10 @@ cmdForm.onsubmit = function () {
         addLine("You can't use that command here.");
       }, 10);
     }
+  }
+
+  else if (calcMode === 17) {
+    
   }
   
   setTimeout(function () {
