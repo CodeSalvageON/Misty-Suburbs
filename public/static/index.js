@@ -89,6 +89,7 @@ let enemyWillpower = 0;
 let currentWeapon = "none";
 let enemyAtk = 0;
 let isInCombat = false;
+let slaves = 0;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -2033,6 +2034,7 @@ cmdForm.onsubmit = function () {
         setTimeout(function () {
           addLine("Your enemy has been defeated.");
           addLine("Options: LOBOT, LOOT, EAT, LEAVE");
+          calcMode = 17;
         }, 10);
       }
     }
@@ -2089,7 +2091,39 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 17) {
-    
+    if (manhatten === "lobot") {
+      if (String(stor).includes("icepick")) {
+        setTimeout(function () {
+          if (currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "set") {
+            addLine("You now have several newly lobotomized slaves.");
+            slaves += 12;
+          }
+
+          else {
+            addLine("You now have a lobotomized slave. The rest did not survive the procedure.");
+            slaves += 1;
+          }
+        }, 10);
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("You don't have an icepick in storage.");
+        }, 10);
+      }
+    }
+
+    else if (manhatten === "loot") {
+      let randItem = Math.floor(Math.random() * 6);
+
+      switch (randItem) {
+        case 0:
+          setTimeout(function () {
+            addLine("");
+          }, 10);
+          break;
+      }
+    }
   }
   
   setTimeout(function () {
