@@ -1074,9 +1074,23 @@ cmdForm.onsubmit = function () {
         switch (encounterType) {
           case 3:
             addLine("Imperial Commander: Move along.");
+
+            if (imperialRep < 50) {
+              addLine("Imperial Commander: Hey...wait a minute...Get back here you monster!");
+              currentEnemy = "patrol";
+              initAttackEncounter();
+              isInCombat = true;
+            }
             break;
           case 4:
             addLine("Arenaboss: Check out an arena! If you're lucky, you won't be forced to fight in one!");
+
+            if (arenaRep < 50) {
+              addLine("Arenaboss: Huh, could use some sport, actually...");
+              currentEnemy = "arenamen";
+              initAttackEncounter();
+              isInCombat = true;
+            }
             break;
           case 5:
             function khanSpeak () {
@@ -2104,13 +2118,16 @@ cmdForm.onsubmit = function () {
 
           else if (currentEnemy === "arena" || currentEnemy === "arenamen") {
             addLine("Arena Reputation Decreased");
+            addLine("Imperial Reputation Increased");
 
             if (currentEnemy === "arena") {
               arenaRep -= 100;
+              imperialRep += 20;
             }
 
             else {
               arenaRep -= 5;
+              imperialRep += 4;
             }
           }
         }, 10);
