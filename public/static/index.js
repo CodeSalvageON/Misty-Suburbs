@@ -2177,7 +2177,32 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "leave") {
-      
+      setTimeout(function () {
+        isEnt = false;
+        isTherePeople = false;
+        specialEncounter = false;
+        
+        if (currentEnemy === "city") {
+          addLine("You leave the ruined city, its embers burning behind you.");
+        }
+
+        else if (currentEnemy === "arena") {
+          addLine("The arena crumbles into cement-like dust.");
+        }
+
+        else if (currentEnemy === "set") {
+          addLine("The settlement is ruined, forever.");
+        }
+
+        else if (currentEnemy === "ware") {
+          addLine("The warehouse's goods turn into slime and slop. Nothing more.");
+        }
+
+        else {
+          addLine("You leave the desecrated bodies behind.");
+        }
+      }, 10);
+      calcMode = 3;
     }
 
     else {
