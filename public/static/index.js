@@ -97,6 +97,23 @@ function takeDamage () {
   cmd.style.backgroundColor = "red";
   wp -= enemyAtk;
 
+  if (wp < 1) {
+    isInCombat = false;
+    calcMode = "dead";
+    setTimeout(function () {
+      addLine("You die in the never-ending expanse of the Traum, alone.");
+      addLine("Rematerializing...");
+
+      setTimeout(function () {
+        
+      }, 2500);
+    }, 10);
+  }
+
+  else {
+    // Do nothing
+  }
+
   setTimeout(function () {
     cmd.style.backgroundColor = "black";
   }, 20);
