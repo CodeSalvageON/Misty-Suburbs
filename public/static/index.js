@@ -1187,7 +1187,10 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "ramp") {
       setTimeout(function () {
-        
+        addLine("Hoardes of Arenamen and creatures rush towards you.");
+        currentEnemy = "arena";
+        initAttackEncounter();
+        isInCombat = true;
       }, 10);
     }
 
@@ -1264,7 +1267,10 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "ramp") {
       setTimeout(function () {
-        
+        addLine("The residents of the city turn and flee. Only a few come to challenge you.");
+        currentEnemy = "city";
+        initAttackEncounter();
+        isInCombat = true;
       }, 10);
     }
 
@@ -1331,7 +1337,10 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "ramp") {
       setTimeout(function () {
-        
+        addLine("The warehouse residents begin to defend themselves.");
+        currentEnemy = "ware";
+        initAttackEncounter();
+        isInCombat = true;
       }, 10);
     }
 
@@ -1397,7 +1406,10 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "ramp") {
       setTimeout(function () {
-        
+        addLine("Many soldiers surround you.");
+        currentEnemy = "set";
+        initAttackEncounter();
+        isInCombat = true;
       }, 10);
     }
 
