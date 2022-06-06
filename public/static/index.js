@@ -105,6 +105,7 @@ function takeDamage () {
 function initAttackEncounter () {
   isAlreadyLooted = false;
   hasEaten = false;
+  calcMode = 16;
   
   if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
     let randWeap = Math.floor(Math.random() * 3);
