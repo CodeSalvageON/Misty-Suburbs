@@ -90,6 +90,7 @@ let currentWeapon = "none";
 let enemyAtk = 0;
 let isInCombat = false;
 let slaves = 0;
+let isAlreadyLooted = false;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -101,6 +102,8 @@ function takeDamage () {
 }
 
 function initAttackEncounter () {
+  isAlreadyLooted = true;
+  
   if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
     let randWeap = Math.floor(Math.random() * 3);
 
@@ -2116,12 +2119,34 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "loot") {
       let randItem = Math.floor(Math.random() * 6);
 
-      switch (randItem) {
-        case 0:
-          setTimeout(function () {
-            addLine("");
-          }, 10);
-          break;
+      if (isAlreadyLooted === false) {
+        switch (randItem) {
+          case 0:
+            setTimeout(function () {
+              addLine("Found some wood.");
+              stor.push("firewood");
+            }, 10);
+            break;
+          case 1:
+            setTimeout(function () {
+              addLine("Found a lighter.");
+              stor.push("lighter");
+            }, 10);
+            break;
+          case 2:
+            setTimeout(function () {
+              addLine("Found a knife.");
+              stor.push("knife");
+            }, 10);
+            break;
+        }
+        isAlreadyLooted = true;
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("There's no loot left.");
+        }, 10);
       }
     }
   }
