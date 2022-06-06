@@ -257,6 +257,7 @@ function attackEncounter () {
            
           addLine("Enemy attacked; you lost " + enemyAtk + " Willpower.");
           wp -= enemyAtk;
+          cmd.scrollTo(0, cmd.scrollHeight);
 
           if (enemyAtk === 0) {
             enemyRecoil();
