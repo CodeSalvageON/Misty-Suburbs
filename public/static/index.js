@@ -91,6 +91,7 @@ let enemyAtk = 0;
 let isInCombat = false;
 let slaves = 0;
 let isAlreadyLooted = false;
+let hasEaten = false;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red";
@@ -102,7 +103,8 @@ function takeDamage () {
 }
 
 function initAttackEncounter () {
-  isAlreadyLooted = true;
+  isAlreadyLooted = false;
+  hasEaten = false;
   
   if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
     let randWeap = Math.floor(Math.random() * 3);
@@ -2097,7 +2099,7 @@ cmdForm.onsubmit = function () {
     if (manhatten === "lobot") {
       if (String(stor).includes("icepick")) {
         setTimeout(function () {
-          if (currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "set") {
+          if (currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "set" || currentEnemy === "ware") {
             addLine("You now have several newly lobotomized slaves.");
             slaves += 12;
           }
@@ -2148,6 +2150,40 @@ cmdForm.onsubmit = function () {
           addLine("There's no loot left.");
         }, 10);
       }
+    }
+
+    else if (manhatten === "eat") {
+      if (hasEaten === true) {
+        setTimeout(function () {
+          addLine("You have already devoured that flesh.");
+        }, 10);
+      }
+
+      else {
+        setTimeout(function () {
+          if (currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "set" || currentEnemy === "ware") {
+            addLine("You begin to eat the fresh corpses of the settlement.");
+            addLine("Gained 12 Willpower.");
+            wp += 12;
+          }
+
+          else {
+            addLine("You eat the fallen corpse.");
+            addLine("Gained 1 Willpower.");
+            wp += 1;
+          }
+        }, 10);
+      }
+    }
+
+    else if (manhatten === "leave") {
+      
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("You can't use that command here.");
+      }, 10);
     }
   }
   
