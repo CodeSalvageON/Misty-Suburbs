@@ -304,7 +304,7 @@ setInterval(attackEncounter, 2000);
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
-  let randEnt = Math.floor(Math.random() * 12);
+  let randEnt = Math.floor(Math.random() * 15);
   
   if (getEnt === 0 || getEnt === 1) {
     // Do nothing
@@ -405,6 +405,27 @@ function randomEncounter () {
 
       isEnt = true;
       encounterType = 12;
+    }
+
+    else if (randEnt === 12) {
+      addLine("A Creature begins to attack you.");
+      currentEnemy = "bur";
+      initAttackEncounter();
+      isInCombat = true;
+    }
+
+    else if (randEnt === 13) {
+      addLine("A Creature begins to attack you.");
+      currentEnemy = "bur";
+      initAttackEncounter();
+      isInCombat = true;
+    }
+
+    else if (randEnt === 14) {
+      addLine("A Creature begins to attack you.");
+      currentEnemy = "bur";
+      initAttackEncounter();
+      isInCombat = true;
     }
   }
 }
