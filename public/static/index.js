@@ -208,6 +208,10 @@ function initAttackEncounter () {
     else if (currentEnemy === "kids") {
       enemyWillpower = 65;
     }
+
+    else if (currentEnemy === "bur") {
+      enemyWillpower = 10;
+    }
   }
 }
 
@@ -2073,6 +2077,42 @@ cmdForm.onsubmit = function () {
           addLine("Your enemy has been defeated.");
           addLine("Options: LOBOT, LOOT, EAT, LEAVE");
           calcMode = 17;
+
+          if (currentEnemy === "patrol" || currentEnemy === "set") {
+            addLine("Imperial Reputation Decreased");
+
+            if (currentEnemy === "patrol") {
+              imperialRep -= 10;
+            }
+
+            else {
+              imperialRep -= 20;
+            }
+          }
+
+          else if (currentEnemy === "kids" || currentEnemy === "khan") {
+            addLine("Academy Reputation Decreased");
+
+            if (currentEnemy === "kids") {
+              acadRep -= 12;
+            }
+
+            else {
+              acadRep -= 50;
+            }
+          }
+
+          else if (currentEnemy === "arena" || currentEnemy === "arenamen") {
+            addLine("Arena Reputation Decreased");
+
+            if (currentEnemy === "arena") {
+              arenaRep -= 100;
+            }
+
+            else {
+              arenaRep -= 5;
+            }
+          }
         }, 10);
       }
     }
