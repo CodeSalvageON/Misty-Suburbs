@@ -105,7 +105,9 @@ function takeDamage () {
       addLine("Rematerializing...");
 
       setTimeout(function () {
-        
+        frequency = Math.floor(Math.random() * 1000);
+        addLine("You wake up, dazed, in an unfamiliar field.");
+        calcMode = 3;
       }, 2500);
     }, 10);
   }
