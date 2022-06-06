@@ -277,7 +277,7 @@ function attackEncounter () {
   }
 }
 
-setInterval(attackEncounter, 500);
+setInterval(attackEncounter, 2000);
 
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
