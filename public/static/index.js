@@ -94,27 +94,7 @@ let isAlreadyLooted = false;
 let hasEaten = false;
 
 function takeDamage () {
-  cmd.style.backgroundColor = "red";
-  wp -= enemyAtk;
-
-  if (wp < 1) {
-    isInCombat = false;
-    calcMode = "dead";
-    setTimeout(function () {
-      addLine("You die in the never-ending expanse of the Traum, alone.");
-      addLine("Rematerializing...");
-
-      setTimeout(function () {
-        frequency = Math.floor(Math.random() * 1000);
-        addLine("You wake up, dazed, in an unfamiliar field.");
-        calcMode = 3;
-      }, 2500);
-    }, 10);
-  }
-
-  else {
-    // Do nothing
-  }
+  cmd.style.backgroundColor = "red"
 
   setTimeout(function () {
     cmd.style.backgroundColor = "black";
@@ -280,6 +260,20 @@ function attackEncounter () {
            
           addLine("Enemy attacked; you lost " + enemyAtk + " Willpower.");
           wp -= enemyAtk;
+          if (wp < 1) {
+            isInCombat = false;
+            calcMode = "dead";
+            setTimeout(function () {
+              addLine("You die in the never-ending expanse of the Traum, alone.");
+              addLine("Rematerializing...");
+
+              setTimeout(function () {
+                frequency = Math.floor(Math.random() * 1000);
+                addLine("You wake up, dazed, in an unfamiliar field.");
+                calcMode = 3;
+              }, 2500);
+            }, 10);
+          }
           cmd.scrollTo(0, cmd.scrollHeight);
 
           if (enemyAtk === 0) {
@@ -1481,6 +1475,8 @@ cmdForm.onsubmit = function () {
 
         else {
           addLine("Come right on in...");
+
+          
         }
       }, 10);
     }
