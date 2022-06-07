@@ -92,6 +92,8 @@ let isInCombat = false;
 let slaves = 0;
 let isAlreadyLooted = false;
 let hasEaten = false;
+let isOnline = true;
+let savedLocations = [];
 
 function takeDamage () {
   cmd.style.backgroundColor = "red"
@@ -537,7 +539,7 @@ cmdForm.onsubmit = function () {
         addLine("build - Build a structure (requires willpower)");
         addLine("settle - Set a residence in an already-existing structure");
         addLine("use - Use an item you have in storage");
-        addLine("craft - Craft an item or vehicle using items in storage");
+        addLine("craft - Craft an item or vehicle using items in storage (When at a place you own)");
         addLine("save - Save your state");
       }, 10);
     }
@@ -784,8 +786,64 @@ cmdForm.onsubmit = function () {
       }
     } 
 
-    else if (manhatten === "build") {
-      
+    else if (manhatten.substring(0, 5) === "build") {
+      if (wp < 10) {
+        setTimeout(function () {
+          addLine("You don't have enough Willpower to build anything.");
+        }, 10);
+      }
+
+      else {
+        if (manhatten.substring(6) === "tent") {
+          wp -= 10;
+
+          setTimeout(function () {
+            addLine("Built a tent at frequency " + frequency + ".");
+            savedLocations.push(frequency);
+            addLine("You can now CRAFT.");
+          }, 10);
+        }
+      }
+    }
+
+    else if (manhatten.substring(0, 5) === "craft") {
+      if (manhatten.substring(6) === "icepick") {
+        if (String(stor).includes("metal")) {
+          let metalAmount = 0;
+
+          for (i = 0; i < stor.length; i++) {
+            if (String(stor[i]) === "metal") {
+              metalAmount += 1;
+            }
+          }
+
+          if (metalAmount < 2) {
+            setTimeout(function () {
+              addLine("You need at least " + String(2 - metalAmount) + " pieces of scrap metal to construct an icepick.");
+            }, 10);
+          }
+
+          else {
+            for (i = 0; i < metalAmount; i++) {
+              removeItemOnce("metal");
+            }
+            stor.push("icepick");
+            setTimeout(function () {
+              addLine("Constructed an icepick.");
+            }, 10);
+          }
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("You don't have any scrap metal.");
+          }, 10);
+        }
+      }
+
+      else if (manhatten.substring(6) === "rifle") {
+        
+      }
     }
 
     else {
