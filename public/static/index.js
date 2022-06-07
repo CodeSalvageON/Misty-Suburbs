@@ -263,6 +263,8 @@ function attackEncounter () {
           if (wp < 1) {
             isInCombat = false;
             calcMode = "dead";
+            wp = 24;
+            stor = [];
             setTimeout(function () {
               addLine("You die in the never-ending expanse of the Traum, alone.");
               addLine("Rematerializing...");
