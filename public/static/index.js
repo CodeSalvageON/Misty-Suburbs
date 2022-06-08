@@ -2495,10 +2495,40 @@ cmdForm.onsubmit = function () {
               addLine("<i>The Council of Hosts put up a small fight, but it is fairly easy to take the City as your own.</i>");
               locationTypes.push("city");
               savedLocations.push(frequency);
+              calcMode = 3;
             }
 
             else {
               addLine("<i>The Council of Hosts transport you out of the city.</i>");
+              calcMode = 3;
+            }
+          }, 10);
+          break;
+        case 11: 
+          setTimeout(function () {
+            if (wp > 74) {
+              addLine("<i>Although the Imperial Overseer's might was great, yours proved to be much greater. The Settlement is now yours.</i>");
+              locationTypes.push("set");
+              savedLocations.push(frequency);
+              calcMode = 3;
+            }
+
+            else {
+              addLine("<i>The Imperial Overseer kicks you out of the Settlement.</i>");
+              calcMode = 3;
+            }
+          }, 10);
+        case 12:
+          setTimeout(function () {
+            if (wp > 34) {
+              addLine("<i>The Mayor gives you the keys to his house, the Warehouse, and his fridge.</i>");
+              locationTypes.push("ware");
+              savedLocations.push(frequency);
+              calcMode = 3;
+            }
+
+            else {
+              addLine("<i>The Mayor calls his security guards to throw you out of the Warehouse.</i>"); 
               calcMode = 3;
             }
           }, 10);
