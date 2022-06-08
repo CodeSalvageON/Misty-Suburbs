@@ -2427,6 +2427,7 @@ cmdForm.onsubmit = function () {
             wp += 1;
           }
         }, 10);
+        hasEaten = true;
       }
     }
 
