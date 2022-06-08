@@ -590,7 +590,60 @@ cmdForm.onsubmit = function () {
         isEnt = false;
         isTherePeople = false;
         specialEncounter = false;
-        randomEncounter();
+
+        if (String(savedLocations).includes("," + String(frequency) + ",")) {
+          let locationNum = 0;
+
+          for (i = 0; i < savedLocations.length; i++) {
+            if (savedLocations[i] === frequency) {
+              locationNum = i;
+            }
+          }
+
+          if (locationTypes[locationNum] === "tent") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "hut") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "stronghold") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "town") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "office") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "condo") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "city") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "arena") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "set") {
+            
+          }
+
+          else if (locationTypes[locationNum] === "ware") {
+            
+          }
+        }
+
+        else {
+          randomEncounter();
+        }
       }, 10);
     }
 
