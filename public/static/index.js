@@ -807,6 +807,26 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten.substring(0, 5) === "craft") {
+      let isInHouse = 0;
+      for (i = 0; i < savedLocations.length; i++) {
+        if (savedLocations[i] === frequency) {
+          isInHouse = 1;
+        }
+
+        else {
+          // Do nothing;
+        }
+      }
+
+      switch (isInHouse) {
+        case 0: 
+          setTimeout(function () {
+            addLine("You need to be in a settlement you own to craft.");
+          }, 10);
+          return false;
+          break;
+      }
+      
       if (manhatten.substring(6) === "icepick") {
         if (String(stor).includes("metal")) {
           let metalAmount = 0;
@@ -824,7 +844,7 @@ cmdForm.onsubmit = function () {
           }
 
           else {
-            for (i = 0; i < metalAmount; i++) {
+            for (i = 0; i < 2; i++) {
               removeItemOnce("metal");
             }
             stor.push("icepick");
@@ -842,7 +862,74 @@ cmdForm.onsubmit = function () {
       }
 
       else if (manhatten.substring(6) === "rifle") {
-        
+        if (String(stor).includes("metal") && String(stor).includes("firewood") && String(stor).includes("icepick") && String(stor).includes("lighter")) {
+          let metalAmount = 0;
+          let firewoodAmount = 0;
+          let icepickAmount = 0;
+          let lighterAmount = 0;
+
+          for (i = 0; i < stor.length; i++) {
+            if (stor[i] === "metal") {
+              metalAmount += 1;
+            }
+
+            else if (stor[i] === "firewood") {
+              firewoodAmount += 1;
+            }
+
+            else if (stor[i] === "icepick") {
+              icepickAmount += 1;
+            }
+
+            else if (stor[i] === "lighter") {
+              lighterAmount += 1;
+            }
+          }
+
+          if (metalAmount > 2 && firewoodAmount > 2 && icepickAmount > 0 && lighterAmount > 1) {
+            setTimeout(function () {
+              addLine("Built a rifle.");
+            }, 10);
+            stor.push("rifle");
+
+            for (i = 0; i < 3; i++) {
+              removeItemOnce("metal");
+            }
+
+            for (i = 0; i < 3; i++) {
+              removeItemOnce("firewood");
+            }
+
+            for (i = 0; i < 1; i++) {
+              removeItemOnce("icepick");
+            } 
+
+            for (i = 0; i < 2; i++) {
+              removeItemOnce("lighter");
+            } 
+          }
+
+          else {
+            setTimeout(function () {
+              addLine("You are missing some required materials:");
+              addLine("Metals: " + metalAmount + "/3");
+              addLine("Firewood: " + firewoodAmount + "/3");
+              addLine("Icepicks: " + icepickAmount + "/1");
+              addLine("Lighters: " + lighterAmount + "/2");
+            }, 10);
+          }
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("You do not have one or more of the following items...");
+            addLine("metal");
+            addLine("firewood");
+            addLine("icepick");
+            addLine("lighter");
+            addLine("Your items: " + String(stor));
+          }, 10);
+        }
       }
     }
 
