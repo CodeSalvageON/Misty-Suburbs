@@ -94,6 +94,7 @@ let isAlreadyLooted = false;
 let hasEaten = false;
 let isOnline = true;
 let savedLocations = [];
+let locationTypes = [];
 
 function takeDamage () {
   cmd.style.backgroundColor = "red"
@@ -800,6 +801,7 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             addLine("Built a tent at frequency " + frequency + ".");
             savedLocations.push(frequency);
+            locationTypes.push("tent");
             addLine("You can now CRAFT.");
           }, 10);
         }
@@ -2466,6 +2468,26 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("You can't use that command here.");
       }, 10);
+    }
+  }
+
+  else if (calcMode === 18) {
+    if (manhatten === "1") {
+      switch (encounterType) {
+        case 9: 
+          setTimeout(function () {
+            if (wp > 64) {
+              addLine("All right then, the place is yours...");
+              savedLocations.push(frequency);
+              locationTypes.push("arena");
+            }
+
+            else {
+              
+            }
+          }, 10);
+          break;
+      }
     }
   }
   
