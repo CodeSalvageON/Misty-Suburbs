@@ -823,6 +823,8 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             addLine("You need to be in a settlement you own to craft.");
           }, 10);
+          cmdReq.value = "";
+          cmd.scrollTo(0, cmd.scrollHeight);
           return false;
           break;
       }
