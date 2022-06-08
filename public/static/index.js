@@ -2477,13 +2477,29 @@ cmdForm.onsubmit = function () {
         case 9: 
           setTimeout(function () {
             if (wp > 64) {
-              addLine("All right then, the place is yours...");
+              addLine("<i>The Arenamen turn and run, screaming all the while. The Arena is yours.</i>");
               savedLocations.push(frequency);
               locationTypes.push("arena");
             }
 
             else {
-              
+              buildNum = 3;
+              addLine("Nah..you know what, beat it!");
+              calcMode = 3;
+            }
+          }, 10);
+          break;
+        case 10: 
+          setTimeout(function () {
+            if (wp > 69) {
+              addLine("<i>The Council of Hosts put up a small fight, but it is fairly easy to take the City as your own.</i>");
+              locationTypes.push("city");
+              savedLocations.push(frequency);
+            }
+
+            else {
+              addLine("<i>The Council of Hosts transport you out of the city.</i>");
+              calcMode = 3;
             }
           }, 10);
           break;
