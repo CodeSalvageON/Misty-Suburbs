@@ -541,6 +541,9 @@ cmdForm.onsubmit = function () {
         addLine("settle - Set a residence in an already-existing structure");
         addLine("use - Use an item you have in storage");
         addLine("craft - Craft an item or vehicle using items in storage (When at a place you own)");
+        addLine("destroy - Destroy a settlement");
+        addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
+        addLine("faction - Form a faction of your own in a developed Settlement");
         addLine("save - Save your state");
       }, 10);
     }
@@ -910,6 +913,44 @@ cmdForm.onsubmit = function () {
             locationTypes.push("tent");
             addLine("You can now CRAFT.");
           }, 10);
+        }
+
+        else if (manhatten.substring(6) === "hut") {
+          if (wp < 15) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to build the hut.");
+            }, 10);
+          }
+
+          else {
+            wp -= 15;
+
+            setTimeout(function () {
+              addLine("Built a hut at frequency " + frequency + ".");
+              savedLocations.push(frequency);
+              locationTypes.push("hut");
+              addLine("You can now CRAFT.");
+            }, 10);
+          }
+        }
+
+        else if (manhatten.substring(7) === "stronghold") {
+          if (wp < 20) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to build the stronghold.");
+            }, 10);
+          }
+
+          else {
+            wp -= 20;
+
+            setTimeout(function () {
+              addLine("Built a stronghold at frequency " + frequency + ".");
+              savedLocations.push(frequency);
+              locationTypes.push("stronghold");
+              addLine("You can now CRAFT.");
+            }, 10);
+          }
         }
       }
     }
