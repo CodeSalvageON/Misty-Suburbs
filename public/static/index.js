@@ -656,7 +656,60 @@ cmdForm.onsubmit = function () {
         isEnt = false;
         isTherePeople = false;
         specialEncounter = false;
-        randomEncounter();
+
+        if (String(savedLocations).includes("," + String(frequency) + ",") || savedLocations[savedLocations.length - 1] === frequency) {
+          let locationNum = 0;
+
+          for (i = 0; i < savedLocations.length; i++) {
+            if (savedLocations[i] === frequency) {
+              locationNum = i;
+            }
+          }
+
+          if (locationTypes[locationNum] === "tent") {
+            addLine("You are at a tent. You can now CRAFT or DESTROY.");
+          }
+
+          else if (locationTypes[locationNum] === "hut") {
+            addLine("You are at a hut. You can now CRAFT or DESTROY.");
+          }
+
+          else if (locationTypes[locationNum] === "stronghold") {
+            addLine("You are at a stronghold. You can now CRAFT or DESTROY.");
+          }
+
+          else if (locationTypes[locationNum] === "town") {
+            addLine("You are at a town. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "office") {
+            addLine("You are at an office building. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "condo") {
+            addLine("You are at a condo building. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "city") {
+            addLine("You are at a City. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "arena") {
+            addLine("You are at an Arena. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "set") {
+            addLine("You are at a Settlement. You can now CRAFT or DESTROY, or FACTION.");
+          }
+
+          else if (locationTypes[locationNum] === "ware") {
+            addLine("You are at a Warehouse. You can now CRAFT or DESTROY, or FACTION.");
+          }
+        }
+
+        else {
+          randomEncounter();
+        }
       }, 10);
     }
 
