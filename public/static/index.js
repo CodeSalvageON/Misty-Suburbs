@@ -95,6 +95,7 @@ let hasEaten = false;
 let isOnline = true;
 let savedLocations = [];
 let locationTypes = [];
+let itemSaved = [];
 
 function takeDamage () {
   cmd.style.backgroundColor = "red"
@@ -542,6 +543,7 @@ cmdForm.onsubmit = function () {
         addLine("craft - Craft an item or vehicle using items in storage (When at a place you own)");
         addLine("destroy - Destroy a settlement");
         addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
+        addLine("safe - Store items at a settlement");
         addLine("save - Save your state");
       }, 10);
     }
@@ -909,6 +911,7 @@ cmdForm.onsubmit = function () {
             addLine("Built a tent at frequency " + frequency + ".");
             savedLocations.push(frequency);
             locationTypes.push("tent");
+            itemSaved.push("");
             addLine("You can now CRAFT.");
           }, 10);
         }
@@ -927,6 +930,7 @@ cmdForm.onsubmit = function () {
               addLine("Built a hut at frequency " + frequency + ".");
               savedLocations.push(frequency);
               locationTypes.push("hut");
+              itemSaved.push("");
               addLine("You can now CRAFT.");
             }, 10);
           }
@@ -946,6 +950,7 @@ cmdForm.onsubmit = function () {
               addLine("Built a stronghold at frequency " + frequency + ".");
               savedLocations.push(frequency);
               locationTypes.push("stronghold");
+              itemSaved.push("");
               addLine("You can now CRAFT.");
             }, 10);
           }
@@ -2625,6 +2630,7 @@ cmdForm.onsubmit = function () {
               addLine("<i>The Arenamen turn and run, screaming all the while. The Arena is yours.</i>");
               savedLocations.push(frequency);
               locationTypes.push("arena");
+              itemSaved.push("");
             }
 
             else {
@@ -2640,6 +2646,7 @@ cmdForm.onsubmit = function () {
               addLine("<i>The Council of Hosts put up a small fight, but it is fairly easy to take the City as your own.</i>");
               locationTypes.push("city");
               savedLocations.push(frequency);
+              itemSaved.push("");
               calcMode = 3;
             }
 
@@ -2655,6 +2662,7 @@ cmdForm.onsubmit = function () {
               addLine("<i>Although the Imperial Overseer's might was great, yours proved to be much greater. The Settlement is now yours.</i>");
               locationTypes.push("set");
               savedLocations.push(frequency);
+              itemSaved.push("");
               calcMode = 3;
             }
 
@@ -2669,6 +2677,7 @@ cmdForm.onsubmit = function () {
               addLine("<i>The Mayor gives you the keys to his house, the Warehouse, and his fridge.</i>");
               locationTypes.push("ware");
               savedLocations.push(frequency);
+              itemSaved.push("");
               calcMode = 3;
             }
 
