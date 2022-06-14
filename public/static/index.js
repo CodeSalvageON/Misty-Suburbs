@@ -958,6 +958,29 @@ cmdForm.onsubmit = function () {
       }
     }
 
+    else if (manhatten.substring(0, 3) === "use") {
+      if (manhatten.substring(4) === "beans") {
+        wp += 2;
+        setTimeout(function () {
+          addLine("You eat the beans, and you feel stronger.");
+        }, 10);
+      }
+
+      else if (manhatten.substring(4) === "powder") {
+        wp += 11;
+        setTimeout(function () {
+          addLine("You feel good...You feel BERZERK!");
+          takeDamage();
+        }, 10);
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("You can't use that item here.");
+        }, 10);
+      }
+    }
+
     else if (manhatten.substring(0, 5) === "craft") {
       let isInHouse = 0;
       for (i = 0; i < savedLocations.length; i++) {
@@ -1085,6 +1108,10 @@ cmdForm.onsubmit = function () {
           }, 10);
         }
       }
+    }
+
+    else if (manhatten === "destroy") {
+      
     }
 
     else {
