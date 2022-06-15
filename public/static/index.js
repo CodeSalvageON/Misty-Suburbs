@@ -1142,8 +1142,9 @@ cmdForm.onsubmit = function () {
       }
 
       function defactoNewOrder () {
+        let slaveGuardMult = slaveGuard * 5;
         if (defaultSlaveNum === true) {
-          soGladAlmostDone = soGladAlmostDone * slaveGuard;
+          soGladAlmostDone = soGladAlmostDone + slaveGuardMult;
         }
 
         else {
