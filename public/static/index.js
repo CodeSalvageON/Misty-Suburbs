@@ -1187,6 +1187,50 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten.substring(0, 5) === "guard") {
       let parseSlave = parseInt(manhatten.substring(6));
+
+      if (parseSlave - parseSlave === 0) {
+        if (slaves < parseSlave) {
+          setTimeout(function () {
+            addLine("You don't have enough slaves.");
+          }, 10);
+        }
+
+        else {
+          let falloutNewVegasRocks = false;
+          let doomFuckingRocks = 0;
+          
+          for (i = 0; i < savedLocations.length; i++) {
+            if (savedLocations[i] === frequency) {
+              falloutNewVegasRocks = true;
+              doomFuckingRocks += 1;
+            }
+          }
+
+          if (falloutNewVegasRocks === true) {
+            if (locationTypes[doomFuckingRocks] === "ruins") {
+              setTimeout(function () {
+                addLine("You can't assign slave guards to ruins.");
+              }, 10);
+            }
+
+            else {
+              slaveGuardLoc.push(String(frequency) + "-" + String(parseSlave));
+            }
+          }
+
+          else {
+            setTimeout(function () {
+              addLine("There's nothing here to assign slave guards to.");
+            }, 10);
+          }
+        }
+      }
+
+      else {
+        setTimeout(function () {
+          addLine("Hey man, when in Rome.");
+        }, 10);
+      }
     }
 
     else {
