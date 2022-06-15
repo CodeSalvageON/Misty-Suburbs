@@ -1117,6 +1117,7 @@ cmdForm.onsubmit = function () {
       let iNum = 0;
       let defaultSlaveNum = false;
       let slaveGuard = 0;
+      let soGladAlmostDone = 0;
 
       for (i = 0; i < savedLocations.length; i++) {
         if (savedLocations[i] === frequency) {
@@ -1125,17 +1126,45 @@ cmdForm.onsubmit = function () {
         }
       }
 
+      for (i = 0; i < slaveGuardLoc.length; i++) {
+        let slaveArray = slavedGuardLoc[i].split("-");
+        let slaveFrequency = slaveArray[0];
+        let slaveFinalNum = slaveArray[1];
+
+        if (slaveFrequency === String(frequency)) {
+          defaultSlaveNum = true;
+          slaveGuard = parseInt(slaveFinalNum);
+        }
+
+        else {
+          // Do nothing?
+        }
+      }
+
+      function defactoNewOrder () {
+        if (defaultSlaveNum === true) {
+          soGladAlmostDone = soGladAlmostDone * slaveGuard;
+        }
+
+        else {
+          // Do nothing lol
+        }
+      }
+
       if (isHereInBuild === true) {
         if (locationTypes[iNum] === "tent") {
-          if (wp < 5) {
+          soGladAlmostDone = 5;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
             setTimeout(function () {
               addLine("You don't have enough Willpower to destroy the tent.");
-              addLine("Willpower: " + wp + "/5");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
             }, 10);
           }
 
           else {
-            wp -= 5;
+            wp -= soGladAlmostDone;
             locationTypes[iNum] = "ruins";
             setTimeout(function () {
               addLine("You destroy the tent.");
@@ -1144,15 +1173,18 @@ cmdForm.onsubmit = function () {
         }
 
         else if (locationTypes[iNum] === "hut") {
-          if (wp < 7) {
+          soGladAlmostDone = 7;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
             setTimeout(function () {
               addLine("You don't have enough Willpower to destroy the hut.");
-              addLine("Willpower: " + wp + "/7");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
             }, 10);
           }
 
           else {
-            wp -= 7;
+            wp -= soGladAlmostDone;
             locationTypes[iNum] = "ruins";
             setTimeout(function () {
               addLine("You destroy the hut.");
@@ -1161,15 +1193,18 @@ cmdForm.onsubmit = function () {
         }
 
         else if (locationTypes[iNum] === "stronghold") {
-          if (wp < 10) {
+          soGladAlmostDone = 10;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
             setTimeout(function () {
               addLine("You don't have enough Willpower to destroy the stronghold.");
-              addLine("Willpower " + wp + "/10");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
             }, 10);
           }
 
           else {
-            wp -= 10;
+            wp -= soGladAlmostDone;
             locationTypes[iNum] = "ruins";
             setTimeout(function () {
               addLine("You destroy the stronghold.");
