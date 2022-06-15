@@ -964,7 +964,8 @@ cmdForm.onsubmit = function () {
       if (manhatten.substring(4) === "beans") {
         wp += 2;
         setTimeout(function () {
-          addLine("You eat the beans, and you feel stronger.");
+          addLine("You eat the beans, and you feel stronger."); 
+          removeItemOnce("beans");
         }, 10);
       }
 
@@ -972,6 +973,7 @@ cmdForm.onsubmit = function () {
         wp += 11;
         setTimeout(function () {
           addLine("You feel good...You feel BERZERK!");
+          removeItemOnce("powder");
           takeDamage();
         }, 10);
       }
