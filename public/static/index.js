@@ -1122,8 +1122,21 @@ cmdForm.onsubmit = function () {
       }
 
       if (isHereInBuild === true) {
-        if (locationTypes[iNum] === "") {
-          
+        if (locationTypes[iNum] === "tent") {
+          if (wp < 5) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the tent.");
+              addLine("Willpower: " + wp + "/5");
+            }, 10);
+          }
+
+          else {
+            wp -= 5;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the tent.");
+            }, 10);
+          }
         }
       }
         
