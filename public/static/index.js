@@ -1111,7 +1111,25 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "destroy") {
-      
+      let isHereInBuild = false;
+      let iNum = 0;
+
+      for (i = 0; i < savedLocations.length; i++) {
+        if (savedLocations[i] === frequency) {
+          isHereInBuild = true;  
+          iNum += 1;
+        }
+      }
+
+      if (isHereInBuild === true) {
+        if (locationTypes[iNum] === "") {
+          
+        }
+      }
+        
+      else {
+        
+      }
     }
 
     else {
