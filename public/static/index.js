@@ -1155,6 +1155,23 @@ cmdForm.onsubmit = function () {
             }, 10);
           }
         }
+
+        else if (locationTypes[iNum] === "stronghold") {
+          if (wp < 10) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the stronghold.");
+              addLine("Willpower " + wp + "/10");
+            }, 10);
+          }
+
+          else {
+            wp -= 10;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the stronghold.");
+            }, 10);
+          }
+        }
       }
         
       else {
