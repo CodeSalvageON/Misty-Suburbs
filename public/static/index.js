@@ -96,6 +96,7 @@ let isOnline = true;
 let savedLocations = [];
 let locationTypes = [];
 let itemSaved = [];
+let slaveGuardLoc = [];
 
 function takeDamage () {
   cmd.style.backgroundColor = "red"
@@ -544,6 +545,7 @@ cmdForm.onsubmit = function () {
         addLine("destroy - Destroy a settlement");
         addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
         addLine("safe - Store items at a settlement");
+        addLine("take - Take items from a settlement");
         addLine("save - Save your state");
       }, 10);
     }
@@ -1113,6 +1115,8 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "destroy") {
       let isHereInBuild = false;
       let iNum = 0;
+      let defaultSlaveNum = false;
+      let slaveGuard = 0;
 
       for (i = 0; i < savedLocations.length; i++) {
         if (savedLocations[i] === frequency) {
@@ -1175,8 +1179,14 @@ cmdForm.onsubmit = function () {
       }
         
       else {
-        
+        setTimeout(function () {
+          addLine("There's nothing here to destroy.");
+        }, 10);
       }
+    }
+
+    else if (manhatten.substring(0, 5) === "guard") {
+      let parseSlave = parseInt(manhatten.substring(6));
     }
 
     else {
