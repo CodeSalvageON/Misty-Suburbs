@@ -1138,6 +1138,23 @@ cmdForm.onsubmit = function () {
             }, 10);
           }
         }
+
+        else if (locationTypes[iNum] === "hut") {
+          if (wp < 7) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the hut.");
+              addLine("Willpower: " + wp + "/7");
+            }, 10);
+          }
+
+          else {
+            wp -= 7;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the hut.");
+            }, 10);
+          }
+        }
       }
         
       else {
