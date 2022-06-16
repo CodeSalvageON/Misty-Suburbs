@@ -7,6 +7,7 @@ let cmdForm = document.getElementById("cmd-form");
 const cmdReq = document.getElementById("cmd-req");
 
 function loadScreen () {
+  /*
   if (mistySave === null || mistySave === undefined || mistySave === "") {
     let indianWait = 50;
 
@@ -29,7 +30,11 @@ function loadScreen () {
 
   else {
     
-  }
+  }*/
+
+  indianHead.style.display = "none";
+  staticHead.style.display = "none";
+  cmd.style.display = "block";
 }
 
 setInterval(function () {
