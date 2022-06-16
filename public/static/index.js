@@ -1250,6 +1250,86 @@ cmdForm.onsubmit = function () {
             }, 10);
           }
         }
+
+        else if (locationTypes[iNum] === "ware") {
+          soGladAlmostDone = 15;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the Warehouse.");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
+            }, 10);
+          }
+
+          else {
+            wp -= soGladAlmostDone;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the Warehouse.");
+            }, 10);
+          }
+        }
+
+        else if (locationTypes[iNum] === "city") {
+          soGladAlmostDone = 10;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the City.");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
+            }, 10);
+          }
+
+          else {
+            wp -= soGladAlmostDone;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the City.");
+            }, 10);
+          }
+        }
+
+        else if (locationTypes[iNum] === "set") {
+          soGladAlmostDone = 20;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the Settlement.");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
+            }, 10);
+          }
+
+          else {
+            wp -= soGladAlmostDone;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the Settlement.");
+            }, 10);
+          }
+        }
+
+        else if (locationTypes[iNum] === "arena") {
+          soGladAlmostDone = 10;
+          defactoNewOrder();
+          
+          if (wp < soGladAlmostDone) {
+            setTimeout(function () {
+              addLine("You don't have enough Willpower to destroy the Arena.");
+              addLine("Willpower: " + wp + "/" + String(soGladAlmostDone));
+            }, 10);
+          }
+
+          else {
+            wp -= soGladAlmostDone;
+            locationTypes[iNum] = "ruins";
+            setTimeout(function () {
+              addLine("You destroy the Arena.");
+            }, 10);
+          }
+        }
       }
         
       else {
