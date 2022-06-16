@@ -982,20 +982,36 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten.substring(0, 3) === "use") {
       if (manhatten.substring(4) === "beans") {
-        wp += 2;
-        setTimeout(function () {
-          addLine("You eat the beans, and you feel stronger."); 
+        if (String(stor).includes("beans")) {
           removeItemOnce(stor, manhatten.substring(4));
-        }, 10);
+          wp += 2;
+          setTimeout(function () {
+            addLine("You eat the beans, and you feel stronger."); 
+          }, 10);
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("You don't have any beans.");
+          }, 10);
+        }
       }
 
       else if (manhatten.substring(4) === "powder") {
-        wp += 11;
-        setTimeout(function () {
-          addLine("You feel good...You feel BERZERK!");
-          removeItemOnce(stor, manhatten.substring(4));
-          takeDamage();
-        }, 10);
+        if (String(stor).includes("powder")) {
+          wp += 11;
+          setTimeout(function () {
+            addLine("You feel good...You feel BERZERK!");
+            removeItemOnce(stor, manhatten.substring(4));
+            takeDamage();
+          }, 10);
+        }
+
+        else {
+          setTimeout(function () {
+            addLine("You don't have any powder.");
+          }, 10);
+        }
       }
 
       else {
@@ -1289,6 +1305,10 @@ cmdForm.onsubmit = function () {
           addLine("Hey man, when in Rome.");
         }, 10);
       }
+    }
+
+    else if (manhatten === "safe") {
+      
     }
 
     else {
