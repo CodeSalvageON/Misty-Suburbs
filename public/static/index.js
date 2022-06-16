@@ -965,7 +965,7 @@ cmdForm.onsubmit = function () {
         wp += 2;
         setTimeout(function () {
           addLine("You eat the beans, and you feel stronger."); 
-          removeItemOnce("beans");
+          removeItemOnce(stor, "beans");
         }, 10);
       }
 
@@ -973,7 +973,7 @@ cmdForm.onsubmit = function () {
         wp += 11;
         setTimeout(function () {
           addLine("You feel good...You feel BERZERK!");
-          removeItemOnce("powder");
+          removeItemOnce(stor, "powder");
           takeDamage();
         }, 10);
       }
