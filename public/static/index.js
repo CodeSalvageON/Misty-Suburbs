@@ -904,6 +904,21 @@ cmdForm.onsubmit = function () {
     } 
 
     else if (manhatten.substring(0, 5) === "build") {
+      let isSomethingHere = false;
+      
+      for (i = 0; i < savedLocations.length; i++) {
+        if (savedLocations[i] === frequency) {
+          isSomethingHere = true;
+        }
+      }
+      
+      if (isSomethingHere === true) {
+        setTimeout(function () {
+          addLine("Something is already here.");
+          return false;
+        }, 10);
+      }
+      
       if (wp < 10) {
         setTimeout(function () {
           addLine("You don't have enough Willpower to build anything.");
