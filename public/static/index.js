@@ -2402,6 +2402,35 @@ cmdForm.onsubmit = function () {
       balSell(50, "nanobot");
     }
 
+    else if (manhatten === "leave") {
+      switch (encounterType) {
+        case 9:
+          setTimeout(function () {
+            addLine("You have finished selling.");
+          }, 10);
+          calcMode = 6;
+          break;
+        case 10:
+          setTimeout(function () {
+            addLine("You have finished selling.");
+          }, 10);
+          calcMode = 8;
+          break;
+        case 11:
+          setTimeout(function () {
+            addLine("You have finished selling.");
+          }, 10);
+          calcMode = 9;
+          break;
+        case 12:
+          setTimeout(function () {
+            addLine("You have finished selling.");
+          }, 10);
+          calcMode = 10;
+          break;
+      }
+    }
+
     else {
       setTimeout(function () {
         addLine("That item doesn't exist yet for you to sell.");
