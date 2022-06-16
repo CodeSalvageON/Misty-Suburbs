@@ -1781,6 +1781,7 @@ cmdForm.onsubmit = function () {
 
         else {
           addLine("Come right on in...");
+          calcMode = 18;
         }
       }, 10);
     }
@@ -1861,6 +1862,7 @@ cmdForm.onsubmit = function () {
 
         else {
           addLine("Come right on in...");
+          calcMode = 18;
         }
       }, 10);
     }
@@ -1931,6 +1933,7 @@ cmdForm.onsubmit = function () {
 
         else {
           addLine("Come right on in...");
+          calcMode = 18;
         }
       }, 10);
     }
@@ -2000,7 +2003,7 @@ cmdForm.onsubmit = function () {
 
         else {
           addLine("Come right on in...");
-
+          calcMode = 18;
           
         }
       }, 10);
