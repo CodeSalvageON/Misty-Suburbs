@@ -1208,6 +1208,7 @@ cmdForm.onsubmit = function () {
 
       if (isHereInBuild === true) {
         console.log("DESTROY COMMAND ALLOWED HERE");
+        console.log(locationTypes[iNum]);
         
         if (locationTypes[iNum] === "tent") {
           soGladAlmostDone = 5;
