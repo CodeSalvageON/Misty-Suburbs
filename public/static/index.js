@@ -1176,7 +1176,7 @@ cmdForm.onsubmit = function () {
       for (i = 0; i < savedLocations.length; i++) {
         if (savedLocations[i] === frequency) {
           isHereInBuild = true;  
-          iNum += 1;
+          iNum = i;
         }
       }
 
