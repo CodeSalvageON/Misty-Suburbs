@@ -981,6 +981,14 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten.substring(0, 3) === "use") {
+      function removeItemOnce (arr, value) {
+        let index = arr.indexOf(value);
+        if (index > -1) {
+          arr.splice(index, 1);
+        }
+        return arr;
+      }
+      
       if (manhatten.substring(4) === "beans") {
         if (String(stor).includes("beans")) {
           removeItemOnce(stor, manhatten.substring(4));
