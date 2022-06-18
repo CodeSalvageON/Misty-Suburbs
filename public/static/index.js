@@ -1030,6 +1030,14 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten.substring(0, 5) === "craft") {
+      function removeItemOnce (arr, value) {
+        let index = arr.indexOf(value);
+        if (index > -1) {
+          arr.splice(index, 1);
+        }
+        return arr;
+      }
+      
       let isInHouse = 0;
       for (i = 0; i < savedLocations.length; i++) {
         if (savedLocations[i] === frequency) {
@@ -1199,6 +1207,8 @@ cmdForm.onsubmit = function () {
       }
 
       if (isHereInBuild === true) {
+        console.log("DESTROY COMMAND ALLOWED HERE");
+        
         if (locationTypes[iNum] === "tent") {
           soGladAlmostDone = 5;
           defactoNewOrder();
