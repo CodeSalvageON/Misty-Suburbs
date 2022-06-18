@@ -1388,6 +1388,7 @@ cmdForm.onsubmit = function () {
 
             else {
               slaveGuardLoc.push(String(frequency) + "-" + String(parseSlave));
+              slaves -= parseSlave;
             }
           }
 

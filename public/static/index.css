@@ -182,6 +182,10 @@ input:focus, textarea:focus, select:focus {
   animation: textShadow 1.6s infinite;
 }
 
+.line {
+  width: 500px;
+}
+
 #viewport {
   top: 0px;
   left: 0px;
