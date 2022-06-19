@@ -71,9 +71,9 @@ function makeRand (length) {
   return result;
 }
 
-addLine("Type LOAD to load a previous state.");
-addLine("Type NEW to create a new state.");
-let calcMode = 0;
+addLine("Type 1 to go Online.");
+addLine("Type 2 to remain alone.");
+let calcMode = -1;
 let stor = []; 
 let wp = 24;
 let isNew = true;
@@ -498,6 +498,47 @@ cmdForm.onsubmit = function () {
     else {
       setTimeout(function () {
         addLine("Unknown command.");
+      }, 10);
+    }
+  }
+
+  else if (calcMode === -1) {
+    if (manhatten === "1") {
+      setTimeout(function () {
+        addLine("Going online.");
+
+        if (navigator.onLine === false) {
+          setTimeout(function () {
+            addLine("Cannot connect to the World Wide Web.");
+          }, 10);
+        }
+
+        else {
+          isOnline = true;
+          setTimeout(function () {
+            addLine("Create a NEW state or LOAD a previous one.");
+            addLine("(Options: NEW, LOAD)");
+            calcMode = 0;
+          }, 10);
+        }
+      }, 10);
+    }
+
+    else if (manhatten === "2") {
+      setTimeout(function () {
+        addLine("You head into the abyss, alone.");
+        setTimeout(function () {
+          addLine("Create a NEW state or LOAD a previous one.");
+          addLine("(Options: NEW, LOAD)");
+          calcMode = 0;
+          isOnline = false;
+        }, 10);
+      }, 10);
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("Unknown number.");
       }, 10);
     }
   }
@@ -1406,7 +1447,13 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "save") {
-      let encryptedSave = JSON.stringify(stor) + "," + wp + "," + savedLocations + "," + locationTypes + ",";
+      let encryptedSave = JSON.stringify(stor) + "," + wp + "," + savedLocations + "," + locationTypes + "," + frequency + "," + imperialRep + "," + acadRep + "," + arenaRep + "," + slavedGuardLoc + "," + set_user + "," + isOnline;
+      let endSave = btoa(encryptedSave);
+
+      setTimeout(function () {
+        addLine("Your save code is below. Keep it safe.");
+        addLine(endSave);
+      }, 10);
     }
 
     else {
