@@ -549,8 +549,6 @@ cmdForm.onsubmit = function () {
         addLine("craft - Craft an item or vehicle using items in storage (When at a place you own)");
         addLine("destroy - Destroy a settlement");
         addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
-        addLine("safe - Store items at a settlement");
-        addLine("take - Take items from a settlement");
         addLine("save - Save your state");
       }, 10);
     }
@@ -958,7 +956,7 @@ cmdForm.onsubmit = function () {
           }
         }
 
-        else if (manhatten.substring(7) === "stronghold") {
+        else if (manhatten.substring(6) === "stronghold") {
           if (wp < 20) {
             setTimeout(function () {
               addLine("You don't have enough Willpower to build the stronghold.");
@@ -1407,8 +1405,8 @@ cmdForm.onsubmit = function () {
       }
     }
 
-    else if (manhatten === "safe") {
-      
+    else if (manhatten === "save") {
+      let encryptedSave = JSON.stringify(stor) + "," + wp + "," + savedLocations + "," + locationTypes + ",";
     }
 
     else {
