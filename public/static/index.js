@@ -544,7 +544,36 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 1) {
-    
+    let modeSplit = manhatten.split(";-");
+
+    if (modeSplit.length === 11) {
+      stor = JSON.parse(modeSplit[0]);
+      wp = parseInt(modeSplit[1]);
+      savedLocations = JSON.parse(modeSplit[2]);
+      locationTypes = JSON.parse(modeSplit[3]);
+      frequency = parseInt(modeSplit[4]);
+      imperialRep = parseInt(modeSplit[5]);
+      acadRep = parseInt(modeSplit[6]);
+      arenaRep = parseInt(modeSplit[7]);
+      slaveGuardLoc = JSON.parse(modeSplit[8]);
+      set_user = modeSplit[9];
+
+      if (modeSplit[10] === "true") {
+        isOnline = true;
+      }
+
+      else {
+        isOnline = false; 
+      }
+
+      calcMode = 2;
+    }
+
+    else {
+      setTimeout(function () {
+        addLine("Not a valid save code.");
+      }, 10);
+    }
   }
 
   else if (calcMode === 2) {
@@ -1447,7 +1476,7 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "save") {
-      let encryptedSave = JSON.stringify(stor) + "," + wp + "," + savedLocations + "," + locationTypes + "," + frequency + "," + imperialRep + "," + acadRep + "," + arenaRep + "," + slavedGuardLoc + "," + set_user + "," + isOnline;
+      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + savedLocations + ";-" + locationTypes + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + slavedGuardLoc + ";-" + set_user + "," + isOnline;
       let endSave = btoa(encryptedSave);
 
       setTimeout(function () {
