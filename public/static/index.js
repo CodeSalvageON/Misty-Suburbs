@@ -474,8 +474,7 @@ cmdForm.onsubmit = function () {
             lines.innerHTML = "";
             addLine("Choose an interface.");
             addLine("1. Command Line Priority");
-            addLine("2. Auto-map Priority");
-            addLine("3. Stored-image Priority");
+            addLine("2. Graphics Priority (RECOMMENDED)");
             addLine("Please enter a number below.");
 
             calcMode = 2;
@@ -565,6 +564,12 @@ cmdForm.onsubmit = function () {
       else {
         isOnline = false; 
       }
+
+      lines.innerHTML = "";
+      addLine("Choose an interface.");
+      addLine("1. Command Line Priority");
+      addLine("2. Graphics Priority (RECOMMENDED)");
+      addLine("Please enter a number below.");
 
       calcMode = 2;
     }
