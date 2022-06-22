@@ -454,6 +454,7 @@ cmdForm.onsubmit = function () {
   event.preventDefault();
   indianHead.style.display = "none";
   let manhatten = cmdReq.value.toLowerCase();
+  let chicago = cmdReq.value;
 
   if (calcMode === 0) {
     if (manhatten === "new") {
@@ -543,7 +544,9 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 1) {
-    let modeSplit = atob(manhatten.replace(" ", "")).split(";-");
+    let modeSplit = atob(chicago.replace(" ", "")).split(";-");
+    console.log(modeSplit);
+    console.log(modeSplit.length);
 
     if (modeSplit.length === 11) {
       stor = JSON.parse(modeSplit[0]);
