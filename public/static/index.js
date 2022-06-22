@@ -1485,7 +1485,7 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "save") {
-      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + savedLocations + ";-" + locationTypes + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + slaveGuardLoc + ";-" + set_user + ";-" + isOnline;
+      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + JSON.stringify(savedLocations) + ";-" + JSON.stringify(locationTypes) + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + JSON.stringify(slaveGuardLoc) + ";-" + set_user + ";-" + isOnline;
       let endSave = btoa(encryptedSave);
 
       setTimeout(function () {
@@ -3159,6 +3159,28 @@ setInterval(function () {
     console.log(error);
   })
 }, 500);
+
+setInterval(function () {
+  if (isOnline === false) {
+    // Do absolutely nothing.
+  }
+
+  else {
+    fetch ("/getarr")
+    .then(response => response.text())
+    .then(data => {
+      let datSplit = data.split("-;");
+      let arr1 = JSON.parse(datSplit[0]);
+      let arr2 = JSON.parse(datSplit[1]);
+
+      savedLocations = arr1;
+      locationTypes = arr2;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+}, 50);
 
 setTimeout(function () {
   loadScreen();
