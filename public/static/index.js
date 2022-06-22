@@ -1482,7 +1482,7 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "save") {
-      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + savedLocations + ";-" + locationTypes + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + slaveGuardLoc + ";-" + set_user + "," + isOnline;
+      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + savedLocations + ";-" + locationTypes + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + slaveGuardLoc + ";-" + set_user + ";-" + isOnline;
       let endSave = btoa(encryptedSave);
 
       setTimeout(function () {
