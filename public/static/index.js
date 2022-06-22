@@ -543,7 +543,7 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 1) {
-    let modeSplit = atob(manhatten).split(";-");
+    let modeSplit = atob(manhatten.replace(" ", "")).split(";-");
 
     if (modeSplit.length === 11) {
       stor = JSON.parse(modeSplit[0]);
