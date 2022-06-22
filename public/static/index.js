@@ -543,7 +543,7 @@ cmdForm.onsubmit = function () {
   }
 
   else if (calcMode === 1) {
-    let modeSplit = manhatten.split(";-");
+    let modeSplit = atob(manhatten).split(";-");
 
     if (modeSplit.length === 11) {
       stor = JSON.parse(modeSplit[0]);
@@ -577,6 +577,7 @@ cmdForm.onsubmit = function () {
     else {
       setTimeout(function () {
         addLine("Not a valid save code.");
+        calcMode = 0;
       }, 10);
     }
   }
