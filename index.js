@@ -41,6 +41,16 @@ app.post('/dicit', function (req, res) {
   res.send("success");
 });
 
+app.get('/getarr', function (req, res) {
+  fileSys.readFile("values.txt", "utf8", function (data) {
+    res.send(data);
+  });
+});
+
+app.post('/getarr', function (req, res) {
+  
+});
+
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
