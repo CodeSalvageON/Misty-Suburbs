@@ -3067,8 +3067,45 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             if (wp > 64) {
               addLine("<i>The Arenamen turn and run, screaming all the while. The Arena is yours.</i>");
-              savedLocations.push(frequency);
-              locationTypes.push("arena");
+              addLine("Arena Reputation decreased.");
+              if (isOnline === true) {
+                fetch ("/getarr")
+                .then(response => response.text())
+                .then(data => {
+                  let datSplit = data.split("-;");
+                  let arr1 = JSON.parse(datSplit[0]);
+                  let arr2 = JSON.parse(datSplit[1]);
+
+                  arr1.push(frequency);
+                  arr2.push("arena");
+
+                  fetch ("/getarr", {
+                    method : "POST",
+                    headers : {
+                      "Content-Type" : "application/json"
+                    }, 
+                    body : JSON.stringify({
+                      ax : arr1, 
+                      ay : arr2
+                    })
+                  })
+                  .then(response => response.text())
+                  .then(data => {
+                    console.log(data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              }
+
+              else {
+                locationTypes.push("arena");
+                savedLocations.push(frequency);
+              }
               itemSaved.push("");
             }
 
@@ -3083,8 +3120,44 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             if (wp > 69) {
               addLine("<i>The Council of Hosts put up a small fight, but it is fairly easy to take the City as your own.</i>");
-              locationTypes.push("city");
-              savedLocations.push(frequency);
+              if (isOnline === true) {
+                fetch ("/getarr")
+                .then(response => response.text())
+                .then(data => {
+                  let datSplit = data.split("-;");
+                  let arr1 = JSON.parse(datSplit[0]);
+                  let arr2 = JSON.parse(datSplit[1]);
+
+                  arr1.push(frequency);
+                  arr2.push("city");
+
+                  fetch ("/getarr", {
+                    method : "POST",
+                    headers : {
+                      "Content-Type" : "application/json"
+                    }, 
+                    body : JSON.stringify({
+                      ax : arr1, 
+                      ay : arr2
+                    })
+                  })
+                  .then(response => response.text())
+                  .then(data => {
+                    console.log(data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              }
+
+              else {
+                locationTypes.push("city");
+                savedLocations.push(frequency);
+              }
               itemSaved.push("");
               calcMode = 3;
             }
@@ -3099,8 +3172,44 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             if (wp > 74) {
               addLine("<i>Although the Imperial Overseer's might was great, yours proved to be much greater. The Settlement is now yours.</i>");
-              locationTypes.push("set");
-              savedLocations.push(frequency);
+              if (isOnline === true) {
+                fetch ("/getarr")
+                .then(response => response.text())
+                .then(data => {
+                  let datSplit = data.split("-;");
+                  let arr1 = JSON.parse(datSplit[0]);
+                  let arr2 = JSON.parse(datSplit[1]);
+
+                  arr1.push(frequency);
+                  arr2.push("set");
+
+                  fetch ("/getarr", {
+                    method : "POST",
+                    headers : {
+                      "Content-Type" : "application/json"
+                    }, 
+                    body : JSON.stringify({
+                      ax : arr1, 
+                      ay : arr2
+                    })
+                  })
+                  .then(response => response.text())
+                  .then(data => {
+                    console.log(data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              }
+
+              else {
+                locationTypes.push("set");
+                savedLocations.push(frequency);
+              }
               itemSaved.push("");
               calcMode = 3;
             }
@@ -3114,8 +3223,44 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             if (wp > 34) {
               addLine("<i>The Mayor gives you the keys to his house, the Warehouse, and his fridge.</i>");
-              locationTypes.push("ware");
-              savedLocations.push(frequency);
+              if (isOnline === true) {
+                fetch ("/getarr")
+                .then(response => response.text())
+                .then(data => {
+                  let datSplit = data.split("-;");
+                  let arr1 = JSON.parse(datSplit[0]);
+                  let arr2 = JSON.parse(datSplit[1]);
+
+                  arr1.push(frequency);
+                  arr2.push("ware");
+
+                  fetch ("/getarr", {
+                    method : "POST",
+                    headers : {
+                      "Content-Type" : "application/json"
+                    }, 
+                    body : JSON.stringify({
+                      ax : arr1, 
+                      ay : arr2
+                    })
+                  })
+                  .then(response => response.text())
+                  .then(data => {
+                    console.log(data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              }
+
+              else {
+                locationTypes.push("ware");
+                savedLocations.push(frequency);
+              }
               itemSaved.push("");
               calcMode = 3;
             }

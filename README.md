@@ -1,4 +1,7 @@
 ## Credits
+<details><summary>Libaries Used</summary>
+  Socket.io
+</details>
 <details>
   <summary>Sound Effects</summary>
 <ul>

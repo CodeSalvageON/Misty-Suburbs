@@ -48,7 +48,22 @@ app.get('/getarr', function (req, res) {
 });
 
 app.post('/getarr', function (req, res) {
-  
+  let ax = req.body.ax;
+  let ay = req.body.ay;
+
+  if (Array.isArray(ax) === true) {
+    if (Array.isArray(ay) === true) {
+      
+    }
+
+    else {
+      res.send("failure");
+    }
+  }
+
+  else {
+    res.send("corrupted");
+  }
 });
 
 http.listen(port, function(){
