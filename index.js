@@ -49,8 +49,8 @@ app.get('/getarr', function (req, res) {
 });
 
 app.post('/getarr', function (req, res) {
-  let ax = req.body.ax;
-  let ay = req.body.ay;
+  let ax = JSON.stringify(req.body.ax);
+  let ay = JSON.stringify(req.body.ay);
 
   if (Array.isArray(ax) === true) {
     if (Array.isArray(ay) === true) {
