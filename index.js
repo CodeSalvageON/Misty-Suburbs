@@ -42,8 +42,9 @@ app.post('/dicit', function (req, res) {
 });
 
 app.get('/getarr', function (req, res) {
-  fileSys.readFile("values.txt", "utf8", function (data) {
+  fileSys.readFile(__dirname + "/values.txt", "utf8", function (err, data) {
     res.send(data);
+    console.log(data);
   });
 });
 
@@ -53,7 +54,15 @@ app.post('/getarr', function (req, res) {
 
   if (Array.isArray(ax) === true) {
     if (Array.isArray(ay) === true) {
-      
+      fileSys.writeFile(__dirname + "/values.txt", ax + "-;" + ay, (err) => {
+        if (err) {
+          console.log(err);
+        }
+
+        else {
+          console.log("updated valyes");
+        }
+      });
     }
 
     else {

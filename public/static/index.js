@@ -97,7 +97,7 @@ let isInCombat = false;
 let slaves = 0;
 let isAlreadyLooted = false;
 let hasEaten = false;
-let isOnline = true;
+let isOnline = false;
 let savedLocations = [];
 let locationTypes = [];
 let itemSaved = [];
@@ -3317,6 +3317,10 @@ setInterval(function () {
       let datSplit = data.split("-;");
       let arr1 = JSON.parse(datSplit[0]);
       let arr2 = JSON.parse(datSplit[1]);
+
+      // console.log("running");
+      // console.log(arr1);
+      // console.log(arr2);
 
       savedLocations = arr1;
       locationTypes = arr2;
