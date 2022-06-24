@@ -52,8 +52,8 @@ app.post('/getarr', function (req, res) {
   let ax = JSON.stringify(req.body.ax);
   let ay = JSON.stringify(req.body.ay);
 
-  if (Array.isArray(ax) === true) {
-    if (Array.isArray(ay) === true) {
+  if (Array.isArray(JSON.parse(ax)) === true) {
+    if (Array.isArray(JSON.parse(ay)) === true) {
       fileSys.writeFile(__dirname + "/values.txt", ax + "-;" + ay, (err) => {
         if (err) {
           console.log(err);
