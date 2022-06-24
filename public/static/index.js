@@ -1065,8 +1065,45 @@ cmdForm.onsubmit = function () {
 
             setTimeout(function () {
               addLine("Built a hut at frequency " + frequency + ".");
+              
+              if (isOnline === true) {
+              fetch ("/getarr")
+              .then(response => response.text())
+              .then(data => {
+                let datSplit = data.split("-;");
+                let arr1 = JSON.parse(datSplit[0]);
+                let arr2 = JSON.parse(datSplit[1]);
+
+                arr1.push(frequency);
+                arr2.push("tent");
+
+                fetch ("/getarr", {
+                  method : "POST",
+                  headers : {
+                    "Content-Type" : "application/json"
+                  }, 
+                  body : JSON.stringify({
+                    ax : arr1, 
+                    ay : arr2
+                  })
+                })
+                .then(response => response.text())
+                .then(data => {
+                  console.log(data);
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              })
+              .catch(error => {
+                console.log(error);
+              });
+            }
+
+            else {
               savedLocations.push(frequency);
-              locationTypes.push("hut");
+              locationTypes.push("tent");
+            }
               itemSaved.push("");
               addLine("You can now CRAFT.");
             }, 10);
@@ -1085,8 +1122,44 @@ cmdForm.onsubmit = function () {
 
             setTimeout(function () {
               addLine("Built a stronghold at frequency " + frequency + ".");
+              if (isOnline === true) {
+              fetch ("/getarr")
+              .then(response => response.text())
+              .then(data => {
+                let datSplit = data.split("-;");
+                let arr1 = JSON.parse(datSplit[0]);
+                let arr2 = JSON.parse(datSplit[1]);
+
+                arr1.push(frequency);
+                arr2.push("tent");
+
+                fetch ("/getarr", {
+                  method : "POST",
+                  headers : {
+                    "Content-Type" : "application/json"
+                  }, 
+                  body : JSON.stringify({
+                    ax : arr1, 
+                    ay : arr2
+                  })
+                })
+                .then(response => response.text())
+                .then(data => {
+                  console.log(data);
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+              })
+              .catch(error => {
+                console.log(error);
+              });
+            }
+
+            else {
               savedLocations.push(frequency);
               locationTypes.push("stronghold");
+            }
               itemSaved.push("");
               addLine("You can now CRAFT.");
             }, 10);
