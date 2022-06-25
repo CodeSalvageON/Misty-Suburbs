@@ -3440,7 +3440,7 @@ setInterval(function () {
       console.log(error);
     });
   }
-}, 50);
+}, 10);
 
 setTimeout(function () {
   loadScreen();
