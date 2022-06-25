@@ -1394,6 +1394,39 @@ cmdForm.onsubmit = function () {
         }
       }
 
+      function onlineDestroy (destroyNum) {
+        fetch ("/getarr")
+        .then(response => response.text())
+        .then(data => {
+          let datSplit = data.split("-;");
+          let arr1 = JSON.parse(datSplit[0]);
+          let arr2 = JSON.parse(datSplit[1]);
+
+          arr2[destroyNum] = "ruins";
+
+          fetch ("/getarr", {
+            method : "POST",
+            headers : {
+              "Content-Type" : "application/json"
+            }, 
+            body : JSON.stringify({
+              ax : arr1, 
+              ay : arr2
+            })
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        })
+        .catch(error => {
+          throw error;
+        });
+      }
+
       if (isHereInBuild === true) {
         console.log("DESTROY COMMAND ALLOWED HERE");
         console.log(locationTypes[iNum]);
@@ -1411,7 +1444,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the tent.");
             }, 10);
@@ -1431,7 +1472,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+            
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the hut.");
             }, 10);
@@ -1451,7 +1500,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the stronghold.");
             }, 10);
@@ -1471,7 +1528,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the Warehouse.");
             }, 10);
@@ -1491,7 +1556,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the City.");
             }, 10);
@@ -1511,7 +1584,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the Settlement.");
             }, 10);
@@ -1531,7 +1612,15 @@ cmdForm.onsubmit = function () {
 
           else {
             wp -= soGladAlmostDone;
-            locationTypes[iNum] = "ruins";
+
+            if (isOnline === true) {
+              onlineDestroy(iNum);
+            }
+
+            else {
+              locationTypes[iNum] = "ruins";
+            }
+            
             setTimeout(function () {
               addLine("You destroy the Arena.");
             }, 10);
