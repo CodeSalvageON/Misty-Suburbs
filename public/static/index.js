@@ -3529,7 +3529,7 @@ setInterval(function () {
       console.log(error);
     });
   }
-}, 10);
+}, 50);
 
 setTimeout(function () {
   loadScreen();
