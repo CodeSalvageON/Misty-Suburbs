@@ -1073,7 +1073,7 @@ cmdForm.onsubmit = function () {
                 let arr2 = JSON.parse(datSplit[1]);
 
                 arr1.push(frequency);
-                arr2.push("tent");
+                arr2.push("hut");
 
                 fetch ("/getarr", {
                   method : "POST",
@@ -1129,7 +1129,7 @@ cmdForm.onsubmit = function () {
                 let arr2 = JSON.parse(datSplit[1]);
 
                 arr1.push(frequency);
-                arr2.push("tent");
+                arr2.push("stronghold");
 
                 fetch ("/getarr", {
                   method : "POST",
