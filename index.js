@@ -14,6 +14,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let dicit = [];
+let val1 = "";
+let val2 = "";
 
 app.get('', function (req, res) {
   const index = __dirname + '/public/static/index.html';
