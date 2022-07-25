@@ -475,7 +475,6 @@ cmdForm.onsubmit = function () {
             lines.innerHTML = "";
             addLine("Choose an interface.");
             addLine("1. Command Line Priority");
-            addLine("2. Graphics Priority (RECOMMENDED)");
             addLine("Please enter a number below.");
 
             calcMode = 2;
@@ -571,7 +570,6 @@ cmdForm.onsubmit = function () {
       lines.innerHTML = "";
       addLine("Choose an interface.");
       addLine("1. Command Line Priority");
-      addLine("2. Graphics Priority (RECOMMENDED)");
       addLine("Please enter a number below.");
 
       calcMode = 2;
