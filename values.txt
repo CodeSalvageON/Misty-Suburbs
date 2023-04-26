@@ -1,1 +1,1 @@
-[521,130,325,745,755,719,721]-;["tent","tent","tent","ruins","ruins","tent","tent"]
+[521,130,325,745,755,719,721,625,826]-;["tent","tent","tent","ruins","ruins","tent","tent","stronghold","tent"]
