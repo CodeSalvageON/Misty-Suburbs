@@ -3,6 +3,11 @@
   src: url("/static/FSEX300.ttf");
 }
 
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: black;
   font-family: FSEX;
@@ -187,13 +192,10 @@ input:focus, textarea:focus, select:focus {
 }
 
 #viewport {
-  top: 0px;
+  top: 5px;
   left: 0px;
-  right: 0px;
-  bottom: 0px;
-  margin: auto;
-  width: 600px;
-  height: 500px;
+  width: 90%;
+  height: 90%;
   position: absolute;
   background-color: black;
   color: limegreen;
@@ -209,8 +211,8 @@ input:focus, textarea:focus, select:focus {
 #cmd {
   top: 0px;
   left: 0px;
-  width: 600px;
-  height: 500px;
+  width: 50%px;
+  height: 90%;
   overflow-y: auto;
   overflow-x: hidden;
   display: none;
