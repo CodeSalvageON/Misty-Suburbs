@@ -1,6 +1,8 @@
 # MISTY SUBURBS
 An infinite multi-user dungeon-crawler that I made a couple months ago.
 <br/>
+Demo: https://misturb.netlify.app/
+<br/>
 * Unfortunately, due to time constraints and general laziness, there is a lot of cut content.
 * Users cannot really interact with each other (combat), but they can still build stuff and see it.
 
