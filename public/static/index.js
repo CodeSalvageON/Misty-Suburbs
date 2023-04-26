@@ -208,7 +208,6 @@ function initAttackEncounter () {
 function enemyRecoil () {
   if (currentEnemy === "patrol" || currentEnemy === "khan" || currentEnemy === "city" || currentEnemy === "arena" || currentEnemy === "ware" || currentEnemy === "set") {
     let randWeap = Math.floor(Math.random() * 3);
-
     switch (randWeap) {
       case 0:
         enemyAtk = 2;
