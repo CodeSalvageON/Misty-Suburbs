@@ -1689,6 +1689,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("Your save code is below. Keep it safe.");
         addLine(endSave);
+        prompt("Save code: ", endSave);
       }, 10);
     }
 
