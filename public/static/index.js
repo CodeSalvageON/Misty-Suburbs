@@ -57,7 +57,7 @@ function addImage (src) {
 
 function allLines () {
   const allLineNum = document.getElementsByClassName("line");
-  addLine(allLineNum);
+  addLine(allLineNum.length);
 }
 
 function cleanText (text) {
@@ -462,7 +462,13 @@ const vhs = document.getElementById("vhs");
 
 cmdForm.onsubmit = function () {
   event.preventDefault();
-  indianHead.style.display = "none";
+
+  const lineTotal = document.getElementsByClassName("line").length;
+
+  if (lineTotal > 60) {
+    lineTotal[0] = "";
+  }
+  
   let manhatten = cmdReq.value.toLowerCase();
   let chicago = cmdReq.value;
 
