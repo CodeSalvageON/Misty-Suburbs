@@ -55,6 +55,11 @@ function addImage (src) {
   lines.innerHTML += "<p class='line'><img src='" + src + "' width='500'></img></p>";
 }
 
+function allLines () {
+  const allLineNum = document.getElementsByClassName("line");
+  addLine(allLineNum);
+}
+
 function cleanText (text) {
   let lineLen1 = document.getElementsByClassName("line");
   let lineLen2 = lineLen1[lineLen1.length - 1];
@@ -77,6 +82,7 @@ function makeRand (length) {
 
 addLine("Type 1 to go Online.");
 addLine("Type 2 to remain alone.");
+
 let calcMode = -1;
 let stor = []; 
 let wp = 24;
@@ -338,6 +344,7 @@ function randomEncounter () {
 
     else if (randEnt === 2) {
       addLine("You find an Imperial Patrol.");
+      addImage("/static/img/patrol.jpeg");
       addLine("Type INTR to talk with this patrol.");
 
       isEnt = true;
@@ -613,7 +620,7 @@ cmdForm.onsubmit = function () {
   else if (calcMode === 3) {
     if (manhatten === "help") {
       setTimeout(function () {
-        addLine("map - Switch to Auto-map interface");
+        addLine("lines - Get the total number of lines");
         addLine("visl - Switch to Stored-image interface");
         addLine("cmd - Switch to Command Line interface");
         addLine("quit - Close this program");
@@ -633,8 +640,8 @@ cmdForm.onsubmit = function () {
       }, 10);
     }
 
-    else if (manhatten === "map") {
-      
+    else if (manhatten === "lines") {
+      allLines();
     }
 
     else if (manhatten === "visl") {
@@ -1758,6 +1765,7 @@ cmdForm.onsubmit = function () {
             switch (houseScenarioRand) {
               case 0: 
                 addLine("The house is extremely bland. There is only a blank TV, an ugly couch, and a green carpet.");
+                addImage("/static/img/home.jpeg");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 1:
@@ -1844,6 +1852,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 1: 
                 addLine("Surprisingly, it's not the insides of an apartment, but a roller skating rink. Disco lights and all.");
+                addImage("/static/img/skating.jpeg");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
