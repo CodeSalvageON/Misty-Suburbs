@@ -51,6 +51,10 @@ function addLine (line) {
   lines.innerHTML += "<p class='line'>" + line + "</p>";
 }
 
+function addImage (src) {
+  lines.innerHTML += "<p class='line'><img src='" + src + "' width='500'></img></p>";
+}
+
 function cleanText (text) {
   let lineLen1 = document.getElementsByClassName("line");
   let lineLen2 = lineLen1[lineLen1.length - 1];

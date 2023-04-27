@@ -194,8 +194,8 @@ input:focus, textarea:focus, select:focus {
 #viewport {
   top: 5px;
   left: 0px;
-  width: 90%;
-  height: 90%;
+  width: 90vw;
+  height: 90vw;
   position: absolute;
   background-color: black;
   color: limegreen;
