@@ -463,10 +463,10 @@ const vhs = document.getElementById("vhs");
 cmdForm.onsubmit = function () {
   event.preventDefault();
 
-  const lineTotal = document.getElementsByClassName("line").length;
+  const lineTotal = document.getElementsByClassName("line");
 
-  if (lineTotal > 60) {
-    lineTotal[0] = "";
+  if (lineTotal.length > 60) {
+    lineTotal[0].parentNode.removeChild(lineTotal[0]);
   }
   
   let manhatten = cmdReq.value.toLowerCase();
