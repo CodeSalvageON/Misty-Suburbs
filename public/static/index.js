@@ -336,6 +336,7 @@ function randomEncounter () {
 
     else if (randEnt === 1) {
       addLine("You come across a seemingly endless row of houses.");
+      addImage("/static/img/houses.jpeg");
       addLine("Type INTR to enter one of these houses...");
 
       isEnt = true;
@@ -353,14 +354,16 @@ function randomEncounter () {
 
     else if (randEnt === 3) {
       addLine("You find a group of Arenamen.");
+      addImage("/static/img/arenamen.png");
       addLine("Type INTR to talk with this group.");
 
       isEnt = true;
       encounterType = 4;
     }
-
+      
     else if (randEnt === 4) {
       addLine("You come across an Academy.");
+      addImage("/static/img/academy.jpeg");
       addLine("Type INTR to enter the Academy.");
 
       isEnt = true;
@@ -377,6 +380,7 @@ function randomEncounter () {
 
     else if (randEnt === 6) {
       addLine("You come across a small house in the empty field.");
+      addImage("/static/img/field.jpeg");
       addLine("Type INTR to enter the house.");
 
       isEnt = true;
@@ -385,6 +389,7 @@ function randomEncounter () {
 
     else if (randEnt === 7) {
       addLine("You come across a large and empty mall. It looks decrepit.");
+      addImage("/static/img/mall.jpeg");
       addLine("Type INTR to enter the mall.");
 
       isEnt = true;
@@ -393,6 +398,7 @@ function randomEncounter () {
 
     else if (randEnt === 8) {
       addLine("You come across an Arena.");
+      addImage("/static/img/arena.jpeg");
       addLine("Type INTR to enter the Arena.");
 
       isEnt = true;
@@ -409,6 +415,7 @@ function randomEncounter () {
 
     else if (randEnt === 10) {
       addLine("You come across an Imperial Settlement.");
+      addImage("/static/img/iset.jpeg");
       addLine("Type INTR to enter the Settlement.");
 
       isEnt = true;
@@ -417,6 +424,7 @@ function randomEncounter () {
 
     else if (randEnt === 11) {
       addLine("You come across a retail warehouse of sorts.");
+      addLine("/static/img/costco.png");
       addLine("Type INTR to enter the warehouse.");
 
       isEnt = true;
@@ -426,6 +434,7 @@ function randomEncounter () {
     else if (randEnt === 12) {
       addLine("A Creature begins to attack you.");
       currentEnemy = "bur";
+      addImage("/static/img/creature.jpeg");
       initAttackEncounter();
       isInCombat = true;
     }
@@ -433,6 +442,7 @@ function randomEncounter () {
     else if (randEnt === 13) {
       addLine("A Creature begins to attack you.");
       currentEnemy = "bur";
+      addImage("/static/img/creature.jpeg");
       initAttackEncounter();
       isInCombat = true;
     }
@@ -440,6 +450,7 @@ function randomEncounter () {
     else if (randEnt === 14) {
       addLine("A Creature begins to attack you.");
       currentEnemy = "bur";
+      addImage("/static/img/creature.jpeg");
       initAttackEncounter();
       isInCombat = true;
     }
