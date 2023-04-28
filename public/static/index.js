@@ -976,6 +976,7 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 7) {
             addLine("The empty house is larger on the inside than it is on the outside. There are " + buildingNum + " rooms.");
+            addImage("/static/img/interior/living.png");
             addLine("Below, type the room number you would like to enter.");
             calcMode = 4;
           }
@@ -988,6 +989,7 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 9) {
             addLine("You have entered the Arena.");
+            addImage("/static/img/interior/aint.png");
             addLine("Type HELP for a list of commands in the Arena.");
             calcMode = 6;
           }
