@@ -116,6 +116,7 @@ let savedLocations = [];
 let locationTypes = [];
 let itemSaved = [];
 let slaveGuardLoc = [];
+let scavLimit = 0;
 
 function takeDamage () {
   cmd.style.backgroundColor = "red"
@@ -2471,6 +2472,11 @@ cmdForm.onsubmit = function () {
     if (manhatten === "scav") {
       let randScav = Math.floor(Math.random() * 5);
       let scavRand = Math.floor(Math.random() * 20);
+      scavLimit += 1;
+
+      if (scavLimit > 4) {
+        randScav = 10;
+      }
 
       switch (randScav) {
         case 0: 
@@ -2571,6 +2577,7 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "leave") {
       setTimeout(function () {
         addLine("You leave the area.");
+        scavLimit = 0;
       }, 10);
 
       calcMode = 3;
