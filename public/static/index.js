@@ -996,12 +996,14 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 10) {
             addLine("You have entered the city.");
+            addImage("/static/img/interior/oia.png");
             addLine("Type HELP for a list of commands in the City.");
             calcMode = 8;
           }
 
           else if (encounterType === 11) {
             addLine("You have entered the Imperial Settlement.");
+            addImage("/static/img/interior/fort.png");
             addLine("Type HELP for a list of commands in the Settlement.");
             calcMode = 9;
           }
