@@ -963,6 +963,7 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 5) {
             addLine("The Academy is dark around some areas, light in others. There are " + buildingNum + " rooms.");
+            addImage("/static/img/interior/acad.png");
             addLine("Below, type the room number you would like to enter.");
             calcMode = 4;
           }
