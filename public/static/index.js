@@ -376,6 +376,7 @@ function randomEncounter () {
 
     else if (randEnt === 5) {
       addLine("You come across a large cluster of well-kept condo and apartment buildings.");
+      addImage("/static/img/condo.png");
       addLine("Type INTR to enter the condos.");
 
       isEnt = true;
