@@ -479,7 +479,7 @@ cmdForm.onsubmit = function () {
   event.preventDefault();
 
   const lineTotal = document.getElementsByClassName("line");
-  const cmdImgTotal = docment.getElementsByClassName("cmd-img");
+  const cmdImgTotal = document.getElementsByClassName("cmd-img");
 
   if (lineTotal.length > 60) {
     lineTotal[0].parentNode.removeChild(lineTotal[0]);
