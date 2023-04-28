@@ -52,7 +52,11 @@ function addLine (line) {
 }
 
 function addImage (src) {
-  lines.innerHTML += "<p class='line'><img src='" + src + "' width='500'></img></p>";
+  lines.innerHTML += "<p class='line cmd-img'><img src='" + src + "' width='500'></img></p>";
+
+  setTimeout(function () {
+    cmd.scrollTo(0, cmd.scrollHeight);
+  }, 900);
 }
 
 function allLines () {
@@ -475,9 +479,14 @@ cmdForm.onsubmit = function () {
   event.preventDefault();
 
   const lineTotal = document.getElementsByClassName("line");
+  const cmdImgTotal = docment.getElementsByClassName("cmd-img");
 
   if (lineTotal.length > 60) {
     lineTotal[0].parentNode.removeChild(lineTotal[0]);
+  }
+
+  if (cmdImgTotal.length > 1) {
+    cmdImgTotal[0].parentNode.removeChild(cmdImgTotal[0]);
   }
   
   let manhatten = cmdReq.value.toLowerCase();
