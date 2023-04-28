@@ -332,6 +332,7 @@ function randomEncounter () {
   else {
     if (randEnt === 0) {
       addLine("You come across a large office building complex.");
+      addImage("/static/img/office.png");
       addLine("Type INTR to enter this place...");
 
       isEnt = true;
