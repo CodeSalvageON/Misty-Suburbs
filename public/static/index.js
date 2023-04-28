@@ -428,7 +428,7 @@ function randomEncounter () {
 
     else if (randEnt === 11) {
       addLine("You come across a retail warehouse of sorts.");
-      addLine("/static/img/costco.png");
+      addImage("/static/img/costco.png");
       addLine("Type INTR to enter the warehouse.");
 
       isEnt = true;
