@@ -411,6 +411,7 @@ function randomEncounter () {
 
     else if (randEnt === 9) {
       addLine("You come across a City.");
+      addImage("/static/img/city.png");
       addLine("Type INTR to enter the City.");
 
       isEnt = true;
