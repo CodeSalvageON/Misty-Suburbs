@@ -1821,17 +1821,17 @@ cmdForm.onsubmit = function () {
             switch (houseScenarioRand) {
               case 0: 
                 addLine("The house is extremely bland. There is only a blank TV, an ugly couch, and a green carpet.");
-                addImage("/static/img/detail/home/bland.png");
+                addImage("/static/img/detail/house/bland.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 1:
                 addLine("A cold hardwood floor fills the majority of the view. The rest of the house is completely empty.");
-                addImage("/static/img/detail/home/carpet.png");
+                addImage("/static/img/detail/house/carpet.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 2:
                 addLine("Inside, is a massive field with several exotic flowers and insturments seemingly playing by themselves.");
-                addImage("/static/img/detail/home/music.png");
+                addImage("/static/img/detail/house/music.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 3:
@@ -2358,7 +2358,10 @@ cmdForm.onsubmit = function () {
       cmd.style.display = "none";
       citmd.style.display = "block";
 
-      
+      setTimeout(function () {
+        addPine("Welcome to the City!");
+        addPine("Type HELP for a list of commands.");
+      }, 10);
     }
 
     else if (manhatten === "leave") {
