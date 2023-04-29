@@ -650,7 +650,6 @@ cmdForm.onsubmit = function () {
     if (manhatten === "help") {
       setTimeout(function () {
         addLine("lines - Get the total number of lines");
-        addLine("visl - Switch to Stored-image interface");
         addLine("cmd - Switch to Command Line interface");
         addLine("quit - Close this program");
         addLine("stor - Get a list of items you have locally");
@@ -659,10 +658,8 @@ cmdForm.onsubmit = function () {
         addLine("strvl - Travel South (decreases frequency)");
         addLine("freq - Get your current frequency");
         addLine("setfreq - Set your frequency (needs willpower)");
-        addLine("dicit - See if anyone can hear you");
+        addLine("dicit - See if anyone can hear you (Chat)");
         addLine("use - Use an item you have in storage");
-        addLine("destroy - Destroy a settlement");
-        addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
         addLine("save - Save your state");
       }, 10);
     }
