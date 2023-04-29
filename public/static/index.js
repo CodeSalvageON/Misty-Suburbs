@@ -650,7 +650,6 @@ cmdForm.onsubmit = function () {
     if (manhatten === "help") {
       setTimeout(function () {
         addLine("lines - Get the total number of lines");
-        addLine("cmd - Switch to Command Line interface");
         addLine("quit - Close this program");
         addLine("stor - Get a list of items you have locally");
         addLine("wp - Get the current value of your willpower");
