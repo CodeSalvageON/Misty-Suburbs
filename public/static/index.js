@@ -85,7 +85,6 @@ function makeRand (length) {
 }
 
 addLine("Type 1 to go Online.");
-addLine("Type 2 to remain alone.");
 
 let calcMode = -1;
 let stor = []; 
@@ -565,12 +564,12 @@ cmdForm.onsubmit = function () {
 
     else if (manhatten === "2") {
       setTimeout(function () {
-        addLine("You head into the abyss, alone.");
+        addLine("You head into the abyss...");
         setTimeout(function () {
           addLine("Create a NEW state or LOAD a previous one.");
           addLine("(Options: NEW, LOAD)");
           calcMode = 0;
-          isOnline = false;
+          isOnline = true;
         }, 10);
       }, 10);
     }
@@ -1771,6 +1770,7 @@ cmdForm.onsubmit = function () {
             switch (officeScenarioRand) {
               case 0:
                 addLine("The building is dark. There is nothing but the blue glow of dusty computer monitors.");
+                addImage("/static/img/detail/office/comp.png");
                 break;
               case 1:
                 addLine("This building seems to be used as a laboratory. The flickering lights reflect off several ice picks.");
