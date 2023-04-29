@@ -1010,6 +1010,7 @@ cmdForm.onsubmit = function () {
 
           else if (encounterType === 12) {
             addLine("You have entered the warehouse.");
+            addImage("/static/img/interior/cint.png");
             addLine("Type HELP for a list of commands in the warehouse.");
             calcMode = 10;
           }
