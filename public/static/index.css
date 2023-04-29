@@ -208,7 +208,7 @@ input:focus, textarea:focus, select:focus {
   position: absolute;
 }
 
-#cmd {
+#cmd, #citmd {
   top: 0px;
   left: 0px;
   width: 50%;
@@ -225,6 +225,15 @@ input:focus, textarea:focus, select:focus {
   border: hidden;
   font-family: FSEX;
   color: limegreen;
+  font-size: 16px;
+}
+
+#citmd-req {
+  width: 550px;
+  background: transparent;
+  border: hidden;
+  font-family: FSEX;
+  color: #cd8c32;
   font-size: 16px;
 }
 

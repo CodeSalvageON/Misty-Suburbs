@@ -1,9 +1,17 @@
 let mistySave = localStorage.getItem("mistySub-save");
 let indianHead = document.getElementById("indian");
 let staticHead = document.getElementById("static");
+
 let cmd = document.getElementById("cmd");
+let citmd = document.getElementById("citmd");
+
 const blink = document.getElementById("blink");
+const blink2 = document.getElementById("blink2");
+
+let citmdForm = document.getElementById("citmd-form");
 let cmdForm = document.getElementById("cmd-form");
+
+const citmdReq = document.getElementById("citmd-req");
 const cmdReq = document.getElementById("cmd-req");
 
 function loadScreen () {
@@ -39,16 +47,23 @@ function loadScreen () {
 
 setInterval(function () {
   blink.style.visibility = "hidden";
+  blink2.style.visibility = "hidden";
 
   setTimeout(function () {
     blink.style.visibility = "visible";
+    blink2.style.visibility = "visible";
   }, 200);
 }, 400);
 
 let lines = document.getElementById("lines");
+let pines = document.getElementById("pines");
 
 function addLine (line) {
   lines.innerHTML += "<p class='line'>" + line + "</p>";
+}
+
+function addPine (line) {
+  pines.innerHTML += "<p class='pine'>" + line + "</p>";
 }
 
 function addImage (src) {
@@ -56,6 +71,14 @@ function addImage (src) {
 
   setTimeout(function () {
     cmd.scrollTo(0, cmd.scrollHeight);
+  }, 900);
+}
+
+function addPineImage (src) {
+  pines.innerHTML += "<p class='line cmd-img'><img src='" + src + "' width='500'></img></p>";
+
+  setTimeout(function () {
+    citmd.scrollTo(0, citmd.scrollHeight);
   }, 900);
 }
 
@@ -2283,6 +2306,7 @@ cmdForm.onsubmit = function () {
         addLine("dem - Demand a meeting with the Hosts of this City");
         addLine("buy - Buy items in return for Willpower");
         addLine("sell - Sell items for Willpower");
+        addLine("stay - Stay in the City for a while");
         addLine("leave - Leave this City");
       }, 10);
     }
@@ -2328,6 +2352,13 @@ cmdForm.onsubmit = function () {
         addLine("Type the name of the item you wish to sell.");
         calcMode = 15;
       }, 10);
+    }
+
+    else if (manhatten === "stay") {
+      cmd.style.display = "none";
+      citmd.style.display = "block";
+
+      
     }
 
     else if (manhatten === "leave") {
@@ -3599,3 +3630,5 @@ setInterval(function () {
 setTimeout(function () {
   loadScreen();
 }, 1000);
+
+// Here is where the Cities begin!
