@@ -660,9 +660,7 @@ cmdForm.onsubmit = function () {
         addLine("freq - Get your current frequency");
         addLine("setfreq - Set your frequency (needs willpower)");
         addLine("dicit - See if anyone can hear you");
-        addLine("build - Build a structure (requires willpower)");
         addLine("use - Use an item you have in storage");
-        addLine("craft - Craft an item or vehicle using items in storage (When at a place you own)");
         addLine("destroy - Destroy a settlement");
         addLine("guard - Set slaves to guard a settlement, ownership of the slaves will transfer to the Settlement itself");
         addLine("save - Save your state");
@@ -1722,7 +1720,7 @@ cmdForm.onsubmit = function () {
 
       else {
         setTimeout(function () {
-          addLine("Hey man, when in Rome.");
+          addLine("This command is DEPRECATED and will not work.");
         }, 10);
       }
     }
