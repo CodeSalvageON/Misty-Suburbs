@@ -1774,12 +1774,15 @@ cmdForm.onsubmit = function () {
                 break;
               case 1:
                 addLine("This building seems to be used as a laboratory. The flickering lights reflect off several ice picks.");
+                addImage("/static/img/detail/office/slab.png");
                 break;
               case 2:
                 addLine("What a boring place. There are bookshelves everywhere, but no books to be seen.");
+                addImage("/static/img/detail/office/backrooms.png");
                 break;
               case 3:
                 addLine("Wires dangle like cobwebs in the ever dark abyss of the lonely office.");
+                addImage("/static/img/details/office/wires.png");
                 break;
             }
             addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.")
@@ -3597,7 +3600,7 @@ setInterval(function () {
       console.log(error);
     });
   }
-}, 50);
+}, 500);
 
 setTimeout(function () {
   loadScreen();
