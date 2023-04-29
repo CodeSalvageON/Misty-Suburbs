@@ -1801,19 +1801,22 @@ cmdForm.onsubmit = function () {
             switch (houseScenarioRand) {
               case 0: 
                 addLine("The house is extremely bland. There is only a blank TV, an ugly couch, and a green carpet.");
-                addImage("/static/img/home.jpeg");
+                addImage("/static/img/detail/home/bland.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 1:
                 addLine("A cold hardwood floor fills the majority of the view. The rest of the house is completely empty.");
+                addImage("/static/img/detail/home/carpet.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 2:
                 addLine("Inside, is a massive field with several exotic flowers and insturments seemingly playing by themselves.");
+                addImage("/static/img/detail/home/music.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
               case 3:
                 addLine("It's just a regular house, surprisingly.");
+                addImage("/static/img/home.jpeg");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 break;
             }
@@ -1841,6 +1844,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 1:
                 addLine("The room is a large cafeteria with many windows and many lights.");
+                addImage("/static/img/detail/school/cafe.png");
                 let peopleScenario = Math.floor(Math.random() * 2);
                 switch (peopleScenario) {
                   case 0:
@@ -1857,11 +1861,13 @@ cmdForm.onsubmit = function () {
                 break;
               case 2: 
                 addLine("It's a library with rows of books, mostly ones about gardening and a Garden.");
+                addImage("/static/img/detail/school/library.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
               case 3:
                 addLine("There's nothing to see here except a somewhat plain classroom.");
+                addImage("/static/img/detail/school/classroom.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
@@ -1883,6 +1889,7 @@ cmdForm.onsubmit = function () {
             switch (condoScenarioRand) {
               case 0:
                 addLine("The interior design is very gray and white oriented. The carpet looks comfy, but rough at the same time.");
+                addImage("/static/img/detail/condo/eaves.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
@@ -1920,21 +1927,25 @@ cmdForm.onsubmit = function () {
             switch (nowhereScenarioRand) {
               case 0:
                 addLine("All you see is a boring and generic bedroom. Quite cozy, however.");
+                addImage("/static/img/detail/house/bedroom.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
               case 1:
                 addLine("There's a small kitchen with a dimmed light.");
+                addImage("/static/img/detail/house/kitchen.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
               case 2:
                 addLine("There is a large cluster of eyes staring at you.");
+                addImage("/static/img/detail/house/eyes.png");
                 addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 break;
               case 3:
                 addLine("There is a small room with a window.");
+                addImage("/static/img/detail/house/windows.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
@@ -1956,21 +1967,25 @@ cmdForm.onsubmit = function () {
             switch (mallRandScenario) {
               case 0: 
                 addLine("It's a surprisngly brightly lit store selling various merchandise from a long forgotten time.");
+                addImage("/static/img/detail/mall/kmart.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
               case 1:
                 addLine("There is a lonely pumpkin farm inside the room, which is bigger than it looks to be from the outside.");
+                addImage("/static/img/detail/mall/pumpkin.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
               case 2:
                 addLine("In the middle of the empty store is an interactive screen with robotic arms and a face.");
+                addImage("/static/img/detail/mall/yesman.png");
                 addLine("Options: COMBAT, TALK, PASS, GIVE");
                 calcMode = 5;
                 break;
               case 3: 
                 addLine("It's just another dark and empty store.");
+                addImage("/static/img/detail/mall/store.png");
                 addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.");
                 calcMode = 11;
                 break;
