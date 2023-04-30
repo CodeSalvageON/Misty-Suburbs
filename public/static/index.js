@@ -1799,7 +1799,7 @@ cmdForm.onsubmit = function () {
                 break;
               case 3:
                 addLine("Wires dangle like cobwebs in the ever dark abyss of the lonely office.");
-                addImage("/static/img/details/office/wires.png");
+                addImage("/static/img/detail/office/wires.png");
                 break;
             }
             addLine("Type SCAV to scavenge the area, or type LEAVE to leave the area.")
@@ -2361,6 +2361,7 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addPine("Welcome to the City!");
         addPine("Type HELP for a list of commands.");
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
       }, 10);
     }
 
@@ -3635,3 +3636,136 @@ setTimeout(function () {
 }, 1000);
 
 // Here is where the Cities begin!
+
+let cityMode = 0;
+let isInACity = 0;
+
+setInterval(function () {
+  fetch ("/inquit")
+  .then(response => response.text())
+  .then(data => {
+    let dataArr = JSON.parse(data);
+    let dataArrMax = dataArr.length;
+
+    if (dataArrMax > savedLen) {
+      addPine(dataArr[dataArrMax - 1]);
+      savedLen = dataArrMax;
+    }
+
+    else {
+      // Do nothing
+    }
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}, 500);
+
+function randomCityWander () {
+  const cityWanderNum = Math.floor(Math.random() * 10);
+
+  switch (cityWanderNum) {
+    case 0:
+      addPine("A member of the City's milita walks past you.");
+      break;
+    case 1:
+      addPine("");
+      break;
+  }
+}
+
+function cleanWood (text) {
+  let lineLen1 = document.getElementsByClassName("line");
+  let lineLen2 = lineLen1[lineLen1.length - 1];
+
+  lineLen2.innerText = text;
+}
+
+citmdForm.onsubmit = function () {
+  event.preventDefault();
+
+  const lineTotal = document.getElementsByClassName("line");
+  const cmdImgTotal = document.getElementsByClassName("cmd-img");
+
+  if (lineTotal.length > 60) {
+    lineTotal[0].parentNode.removeChild(lineTotal[0]);
+  }
+
+  if (cmdImgTotal.length > 1) {
+    cmdImgTotal[0].parentNode.removeChild(cmdImgTotal[0]);
+  }
+  
+  let kmartValue = citmdReq.value.toLowerCase();
+  addPine(citmdReq.value);
+
+  switch (cityMode) {
+    case 0:
+      switch (String(kmartValue)) {
+        case "help" :
+          setTimeout(function () {
+            addPine("help - gets a list of commands.");
+            addPine("inquit [message] - Send messages to anyone in a City.");
+            addPine("trvl - Wander the city.");
+            addPine("srvl - Go to one of the city's attractions.");
+          }, 10);
+          break;
+        case "trvl" :
+          setTimeout(function () {
+            
+          }, 10);
+          break;
+        default :
+          if (kmartValue.slice(0, 6) === "inquit") {
+            if (set_user === "" || set_user === null || set_user === undefined) {
+              setTimeout(function () {
+                addPine("You have not set a local user yet. Type one in below.");
+                cityMode = 1;
+              }, 10);
+            }
+
+            else {
+              fetch ("/inquit", {
+                method : "POST",
+                headers : {
+                  "Content-Type" : "application/json"
+                },
+                body : JSON.stringify({
+                  user : set_user,
+                  pack : manhatten.substring(6)
+                })
+              })
+              .then(response => response.text())
+              .then(data => {
+                console.log(data);
+              })
+              .catch(err => {
+                setTimeout(function () {
+                  addLine(err);   
+                }, 10);
+              });
+            }
+          }
+          
+          else {
+            setTimeout(function () {
+              addPine("That command doesn't exist here.");
+            }, 10);
+          }
+          break;
+      }
+      break;
+
+    case 1:
+      set_user = manhatten;
+      setTimeout(function () {
+        addLine("User set.");
+      }, 10);
+      cityMode = 0;
+    
+      addPine("");
+      cleanWood(citmdReq.value);
+      break;
+  }
+
+  citmdReq.value = "";
+}

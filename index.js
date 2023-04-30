@@ -14,6 +14,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let dicit = [];
+let inquit = [];
 let val1 = "";
 let val2 = "";
 
@@ -40,6 +41,26 @@ app.post('/dicit', function (req, res) {
   let clean_pack = sanitizer.escape(pack);
 
   dicit.push("<strong>" + clean_user + "<strong>: " + clean_pack);
+  res.send("success");
+});
+
+app.get('/inquit', function (req, res) {
+  res.send(JSON.stringify(inquit));
+})
+
+app.post('/inquit', function (req, res) {
+  let user = req.body.user;
+  let pack = req.body.pack;
+
+  if (user === "" || pack === "") {
+    res.send("empty");
+    return false;
+  }
+
+  let clean_user = sanitizer.escape(user);
+  let clean_pack = sanitizer.escape(pack);
+
+  inquit.push("<strong>" + clean_user + "<strong>: " + clean_pack);
   res.send("success");
 });
 
