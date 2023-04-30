@@ -3662,14 +3662,30 @@ setInterval(function () {
 }, 500);
 
 function randomCityWander () {
-  const cityWanderNum = Math.floor(Math.random() * 10);
+  const cityWanderNum = Math.floor(Math.random() * 4);
 
   switch (cityWanderNum) {
     case 0:
-      addPine("A member of the City's milita walks past you.");
+      addPineImage("/static/city/venice.png");
+      setTimeout(function () {
+        addPine("A number of the City's milita walks past you.");
+      }, 10);
       break;
     case 1:
-      addPine("");
+      addPineImage("/static/city/abstract.png");
+      setTimeout(function () {
+        addPine("There is a tall spire with a single light on.");
+      }, 10);
+      break;
+    case 2:
+      setTimeout(function () {
+        addPine("The street is fairly quiet.");
+      }, 10);
+      break;
+    case 3:
+      setTimeout(function () {
+        addPine("From inside the City Walls, the outside doesn't look too bad.");
+      }, 10);
       break;
   }
 }
@@ -3710,9 +3726,7 @@ citmdForm.onsubmit = function () {
           }, 10);
           break;
         case "trvl" :
-          setTimeout(function () {
-            
-          }, 10);
+          randomCityWander();
           break;
         default :
           if (kmartValue.slice(0, 6) === "inquit") {
