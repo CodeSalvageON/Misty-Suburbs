@@ -620,6 +620,7 @@ cmdForm.onsubmit = function () {
       arenaRep = parseInt(modeSplit[7]);
       slaveGuardLoc = JSON.parse(modeSplit[8]);
       set_user = modeSplit[9];
+      isInACity = parseInt(modeSplit[10]);
 
       if (modeSplit[10] === "true") {
         isOnline = true;
@@ -652,14 +653,21 @@ cmdForm.onsubmit = function () {
         addLine("Type HELP for a list of commands.");
       }, 10);
       calcMode = 3;
-    }
 
-    else if (manhatten === "2") {
-      
-    }
+      switch (isInACity) {
+        case 0:
+          break;
+        case 1:
+          cmd.style.display = "none";
+          citmd.style.display = "block";
 
-    else if (manhatten === "3") {
-      
+          setTimeout(function () {
+            addPine("Welcome to the City!");
+            addPine("Type HELP for a list of commands.");
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+          }, 10);
+          break;
+      }
     }
 
     else {
@@ -1745,7 +1753,7 @@ cmdForm.onsubmit = function () {
     }
 
     else if (manhatten === "save") {
-      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + JSON.stringify(savedLocations) + ";-" + JSON.stringify(locationTypes) + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + JSON.stringify(slaveGuardLoc) + ";-" + set_user + ";-" + isOnline;
+      let encryptedSave = JSON.stringify(stor) + ";-" + wp + ";-" + JSON.stringify(savedLocations) + ";-" + JSON.stringify(locationTypes) + ";-" + frequency + ";-" + imperialRep + ";-" + acadRep + ";-" + arenaRep + ";-" + JSON.stringify(slaveGuardLoc) + ";-" + set_user + ";-" + isOnline + ";-" + isInACity;
       let endSave = btoa(encryptedSave);
 
       setTimeout(function () {
@@ -2357,6 +2365,7 @@ cmdForm.onsubmit = function () {
     else if (manhatten === "stay") {
       cmd.style.display = "none";
       citmd.style.display = "block";
+      isInACity = 1;
 
       setTimeout(function () {
         addPine("Welcome to the City!");
