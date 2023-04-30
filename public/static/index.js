@@ -3779,7 +3779,7 @@ citmdForm.onsubmit = function () {
       break;
 
     case 1:
-      set_user = manhatten;
+      set_user = citmdReq.value;
       setTimeout(function () {
         addLine("User set.");
       }, 10);
