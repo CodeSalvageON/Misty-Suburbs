@@ -3737,6 +3737,14 @@ citmdForm.onsubmit = function () {
         case "trvl" :
           randomCityWander();
           break;
+        case "srvl" :
+          setTimeout(function () {
+            addPine("baths - Go to the City's baths");
+            addPine("pools - Go to the City's underground pools");
+            addPine("gate - Go to the City's gate");
+          }, 10);
+          cityMode = 2;
+          break;
         default :
           if (kmartValue.slice(0, 6) === "inquit") {
             if (set_user === "" || set_user === null || set_user === undefined) {
@@ -3754,7 +3762,7 @@ citmdForm.onsubmit = function () {
                 },
                 body : JSON.stringify({
                   user : set_user,
-                  pack : manhatten.substring(6)
+                  pack : kmartValue.substring(6)
                 })
               })
               .then(response => response.text())
@@ -3781,12 +3789,40 @@ citmdForm.onsubmit = function () {
     case 1:
       set_user = citmdReq.value;
       setTimeout(function () {
-        addLine("User set.");
+        addPine("User set.");
       }, 10);
       cityMode = 0;
     
       addPine("");
       cleanWood(citmdReq.value);
+      break;
+
+    case 2:
+      switch (String(kmartValue)) {
+        case "baths" :
+          setTimeout(function () {
+            addPine("You enter the watery expanse...");
+            addPineImage("/static/city/pool.png");
+            addPine("There are several other people in the shallow waters with you.");
+            addPine("Type HELP for a list of commands.");
+            cityMode = 3;
+          }, 10);
+          break;
+      }
+      break;
+
+    case 3:
+      switch (String(kmartValue)) {
+        case "help" :
+          setTimeout(function () {
+            addPine("help - get a list of commands for the pool.");
+            addPine("story - Hear a story from one of the swimmers here.");
+            addPine("leave - Leave the pool.");
+          }, 10);
+          break; 
+        case "story" :
+          break;
+      }
       break;
   }
 

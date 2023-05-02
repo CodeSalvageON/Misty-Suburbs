@@ -211,7 +211,7 @@ input:focus, textarea:focus, select:focus {
 #cmd, #citmd {
   top: 0px;
   left: 0px;
-  width: 50%;
+  width: 550px;
   height: 90%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -220,7 +220,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 #cmd-req {
-  width: 550px;
+  width: 500px;
   background: transparent;
   border: hidden;
   font-family: FSEX;
@@ -229,7 +229,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 #citmd-req {
-  width: 550px;
+  width: 500px;
   background: transparent;
   border: hidden;
   font-family: FSEX;
