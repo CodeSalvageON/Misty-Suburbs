@@ -3808,6 +3808,12 @@ citmdForm.onsubmit = function () {
             cityMode = 3;
           }, 10);
           break;
+        case "gate" :
+          addPine("You arrive at the City Gates.");
+          addPineImage("/static/city/gates.jpeg");
+          addPine("Type HELP For a list of commands.");
+          cityMode = 4;
+          break;
       }
       break;
 
@@ -3821,6 +3827,23 @@ citmdForm.onsubmit = function () {
           }, 10);
           break; 
         case "story" :
+          break;
+        case "leave" :
+          addPine("You leave the pool behind.");
+          cityMode = 0;
+          break;
+      }
+      break;
+
+    case 4:
+      switch (String(kmartValue)) {
+        case "help" :
+          setTimeout(function () {
+            addPine("help - get a list of commands at the gate.");
+            addPine("militia - join the city's milita defense force.");
+            addPine("exit - leave the city.");
+            addPine("leave - leave the city gates.");
+          }, 10);
           break;
       }
       break;
