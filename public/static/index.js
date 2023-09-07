@@ -122,7 +122,7 @@ let set_user = "";
 let isTherePeople = false;
 let imperialRep = 100;
 let arenaRep = 100;
-let acadRep = 100;
+let acadRep = 50;
 let allyRep = 100;
 let specialEncounter = false;
 let currentEnemy = "";
@@ -144,7 +144,7 @@ function takeDamage () {
   cmd.style.backgroundColor = "red"
 
   setTimeout(function () {
-    cmd.style.backgroundColor = "black";
+    cmd.style.backgroundColor = "#4846dd;";
   }, 20);
 }
 
@@ -299,10 +299,6 @@ function attackEncounter () {
           if (enemyAtk < 1) {
             enemyAtk = 0;
           }
-
-          else {
-            takeDamage();
-          }
            
           addLine("Enemy attacked; you lost " + enemyAtk + " Willpower.");
           wp -= enemyAtk;
@@ -344,9 +340,10 @@ function attackEncounter () {
 
 setInterval(attackEncounter, 2000);
 
+let effyRand = 0;
 function randomEncounter () {
   let getEnt = Math.floor(Math.random() * 5);
-  let randEnt = Math.floor(Math.random() * 15);
+  let randEnt = Math.floor(Math.random() * 16);
   
   if (getEnt === 0 || getEnt === 1) {
     // Do nothing
@@ -484,6 +481,19 @@ function randomEncounter () {
       initAttackEncounter();
       isInCombat = true;
     }
+
+    else if (randEnt === 15) {
+      effyRand = Math.floor(Math.random() * 2);
+
+      switch (effyRand) {
+        case 0:
+          addLine("You encounter a ruined structure on the top of a hill.");
+          addImage("/static/img/ruins.png");
+          break;
+        case 1:
+          break;
+      }
+    }
   }
 }
 
@@ -609,7 +619,7 @@ cmdForm.onsubmit = function () {
     console.log(modeSplit);
     console.log(modeSplit.length);
 
-    if (modeSplit.length === 11) {
+    if (modeSplit.length === 12) {
       stor = JSON.parse(modeSplit[0]);
       wp = parseInt(modeSplit[1]);
       savedLocations = JSON.parse(modeSplit[2]);
@@ -690,6 +700,7 @@ cmdForm.onsubmit = function () {
         addLine("setfreq - Set your frequency (needs willpower)");
         addLine("dicit - See if anyone can hear you (Chat)");
         addLine("use - Use an item you have in storage");
+        addLine("highway - Get on to the open road (BBS)");
         addLine("save - Save your state");
       }, 10);
     }
@@ -698,7 +709,7 @@ cmdForm.onsubmit = function () {
       allLines();
     }
 
-    else if (manhatten === "visl") {
+    else if (manhatten === "highway") {
       
     }
 
@@ -1267,7 +1278,6 @@ cmdForm.onsubmit = function () {
           setTimeout(function () {
             addLine("You feel good...You feel BERZERK!");
             removeItemOnce(stor, manhatten.substring(4));
-            takeDamage();
           }, 10);
         }
 
@@ -2106,16 +2116,17 @@ cmdForm.onsubmit = function () {
             }
             break;
           case 5:
-            function khanSpeak () {
-              addLine("(1). What's the deal with the creepy Academy?");
-              addLine("(2). Any threats I should know about?");
-              addLine("(3). What's the deal with the tiny robots?");
-              addLine("(4). Nevermind, I'll be leaving now.");
-              addLine("Type the dialogue option number below.");
-              calcMode = 13;
-            }
-            
             if (specialEncounter === true) {
+              function khanSpeak () {
+                addLine("(1). What's the deal with the creepy Academy?");
+                addLine("(2). Any threats I should know about?");
+                addLine("(3). What's the deal with the tiny robots?");
+                addLine("(4). Nevermind, I'll be leaving now.");  
+                addLine("Type the dialogue option number below.");
+                calcMode = 13;
+                specialEncounter = false;
+              }
+              
               if (acadRep < 20) {
                 addLine("You should leave.");
               }
@@ -2345,7 +2356,6 @@ cmdForm.onsubmit = function () {
       setTimeout(function () {
         addLine("We have the following items in store today...");
         addLine("knife - costs 1 Willpower, when recieved you can use this in combat to enslave and lobotomize your enemies");
-        addLine("beans - costs 1 Willpower, generates 2 Willpower when used");
         addLine("cloth - costs 1 Willpower, can be used for parts");
         addLine("ligher - costs 2 Willpower, can be used for parts");
         addLine("Your Willpower: " + wp);
@@ -3822,11 +3832,12 @@ citmdForm.onsubmit = function () {
         case "help" :
           setTimeout(function () {
             addPine("help - get a list of commands for the pool.");
-            addPine("story - Hear a story from one of the swimmers here.");
+            addPine("story - Hear a story from one of the swimmers here. [COMING SOON!]");
             addPine("leave - Leave the pool.");
           }, 10);
           break; 
         case "story" :
+          addPine("This feature is coming soon!");
           break;
         case "leave" :
           addPine("You leave the pool behind.");
@@ -3840,9 +3851,24 @@ citmdForm.onsubmit = function () {
         case "help" :
           setTimeout(function () {
             addPine("help - get a list of commands at the gate.");
-            addPine("militia - join the city's milita defense force.");
             addPine("exit - leave the city.");
             addPine("leave - leave the city gates.");
+          }, 10);
+          break;
+        case "leave" :
+          cityMode = 0;
+          addPine("You return to the inner-city.");
+          break;
+        case "exit" :
+          cmd.style.display = "block";
+          citmd.style.display = "none";
+          citmd.innerHTML = "";
+          isInACity = 0;
+
+          setTimeout(function () {
+            addLine("You have left the City.");
+            addLine("Type HELP for a list of commands.");
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
           }, 10);
           break;
       }

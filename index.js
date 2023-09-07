@@ -18,15 +18,59 @@ let inquit = [];
 let val1 = "";
 let val2 = "";
 
+let seasonCycle = 0;
+let weatherCycle = 0;
+let nightDay = 0;
+
+setInterval(function () {
+  if (seasonCycle === 3) {
+    seasonCycle = 0;
+  }
+
+  else {
+    seasonCycle += 1;
+  }
+}, 7200000);
+
+setInterval(function () {
+  if (weatherCycle === 2 || weatherCycle === 3) {
+    if (seasonCycle == 1) {
+      weatherCycle = 3;
+    }
+
+    else {
+      weatherCycle = 0;
+    }
+  }
+
+  else {
+    weatherCycle += 1;
+  }
+}, 1800000);
+
+setInterval(function () {
+  if (nightDay === 1) {
+    nightDay = 0;
+  }
+
+  else {
+    nightDay += 1;
+  }
+}, 1500000);
+
 app.get('', function (req, res) {
   const index = __dirname + '/public/static/index.html';
 
   res.sendFile(index);
 });
 
+app.get('/weather_data', function (req, res) {
+  res.send(seasonCycle + ";" + weatherCycle + ";" + nightDay);
+});
+
 app.get('/dicit', function (req, res) {
   res.send(JSON.stringify(dicit));
-})
+});
 
 app.post('/dicit', function (req, res) {
   let user = req.body.user;
@@ -46,7 +90,7 @@ app.post('/dicit', function (req, res) {
 
 app.get('/inquit', function (req, res) {
   res.send(JSON.stringify(inquit));
-})
+});
 
 app.post('/inquit', function (req, res) {
   let user = req.body.user;
