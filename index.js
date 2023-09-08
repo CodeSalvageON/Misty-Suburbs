@@ -49,7 +49,7 @@ setInterval(function () {
 }, 1800000);
 
 setInterval(function () {
-  if (nightDay === 1) {
+  if (nightDay === 2) {
     nightDay = 0;
   }
 
