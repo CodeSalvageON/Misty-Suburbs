@@ -228,6 +228,7 @@ input:focus, textarea:focus, select:focus {
   background-color: #4846dd;
   color: #fafafa;
   opacity: 0.8;
+  transition: 3s background-color ease-in-out;
 }
 
 #indian {

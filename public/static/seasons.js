@@ -12,22 +12,32 @@ function loadBack (backSrc) {
 
 loadBack("/static/img/sky.jpg");
 
+let currentSeason = 0;
+let currentWeather = 0;
+let currentNightDay = 0;
+
 function findWeather () {
   fetch ("/weather_data")
   .then(response => response.text())
   .then(data => {
     let splitData = data.split(";");
-    let currentSeason = splitData[0];
-    let currentWeather = splitData[1];
-    let currentNightDay = splitData[2];
+    currentSeason = splitData[0];
+    currentWeather = splitData[1];
+    currentNightDay = splitData[2];
+
+    // console.log(splitData);
+    // console.log(currentNightDay);
     
-    switch (currentNightDay) {
+    switch (parseInt(currentNightDay)) {
       case 0:
+        // console.log("problem is here");
         loadBack("/static/img/sky.jpg");
         break;
       case 1:
-        switch (currentSeason) {
+        // console.log(currentSeason);
+        switch (parseInt(currentSeason)) {
           case 0:
+            loadBack("/static/img/fall.jpg");
             loadBack("/static/img/fall.jpg");
             break;
           case 1:
@@ -42,6 +52,7 @@ function findWeather () {
         }
         break;
       case 2:
+        loadBack("/static/img/night.jpg");
         break;
     }
   })

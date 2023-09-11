@@ -33,20 +33,8 @@ setInterval(function () {
 }, 7200000);
 
 setInterval(function () {
-  if (weatherCycle === 2 || weatherCycle === 3) {
-    if (seasonCycle == 1) {
-      weatherCycle = 3;
-    }
-
-    else {
-      weatherCycle = 0;
-    }
-  }
-
-  else {
-    weatherCycle += 1;
-  }
-}, 1800000);
+  weatherCycle = Math.floor(Math.random() * 7);
+}, 300000);
 
 setInterval(function () {
   if (nightDay === 2) {
@@ -56,7 +44,7 @@ setInterval(function () {
   else {
     nightDay += 1;
   }
-}, 1500000);
+}, 600000);
 
 app.get('', function (req, res) {
   const index = __dirname + '/public/static/index.html';
