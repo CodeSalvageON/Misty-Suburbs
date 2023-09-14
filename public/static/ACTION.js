@@ -20,5 +20,8 @@ function getScreenView (mood) {
     case "foggy":
       viewingStation.style.backgroundColor = "grey";
       break;
+    case "terminator":
+      viewingStation.style.backgroundColor = "red";
+      break;
   }
 }
