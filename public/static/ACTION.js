@@ -1,5 +1,13 @@
 const viewingStation = document.getElementById("viewport");
 
+const actionMenuIcon = document.getElementById("start-icon");
+const actionMenu = document.getElementById("action-menu");
+const actionMenuClose = document.getElementById("action-menu-close");
+
+$(function () {
+  $(".draggable").draggable();
+});
+
 function getScreenView (mood) {
   switch (mood) {
     case "high":
@@ -24,4 +32,12 @@ function getScreenView (mood) {
       viewingStation.style.backgroundColor = "red";
       break;
   }
+}
+
+actionMenuIcon.onclick = function () {
+  actionMenu.style.display = "block";
+}
+
+actionMenuClose.onclick = function () {
+  actionMenu.style.display = "none";
 }

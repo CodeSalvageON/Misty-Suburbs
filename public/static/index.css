@@ -6,7 +6,6 @@
 body {
   background-color: #4846dd;
   font-family: FSEX;
-  font-size: 16px;
 }
 
 body, html {
@@ -18,6 +17,10 @@ body, html {
 
 p {
   margin: 0;
+}
+
+button {
+  font-family: "Pixelated MS Sans Serif";
 }
 
 input:focus, textarea:focus, select:focus {
@@ -229,6 +232,7 @@ input:focus, textarea:focus, select:focus {
   color: #fafafa;
   opacity: 0.8;
   transition: 3s background-color ease-in-out;
+  font-size: 16px;
 }
 
 #indian {
@@ -295,4 +299,12 @@ input:focus, textarea:focus, select:focus {
   top: 10px;
   right: 5px;
   cursor: pointer;
+}
+
+#action-menu {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  width: 28%;
+  display: none;
 }
