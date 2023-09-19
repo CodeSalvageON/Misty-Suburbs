@@ -1,11 +1,21 @@
 const body = document.body;
 const viewBg = document.getElementById("view-bg");
+const currentBiome = document.getElementById("current-biome");
 
 function loadBack (backSrc) {
   let newImg = new Image();
 
   newImg.onload = function () {
     viewBg.style.backgroundImage = "url('" + newImg.src + "')";
+  }
+  newImg.src = backSrc;
+}
+
+function loadBiome (backSrc) {
+  let newImg = new Image();
+
+  newImg.onload = function () {
+    currentBiome.style.backgroundImage = "url('" + newImg.src + "')";
   }
   newImg.src = backSrc;
 }

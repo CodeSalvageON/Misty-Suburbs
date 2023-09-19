@@ -41,3 +41,5 @@ actionMenuIcon.onclick = function () {
 actionMenuClose.onclick = function () {
   actionMenu.style.display = "none";
 }
+
+loadBiome("/static/img/biome/openroad.jpg");
