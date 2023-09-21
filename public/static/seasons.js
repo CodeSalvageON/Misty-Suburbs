@@ -12,12 +12,14 @@ function loadBack (backSrc) {
 }
 
 function loadBiome (backSrc) {
-  let newImg = new Image();
+  // let newImg = new Image();
 
-  newImg.onload = function () {
-    currentBiome.style.backgroundImage = "url('" + newImg.src + "')";
-  }
-  newImg.src = backSrc;
+  // newImg.onload = function () {
+  //   currentBiome.style.backgroundImage = "url('" + newImg.src + "')";
+  // }
+  // newImg.src = backSrc;
+
+  currentBiome.src = backSrc;
 }
 
 loadBack("/static/img/sky.jpg");

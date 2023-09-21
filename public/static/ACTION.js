@@ -4,9 +4,22 @@ const actionMenuIcon = document.getElementById("start-icon");
 const actionMenu = document.getElementById("action-menu");
 const actionMenuClose = document.getElementById("action-menu-close");
 
+let hasOpenedMenu = 0;
+
 $(function () {
   $(".draggable").draggable();
 });
+
+function convertPercentPixel () {
+  let pixelHeight = actionMenu.scrollHeight; 
+  let screenHeightInit = window.screen.height;
+  let percentageInit = (screenHeightInit - pixelHeight) / screenHeightInit;
+  
+  let screenHeight = actionMenu.scrollHeight;
+  let pixel = Math.round((50 / 100) * screenHeight);
+
+  currentBiome.style.height = pixel + "px";
+}
 
 function getScreenView (mood) {
   switch (mood) {
@@ -35,6 +48,13 @@ function getScreenView (mood) {
 }
 
 actionMenuIcon.onclick = function () {
+  switch (hasOpenedMenu) {
+    case 0:
+      
+      hasOpenedMenu = 1;
+      break;
+  }
+  
   actionMenu.style.display = "block";
 }
 
@@ -42,4 +62,9 @@ actionMenuClose.onclick = function () {
   actionMenu.style.display = "none";
 }
 
-loadBiome("/static/img/biome/openroad.jpg");
+// setTimeout(function () {
+//   for (i = 0; i < 2; i++) {
+//     convertPercentPixel();
+//   }
+// }, 500);
+loadBiome("/static/img/rainy.jpg");

@@ -530,6 +530,7 @@ cmdForm.onsubmit = function () {
 
   if (calcMode === 0) {
     if (manhatten === "new") {
+      loadBiome("/static/img/biome/openroad.png");
       setTimeout(function () {
         addLine("Creating...");
 
@@ -663,6 +664,7 @@ cmdForm.onsubmit = function () {
         addLine("Type HELP for a list of commands.");
       }, 10);
       calcMode = 3;
+      loadBiome("/static/img/biome/openroad.png");
 
       switch (isInACity) {
         case 0:
